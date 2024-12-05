@@ -29,7 +29,7 @@ class vector{
         data = new T[capacity];
         std::copy(init.begin(), init.end(), data);
     }
-    // 赋值运算符
+    
     vector& operator=(const vector& other) {
         if (this != &other) {
             delete[] data;
