@@ -1,19 +1,14 @@
 #include <iostream>
-#include <ship.h>
+#include "vector.h"
+#include "ship.h"
 using namespace std;
 
-void map(int row,int column){
-    for(int i=0;i<row; i++){
-        for(int j=0;j<column; j++){
-          cout<<0;
-        }
-        cout<<endl;
-    }
-}
 
 int main(){
-    int r,c; //initial row column
-    cin>>r>>c;
-    map(r,c);
+    vector<int> row;
+    for(int i=1;i<3;i++){
+        row.push_back(i);
+        cout<<row[i-1]<<endl;
+    }
     return 0;
 }

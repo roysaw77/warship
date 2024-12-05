@@ -8,7 +8,7 @@ class vector{
         void resize(){
             if(size == capacity){
                 capacity *= 2;
-                int *new_data = new int[capacity];
+                T *new_data = new T[capacity];
                 for(int i = 0; i < size; i++){
                     new_data[i] = data[i];
                 }
@@ -23,7 +23,7 @@ class vector{
             delete[] data;
         };
 
-        void push_back(int value){
+        void push_back(const T& value){
             if(size==capacity){
                 resize();
             }
@@ -37,7 +37,7 @@ class vector{
         return data[index]; 
        }
 
-        size_t lenght() const {
+        size_t length() const {
         return size;
        }
          size_t get_capacity() const {
