@@ -19,6 +19,29 @@ class vector{
 
     public:
         vector(): data(nullptr),size(0),capacity(0){};
+        vector(const vector& other) : size(other.size), capacity(other.capacity) {
+        data = new T[capacity];
+        for (size_t i = 0; i < size; ++i) {
+            data[i] = other.data[i];
+        }
+    }
+        vector(std::initializer_list<T> init) : size(init.size()), capacity(init.size()) {
+        data = new T[capacity];
+        std::copy(init.begin(), init.end(), data);
+    }
+    // 赋值运算符
+    vector& operator=(const vector& other) {
+        if (this != &other) {
+            delete[] data;
+            size = other.size;
+            capacity = other.capacity;
+            data = new T[capacity];
+            for (size_t i = 0; i < size; ++i) {
+                data[i] = other.data[i];
+            }
+        }
+        return *this;
+    }
          ~vector(){
             delete[] data;
         };
