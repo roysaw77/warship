@@ -1,6 +1,8 @@
 //在分file之前就在先test你们的class行不行
 
 #include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 void map(int row,int column){
