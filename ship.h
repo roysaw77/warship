@@ -1,6 +1,6 @@
 class ship{
    private:
-   int row,column,health;
+   int x,y,health;
    public:
 };
 

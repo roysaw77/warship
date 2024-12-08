@@ -1,6 +1,7 @@
 #include <iostream>
 #include "vector.h"
 #include "ship.h"
+#include "gameconfig.h"
 using namespace std;
 
 void printMap(int r, int c) {
@@ -28,6 +29,7 @@ void printMap(int r, int c) {
 }
 
 int main() {
-    printMap(10, 10);
+    GameConfig config("game.txt");
+    config.printConfig();
     return 0;
 }
