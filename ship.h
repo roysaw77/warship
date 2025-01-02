@@ -2,27 +2,20 @@ class ship{
    private:
    int x,y,health;
    public:
-};
-
-class MovingShip:public ship{
-
-};
-
-class ShootingShip:public ship{
-    
+   ship(int x,int y,int health);
+   virtual void move(int x,int y)=0;
+   virtual void shoot()=0;
+   virtual void see()=0;
+   virtual void ram()=0;
 };
 
 
-class SeeingRobot:public ship{
-
-};
-
-class Ramship:public ship{
-
-};
-
-class BattleShip:public MovingShip,public ShootingShip,public SeeingRobot,public Ramship{
-
+class BattleShip:public ship{
+   public:
+   void move(int x,int y);
+   void shoot();
+   void see();
+   void ram();
 };
 
 class Cruiser:public BattleShip{
