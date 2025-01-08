@@ -1,8 +1,8 @@
 class ship{
    private:
-   int x,y,health;
+   int x,y;
    public:
-   ship(int x,int y,int health);
+   ship(int x,int y);
    virtual void move(int x,int y)=0;
    virtual void shoot()=0;
    virtual void see()=0;
@@ -10,15 +10,7 @@ class ship{
 };
 
 
-class BattleShip:public ship{
-   public:
-   void move(int x,int y);
-   void shoot();
-   void see();
-   void ram();
-};
-
-class Cruiser:public BattleShip{
+class Cruiser:public ship{
 
 };
 
@@ -26,11 +18,11 @@ class Destroyer:public Cruiser{
 
 };
 
-class Frigate:public BattleShip{
+class Frigate:public ship{
 
 };
 
-class Amphibious:public BattleShip{
+class Amphibious:public ship{
 
 };
 
