@@ -6,7 +6,7 @@
 #include <algorithm>
 
 template <typename T>
-class CustomVector {
+class CVector {
 private:
     size_t size;
     size_t capacity;
@@ -25,21 +25,21 @@ private:
     }
 
 public:
-    CustomVector() : data(nullptr), size(0), capacity(0) {}
+    CVector() : data(nullptr), size(0), capacity(0) {}
 
-    CustomVector(const CustomVector& other) : size(other.size), capacity(other.capacity) {
+    CVector(const CVector& other) : size(other.size), capacity(other.capacity) {
         data = new T[capacity];
         for (size_t i = 0; i < size; ++i) {
             data[i] = other.data[i];
         }
     }
 
-    CustomVector(std::initializer_list<T> init) : size(init.size()), capacity(init.size()) {
+    CVector(std::initializer_list<T> init) : size(init.size()), capacity(init.size()) {
         data = new T[capacity];
         std::copy(init.begin(), init.end(), data);
     }
     
-    CustomVector& operator=(const CustomVector& other) {
+    CVector& operator=(const CVector& other) {
         if (this != &other) {
             delete[] data;
             size = other.size;
@@ -52,7 +52,7 @@ public:
         return *this;
     }
 
-    ~CustomVector() {
+    ~CVector() {
         delete[] data;
     }
 
