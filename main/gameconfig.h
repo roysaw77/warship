@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "Vector.h"
+#include "CVector.h"
 #include<vector>
 
 using namespace std;
@@ -13,11 +13,11 @@ private:
     int mW;
     int mH;
     char** gameMap; // Dynamically allocated 2D array for the game map
-    CVector<int>num; // Number of each type of ship
-    CVector<char>sym; // Symbol for each type of ship
 
 public:
     // Constructor to initialize the game configuration from a file
+    CVector<int>num; // Number of each type of ship
+    CVector<char>sym; // Symbol for each type of ship
     GameConfig(const string& filename) : iterations(0), mW(0), mH(0), gameMap(nullptr) {
         ifstream file(filename);
 
@@ -92,17 +92,5 @@ public:
         return iterations;
     }
 
-     void coutNum() {
-        for (auto i : num) {
-            cout << i << ' ';
-        }
-        cout << endl;
-    }
-    
-    void coutSym() {
-        for (auto i : sym) {
-            cout << i << ' ';
-        }
-        cout << endl;
-    }
+   
 };
