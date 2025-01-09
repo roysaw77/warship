@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class GameConfig {
@@ -9,6 +10,8 @@ private:
     int mW;
     int mH;
     char** gameMap; // Dynamically allocated 2D array for the game map
+    vector<int>num; // Number of each type of ship
+    vector<char>sym; // Symbol for each type of ship
 
 public:
     // Constructor to initialize the game configuration from a file
@@ -21,11 +24,21 @@ public:
             while (file >> key) {
                 if (key == "iterations") {
                     file >> iterations;
-                } else if (key == "width") {
+                } 
+                else if (key == "width") {
                     file >> mW;
-                } else if (key == "height") {
+                } 
+                else if (key == "height") {
                     file >> mH;
-                } else if (key == "0" || key == "1") {
+                } 
+                else if(key == "Battleship" || key == "Cruiser" || key == "Destroyer" || key == "Frigate" || key == "Corvette"||key=="Amphibious"){
+                     int count;
+                     char symbol;
+                     file >> symbol>>count;
+                     num.push_back(count);
+                     sym.push_back(symbol);
+                }
+                else if (key == "0" || key == "1") {
                     // Start reading the map
                     file.unget(); // Push the current character back into the stream
                     allocateGameMap();
@@ -62,7 +75,7 @@ public:
     }
 
     // Display the game map
-    void displayGameMap() const {
+    void displayGameMap()  {
         for (int i = 0; i < mH; ++i) {
             for (int j = 0; j < mW; ++j) {
                 cout << gameMap[i][j] << ' '; // Add a space for better readability
@@ -74,6 +87,20 @@ public:
     // Getter for iterations
     int getIterations() const {
         return iterations;
+    }
+
+     void coutNum() {
+        for (auto i : num) {
+            cout << i << ' ';
+        }
+        cout << endl;
+    }
+    
+    void coutSym() {
+        for (auto i : sym) {
+            cout << i << ' ';
+        }
+        cout << endl;
     }
 };
 
@@ -87,6 +114,8 @@ int main() {
 
     // Display the game map
     config.displayGameMap();
+    config.coutNum();
+    config.coutSym();
 
     return 0;
 }

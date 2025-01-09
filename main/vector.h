@@ -39,6 +39,12 @@ public:
         std::copy(init.begin(), init.end(), data);
     }
     
+    CVector(CVector&& other) : data(other.data), size(other.size), capacity(other.capacity) {
+        other.data = nullptr;
+        other.size = 0;
+        other.capacity = 0;
+    }
+
     CVector& operator=(const CVector& other) {
         if (this != &other) {
             delete[] data;
@@ -82,6 +88,11 @@ public:
     void clear() {
         size = 0;
     }
+
+    T* begin() { return data; }
+    T* end() { return data + size; }
+    const T* begin() const { return data; }
+    const T* end() const { return data + size; }
 };
 
 #endif 
