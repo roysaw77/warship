@@ -10,7 +10,8 @@ int main() {
 
     // Display iterations, map, and ship info
     cout << "Iterations: " << config.getIterations() << endl;
-    config.displayGameMap();
+    cout <<config.getGameMap();
+    
 
     // Vector of ship pointers
     CVector<ship*> ships;

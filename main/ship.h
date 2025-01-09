@@ -1,8 +1,10 @@
+#include <random>
 
 class ship{
    private:
    int num;
    char sym;
+   int health=3;
    public:
    ship(int num ,int sym):num(num),sym(sym){};
    virtual void move()=0;
@@ -14,6 +16,9 @@ class ship{
    }
    char getSym(){
       return sym;
+   }
+   void generateShip(char &gameMap,int num,char sym){
+      
    }
 };
 
