@@ -1,75 +1,40 @@
+#include <iostream>
+#include <vector>
 #include <random>
+using namespace std;
 
-class ship{
-   private:
-   int num;
-   char sym;
-   int health=3;
+class ship {
+  private:
+    int life=3;
    public:
-   ship(int num ,int sym):num(num),sym(sym){};
-   virtual void move()=0;
-   // virtual void shoot()=0;
-   // virtual void see()=0;
-   // virtual void ram()=0;
-   int getNum(){
-   return num;
-   }
-   char getSym(){
-      return sym;
-   }
-   void generateShip(char &gameMap,int num,char sym){
-      
-   }
+   virtual void action() = 0; 
 };
 
-
-
-class BattleShip:public ship{
-   public:
-   BattleShip():ship(0,0){}
-   BattleShip(int num,char sym):ship(num,sym){}
-    void move() override { cout << "BattleShip moves to (" << getNum() << ", " << getSym() << ")\n"; }
+class movingShip : public ship {
+  public:
+  void action() override {
+    cout << "Moving ship moves" << endl;
+  }
 };
 
-class Cruiser:public ship{
-   public:
-   Cruiser():ship(0,0){}
-   Cruiser(int num,char sym):ship(num,sym){}
-   void move() override { cout << "Cruiser moves to (" << getNum()<< ", " << getSym() << ")\n"; }
+class shootingShip : public ship {
+  public:
+  void action() override {
+    cout << "Shooting ship shoots" << endl;
+  }
 };
 
-class Destroyer:public ship{
-   public:
-   Destroyer():ship(0,0){}
-   Destroyer(int num ,char sym):ship(num,sym){}
-   void move() override { cout << "Destroyer moves to (" << getNum() << ", " << getSym() << ")\n"; }
+class seeingShip : public ship {
+  public:
+  void action() override {
+    cout << "Seeking ship sees" << endl;
+  }
 };
-
-class Frigate:public ship{
+ class rammingShip : public ship {
    public:
-   Frigate():ship(0,0){}
-   Frigate(int num,char sym):ship(num,sym){}
-   void move() override { cout << "Frigate moves to (" << getNum()  << ", " <<   getSym()<< ")\n"; }
-};
+   void action() override {
+     cout << "Ramming ship rams" << endl;
+         }
+ };
 
-class Corvette:public ship{
-   public:
-   Corvette():ship(0,0){}
-   Corvette(int num,char sym):ship(num,sym){}
-   void move() override { cout << "Corvette moves to (" << getNum() << ", " <<getSym() << ")\n"; }
-};
-
-class Amphibious:public ship{
-   public:
-    Amphibious():ship(0,0){}
-    Amphibious(int num,char sym):ship(num,sym){}
-    void move() override { cout << "Amphibious moves to (" << getNum()<< ", " <<getSym() << ")\n"; }
-};
-
-class SuperShip:public ship{
-   public:
-      SuperShip():ship(0,0){}
-      SuperShip(int num,char sym):ship(num,sym){}
-      void move() override { cout << "Supership moves to (" <<getNum() << ", " << getSym() << ")\n"; }
-};
-
+ 
