@@ -10,15 +10,15 @@ using namespace std;
 class GameConfig {
 private:
     int iterations;
-    int mW;//mapheight
-    int mH;//mapwidth
-    string gameMap; // Dynamically allocated 2D array for the game map
+    int mW;
+    int mH;
+    char** gameMap; // Dynamically allocated 2D array for the game map
 
 public:
     // Constructor to initialize the game configuration from a file
     CVector<int>num; // Number of each type of ship
     CVector<char>sym; // Symbol for each type of ship
-    GameConfig(const string& filename) : iterations(0), mW(0), mH(0) {
+    GameConfig(const string& filename) : iterations(0), mW(0), mH(0), gameMap(nullptr) {
         ifstream file(filename);
 
         if (file.is_open()) {
@@ -42,17 +42,16 @@ public:
                      sym.push_back(symbol);
                 }
                 else if (key == "0" || key == "1") {
-                   file.unget(); // Push the current character back into the stream
-                    char c;
+                    // Start reading the map
+                    file.unget(); // Push the current character back into the stream
+                    allocateGameMap();
                     for (int i = 0; i < mH; ++i) {
                         for (int j = 0; j < mW; ++j) {
-                            file >> c;
-                            gameMap += c;
+                            file >> gameMap[i][j];
                         }
-                        gameMap += '\n'; // Add newline after each row
                     }
-                    break;
-              }
+                    break; // Map is completely read; no need to process further
+                }
             }
             file.close();
         } else {
@@ -60,24 +59,38 @@ public:
         }
     }
 
+    // Destructor to free the allocated memory
+    ~GameConfig() {
+        if (gameMap) {
+            for (int i = 0; i < mH; ++i) {
+                delete[] gameMap[i];
+            }
+            delete[] gameMap;
+        }
+    }
+
+    // Allocate memory for the game map
+    void allocateGameMap() {
+        gameMap = new char*[mH];
+        for (int i = 0; i < mH; ++i) {
+            gameMap[i] = new char[mW];
+        }
+    }
+
     // Display the game map
-   
+    void displayGameMap()  {
+        for (int i = 0; i < mH; ++i) {
+            for (int j = 0; j < mW; ++j) {
+                cout << gameMap[i][j] << ' '; // Add a space for better readability
+            }
+            cout << endl;
+        }
+    }
 
     // Getter for iterations
     int getIterations() const {
         return iterations;
     }
-    
-    string getGameMap()  {
-        string s;
-        for (int i = 0; i < mH; i++) {
-            for (int j = 0; j < mW; j++) {
-                s += gameMap[i * (mW + 1) + j];
-                s += " ";
-            }
-            s += "\n";
-        }
-        return s;
-    }
-  
+
+   
 };

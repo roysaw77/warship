@@ -3,6 +3,8 @@
 
 #include <cstddef>
 
+
+
 template <typename T>
 class CVector {
 private:
@@ -37,6 +39,8 @@ public:
         other._size = 0;
         other._capacity = 0;
     }
+
+ 
 
     CVector& operator=(const CVector& other) {
         if (this != &other) {
@@ -86,6 +90,8 @@ public:
     T* end() { return data + _size; }
     const T* begin() const { return data; }
     const T* end() const { return data + _size; }
+
+    
 };
 
 #endif // CVECTOR_H

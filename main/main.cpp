@@ -5,12 +5,14 @@
 using namespace std;
 
 
+
+
 int main() {
     GameConfig config("game.txt");
 
     // Display iterations, map, and ship info
     cout << "Iterations: " << config.getIterations() << endl;
-    cout <<config.getGameMap();
+    config.displayGameMap();
     
 
     // Vector of ship pointers
