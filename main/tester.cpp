@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <random>
+#include <utility>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ private:
     int life = 3;
 
 public:
-    virtual void action() = 0; 
+    virtual void action(vector<vector<char>> &gameMap, char command) = 0;
 
     void printMap(const vector<vector<char>> &gameMap) {
         for (const auto &row : gameMap) {
@@ -25,39 +26,81 @@ public:
 
     void generateShip(vector<vector<char>> &gameMap, char sym) {
         int ranWid, ranHei;
-        random_device rd; // Seed for randomness
-        mt19937 gen(rd()); // Random number generator
+        random_device rd;
+        mt19937 gen(rd());
         uniform_int_distribution<> distWidth(0, gameMap[0].size() - 1);
         uniform_int_distribution<> distHeight(0, gameMap.size() - 1);
 
         do {
-            ranWid = distWidth(gen); // Random generate width
-            ranHei = distHeight(gen); // Random generate height
+            ranWid = distWidth(gen);
+            ranHei = distHeight(gen);
         } while (gameMap[ranHei][ranWid] != '0'); // Ensure the spot is empty
 
         gameMap[ranHei][ranWid] = sym; // Place ship on map
+    }
+
+    pair<int, int> curpos(const vector<vector<char>> &gameMap, char sym) {
+        for (int i = 0; i < gameMap.size(); i++) {
+            for (int j = 0; j < gameMap[i].size(); j++) {
+                if (gameMap[i][j] == sym) {
+                    return {i, j};
+                }
+            }
+        }
+        return {-1, -1}; // Ship not found
     }
 };
 
 // Derived ship classes
 class movingShip : public virtual ship {
 public:
-    void action() override {
-        cout << "Moving ship moves" << endl;
+    void action(vector<vector<char>> &gameMap, char movement) override {
+        pair<int, int> pos = curpos(gameMap, 'B');
+        if (pos.first == -1 || pos.second == -1) {
+            cout << "Ship not found!" << endl;
+            return;
+        }
+
+        int i = pos.first;
+        int j = pos.second;
+
+        // Determine new position based on movement
+        int newI = i, newJ = j;
+        switch (movement) {
+        case 'W': newI = i - 1; break; // Move up
+        case 'A': newJ = j - 1; break; // Move left
+        case 'S': newI = i + 1; break; // Move down
+        case 'D': newJ = j + 1; break; // Move right
+        default:
+            cout << "Invalid movement command!" << endl;
+            return;
+        }
+
+        // Check bounds and ensure the new position is empty
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ] == '0') {
+            gameMap[i][j] = '0';    // Clear old position
+            gameMap[newI][newJ] = 'B'; // Move to new position
+        } else {
+            cout << "Invalid move: Out of bounds or position occupied!" << endl;
+        }
     }
 };
 
 class shootingShip : public virtual ship {
 public:
-    void action() override {
+    void action(vector<vector<char>> &gameMap, char command) override {
         cout << "Shooting ship shoots" << endl;
     }
 };
 
 class Battleship : public movingShip, public shootingShip {
 public:
-    void action() override {
-        cout << "Battleship moves and shoots" << endl;
+    void action(vector<vector<char>> &gameMap, char command) override {
+        if (command == 'F') {
+            cout << "Battleship fires!" << endl;
+        } else {
+            movingShip::action(gameMap, command); // Delegate movement to movingShip
+        }
     }
 };
 
@@ -65,8 +108,8 @@ public:
 class GameConfig {
 private:
     int iterations;
-    int mW; // map width
-    int mH; // map height
+    int mW;
+    int mH;
     vector<int> Anum;
     vector<char> Asym;
     vector<int> Bnum;
@@ -112,7 +155,7 @@ public:
                         }
                     }
                 } else if (key == "0" || key == "1") {
-                    gameMap.resize(mH, vector<char>(mW, '.'));
+                    gameMap.resize(mH, vector<char>(mW, '0'));
                     file.unget();
                     for (int i = 0; i < mH; i++) {
                         for (int j = 0; j < mW; j++) {
@@ -126,9 +169,8 @@ public:
             cout << "Error opening file" << endl;
         }
 
-        // Initialize game map if empty
         if (gameMap.empty()) {
-            gameMap.resize(mH, vector<char>(mW, '.'));
+            gameMap.resize(mH, vector<char>(mW, '0'));
         }
     }
 
@@ -141,14 +183,24 @@ public:
     vector<vector<char>> getGameMap() { return gameMap; }
 };
 
+// Main function
 int main() {
     GameConfig config("game.txt");
     vector<vector<char>> gameMap = config.getGameMap();
 
-    // Generate ship on map
     Battleship b;
     b.generateShip(gameMap, 'B');
     b.printMap(gameMap);
+
+    char command;
+    while (true) {
+        cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
+        cin >> command;
+        if (command == 'Q') break;
+
+        b.action(gameMap, command);
+        b.printMap(gameMap);
+    }
 
     return 0;
 }
