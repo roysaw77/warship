@@ -8,14 +8,13 @@ private:
     int iterations;
     int mW; // map width
     int mH; // map height
-
-public:
     vector<int> Anum;
     vector<char> Asym;
     vector<int> Bnum;
     vector<char> Bsym;
     vector<vector<char>> gameMap;
 
+public:
     GameConfig(const string &filename) : iterations(0), mW(0), mH(0) {
         ifstream file(filename);
 
@@ -68,5 +67,23 @@ public:
             cout << "Error opening file" << endl;
         }
     }
+    vector<int> getAnum() {
+        return Anum;
+    }
 
+    vector<char>getAsym() {
+        return Asym;
+    }
+
+    vector<int> getBnum() {
+        return Bnum;
+    }
+
+    vector<char> getBsym() {
+        return Bsym;
+    }
+
+    vector<vector<char>> getGameMap() {
+        return gameMap;
+    }
 };
