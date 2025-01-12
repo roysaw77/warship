@@ -4,6 +4,7 @@
 #include <vector>
 #include <random>
 #include <utility>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,33 +14,34 @@ private:
     int life = 3;
 
 public:
-    virtual void action(vector<vector<char>> &gameMap, char command) = 0;
+    virtual void action(vector<vector<string>> &gameMap, char command,string sym) = 0;
 
-    void printMap(const vector<vector<char>> &gameMap) {
-        for (const auto &row : gameMap) {
-            for (char cell : row) {
-                cout << cell << " ";
+    void printMap(const vector<vector<string>> &gameMap) {
+    for (const auto &row : gameMap) {
+        for (const auto &cell : row) {
+            // Print each cell with a fixed width of 3
+            if (cell.empty()) {
+                cout << setw(5) << "0"; // Display "0" for empty cells
+            } else {
+                cout << setw(5) << cell; // Display the symbol
             }
-            cout << endl;
         }
+        cout << endl;
     }
+}
 
-    void generateShip(vector<vector<char>> &gameMap, char sym) {
+    void generateShip(vector<vector<string>> &gameMap, const string &sym) {
         int ranWid, ranHei;
-        random_device rd;
-        mt19937 gen(rd());
-        uniform_int_distribution<> distWidth(0, gameMap[0].size() - 1);
-        uniform_int_distribution<> distHeight(0, gameMap.size() - 1);
-
         do {
-            ranWid = distWidth(gen);
-            ranHei = distHeight(gen);
-        } while (gameMap[ranHei][ranWid] != '0'); // Ensure the spot is empty
+            ranWid = rand() % gameMap[0].size();
+            ranHei = rand() % gameMap.size();
+        } while (!gameMap[ranHei][ranWid].empty()); // Ensure the spot is valid
 
         gameMap[ranHei][ranWid] = sym; // Place ship on map
+        cout << "Placed ship " << sym << " at (" << ranHei << ", " << ranWid << ")" << endl;
     }
 
-    pair<int, int> curpos(const vector<vector<char>> &gameMap, char sym) {
+    pair<int, int> curpos(const vector<vector<string>> &gameMap, const string &sym) {
         for (int i = 0; i < gameMap.size(); i++) {
             for (int j = 0; j < gameMap[i].size(); j++) {
                 if (gameMap[i][j] == sym) {
@@ -54,8 +56,8 @@ public:
 // Derived ship classes
 class movingShip : public virtual ship {
 public:
-    void action(vector<vector<char>> &gameMap, char movement) override {
-        pair<int, int> pos = curpos(gameMap, 'B');
+    void action(vector<vector<string>> &gameMap, char movement,string sym) override {
+        pair<int, int> pos = curpos(gameMap, sym);
         if (pos.first == -1 || pos.second == -1) {
             cout << "Ship not found!" << endl;
             return;
@@ -77,9 +79,10 @@ public:
         }
 
         // Check bounds and ensure the new position is empty
-        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ] == '0') {
-            gameMap[i][j] = '0';    // Clear old position
-            gameMap[newI][newJ] = 'B'; // Move to new position
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ].empty()) {
+            gameMap[i][j] = "";       // Clear old position
+            gameMap[newI][newJ] = sym; // Move to new position
+            cout<<"Moved ship "<<sym<<" from ("<<i<<", "<<j<<") to ("<<newI<<", "<<newJ<<")"<<endl;
         } else {
             cout << "Invalid move: Out of bounds or position occupied!" << endl;
         }
@@ -88,18 +91,18 @@ public:
 
 class shootingShip : public virtual ship {
 public:
-    void action(vector<vector<char>> &gameMap, char command) override {
+    void action(vector<vector<string>> &gameMap, char command,string sym) override {
         cout << "Shooting ship shoots" << endl;
     }
 };
 
 class Battleship : public movingShip, public shootingShip {
 public:
-    void action(vector<vector<char>> &gameMap, char command) override {
+    void action(vector<vector<string>> &gameMap, char command,string sym) override {
         if (command == 'F') {
             cout << "Battleship fires!" << endl;
         } else {
-            movingShip::action(gameMap, command); // Delegate movement to movingShip
+            movingShip::action(gameMap, command,sym); // Delegate movement to movingShip
         }
     }
 };
@@ -111,10 +114,10 @@ private:
     int mW;
     int mH;
     vector<int> Anum;
-    vector<char> Asym;
+    vector<string> Asym;
     vector<int> Bnum;
-    vector<char> Bsym;
-    vector<vector<char>> gameMap;
+    vector<string> Bsym;
+    vector<vector<string>> gameMap;
 
 public:
     GameConfig(const string &filename) : iterations(0), mW(0), mH(0) {
@@ -142,7 +145,10 @@ public:
                             int count;
                             file >> shipType >> symbol >> count;
                             Anum.push_back(count);
-                            Asym.push_back(symbol);
+
+                            for (int j = 1; j <= count; ++j) {
+                                Asym.push_back(string(1, symbol) + to_string(j));
+                            }
                         }
                     } else if (teamName == "B") {
                         for (int i = 0; i < numShips; i++) {
@@ -151,15 +157,20 @@ public:
                             int count;
                             file >> shipType >> symbol >> count;
                             Bnum.push_back(count);
-                            Bsym.push_back(symbol);
+
+                            for (int j = 1; j <= count; ++j) {
+                                Bsym.push_back(string(1, symbol) + to_string(j));
+                            }
                         }
                     }
                 } else if (key == "0" || key == "1") {
-                    gameMap.resize(mH, vector<char>(mW, '0'));
+                    gameMap.resize(mH, vector<string>(mW, "0"));
                     file.unget();
                     for (int i = 0; i < mH; i++) {
                         for (int j = 0; j < mW; j++) {
-                            file >> gameMap[i][j];
+                            char cell;
+                            file >> cell;
+                            gameMap[i][j] = (cell == '1' ? "1" : ""); // Mark islands as "1"
                         }
                     }
                 }
@@ -168,37 +179,35 @@ public:
         } else {
             cout << "Error opening file" << endl;
         }
-
-        if (gameMap.empty()) {
-            gameMap.resize(mH, vector<char>(mW, '0'));
-        }
     }
 
-    int getWidth() const { return mW; }
-    int getHeight() const { return mH; }
-    vector<int> getAnum() { return Anum; }
-    vector<char> getAsym() { return Asym; }
-    vector<int> getBnum() { return Bnum; }
-    vector<char> getBsym() { return Bsym; }
-    vector<vector<char>> getGameMap() { return gameMap; }
+    vector<vector<string>> getGameMap() { return gameMap; }
+    vector<string> getAsym() { return Asym; }
+    vector<string> getBsym() { return Bsym; }
 };
 
 // Main function
 int main() {
     GameConfig config("game.txt");
-    vector<vector<char>> gameMap = config.getGameMap();
-
+    vector<vector<string>> gameMap = config.getGameMap();
+    vector<string> Asym = config.getAsym();
     Battleship b;
-    b.generateShip(gameMap, 'B');
+
+    for(const auto &sym : Asym){
+        b.generateShip(gameMap, sym);
+    }
     b.printMap(gameMap);
+    
+    
 
     char command;
     while (true) {
         cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
         cin >> command;
         if (command == 'Q') break;
-
-        b.action(gameMap, command);
+        for(const auto &sym : Asym){
+        b.action(gameMap, command,sym);
+        }
         b.printMap(gameMap);
     }
 

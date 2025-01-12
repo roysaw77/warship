@@ -6,12 +6,12 @@ using namespace std;
 class GameConfig {
 private:
     int iterations;
-    int mW; // map width
-    int mH; // map height
+    int mW;
+    int mH;
     vector<int> Anum;
-    vector<char> Asym;
+    vector<string> Asym; // Changed to vector<string>
     vector<int> Bnum;
-    vector<char> Bsym;
+    vector<string> Bsym; // Changed to vector<string>
     vector<vector<char>> gameMap;
 
 public:
@@ -40,7 +40,11 @@ public:
                             int count;
                             file >> shipType >> symbol >> count;
                             Anum.push_back(count);
-                            Asym.push_back(symbol);
+
+                            // Generate numbered symbols for Team A
+                            for (int j = 1; j <= count; ++j) {
+                                Asym.push_back(string(1, symbol) + to_string(j));
+                            }
                         }
                     } else if (teamName == "B") {
                         for (int i = 0; i < numShips; i++) {
@@ -49,11 +53,15 @@ public:
                             int count;
                             file >> shipType >> symbol >> count;
                             Bnum.push_back(count);
-                            Bsym.push_back(symbol);
+
+                            // Generate numbered symbols for Team B
+                            for (int j = 1; j <= count; ++j) {
+                                Bsym.push_back(string(1, symbol) + to_string(j));
+                            }
                         }
                     }
                 } else if (key == "0" || key == "1") {
-                    gameMap.resize(mH, vector<char>(mW));
+                    gameMap.resize(mH, vector<char>(mW, '0'));
                     file.unget();
                     for (int i = 0; i < mH; i++) {
                         for (int j = 0; j < mW; j++) {
@@ -66,24 +74,17 @@ public:
         } else {
             cout << "Error opening file" << endl;
         }
-    }
-    vector<int> getAnum() {
-        return Anum;
+
+        if (gameMap.empty()) {
+            gameMap.resize(mH, vector<char>(mW, '0'));
+        }
     }
 
-    vector<char>getAsym() {
-        return Asym;
-    }
-
-    vector<int> getBnum() {
-        return Bnum;
-    }
-
-    vector<char> getBsym() {
-        return Bsym;
-    }
-
-    vector<vector<char>> getGameMap() {
-        return gameMap;
-    }
+    int getWidth() const { return mW; }
+    int getHeight() const { return mH; }
+    vector<int> getAnum() { return Anum; }
+    vector<string> getAsym() { return Asym; } // Return vector<string>
+    vector<int> getBnum() { return Bnum; }
+    vector<string> getBsym() { return Bsym; } // Return vector<string>
+    vector<vector<char>> getGameMap() { return gameMap; }
 };
