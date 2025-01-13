@@ -35,10 +35,10 @@ public:
         do {
             ranWid = rand() % gameMap[0].size();
             ranHei = rand() % gameMap.size();
-        } while (!gameMap[ranHei][ranWid].empty()); // Ensure the spot is valid
+        } while (gameMap[ranHei][ranWid]!="1"); // Ensure the spot is valid
 
         gameMap[ranHei][ranWid] = sym; // Place ship on map
-        cout << "Placed ship " << sym << " at (" << ranHei << ", " << ranWid << ")" << endl;
+        cout << "Placed ship " << sym << " at (" << ranHei+1 << ", " << ranWid+1 << ")" << endl;
     }
 
     pair<int, int> curpos(const vector<vector<string>> &gameMap, const string &sym) {
@@ -69,10 +69,14 @@ public:
         // Determine new position based on movement
         int newI = i, newJ = j;
         switch (movement) {
-        case 'W': newI = i - 1; break; // Move up
-        case 'A': newJ = j - 1; break; // Move left
-        case 'S': newI = i + 1; break; // Move down
-        case 'D': newJ = j + 1; break; // Move right
+        case 'W':
+        case 'w': newI = i - 1; break; // Move up
+        case 'A':
+        case 'a': newJ = j - 1; break; // Move left
+        case 'S':
+        case 's': newI = i + 1; break; // Move down
+        case 'D':
+        case 'd': newJ = j + 1; break; // Move right
         default:
             cout << "Invalid movement command!" << endl;
             return;
@@ -80,12 +84,12 @@ public:
 
         // Check bounds and ensure the new position is empty
         if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ].empty()) {
-            gameMap[i][j] = "";       // Clear old position
+            gameMap[i][j] = "0";       // Clear old position
             gameMap[newI][newJ] = sym; // Move to new position
-            cout<<"Moved ship "<<sym<<" from ("<<i<<", "<<j<<") to ("<<newI<<", "<<newJ<<")"<<endl;
+            cout<<"Moved ship "<<sym<<" from ("<<i+1<<", "<<j+1<<") to ("<<newI+1<<", "<<newJ+1<<")"<<endl;
         } else {
             cout << "Invalid move: Out of bounds or position occupied!" << endl;
-        }
+        }//not complete it cant need to have while loop to input again invalid move
     }
 };
 
@@ -164,7 +168,7 @@ public:
                         }
                     }
                 } else if (key == "0" || key == "1") {
-                    gameMap.resize(mH, vector<string>(mW, "0"));
+                    gameMap.resize(mH, vector<string>(mW,""));//resize the map
                     file.unget();
                     for (int i = 0; i < mH; i++) {
                         for (int j = 0; j < mW; j++) {
@@ -191,25 +195,25 @@ int main() {
     GameConfig config("game.txt");
     vector<vector<string>> gameMap = config.getGameMap();
     vector<string> Asym = config.getAsym();
-    Battleship b;
-
-    for(const auto &sym : Asym){
-        b.generateShip(gameMap, sym);
+    vector<string> Atest= {"A1","A2","A3"};
+    Battleship B;
+    for(const auto &sym : Atest){
+        B.generateShip(gameMap, sym);
     }
-    b.printMap(gameMap);
-    
-    
+    B.printMap(gameMap);
 
     char command;
     while (true) {
-        cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
-        cin >> command;
-        if (command == 'Q') break;
-        for(const auto &sym : Asym){
-        b.action(gameMap, command,sym);
+        for(const auto &sym : Atest){
+            cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
+            cin>>command;
+            if (command == 'Q'||command == 'q') return false;
+            B.action(gameMap, command,sym);
+            
         }
-        b.printMap(gameMap);
-    }
+        B.printMap(gameMap);
 
+    }
     return 0;
+
 }
