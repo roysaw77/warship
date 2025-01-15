@@ -9,36 +9,41 @@
 using namespace std;
 
 // Base class for ships
+// Base class for ships
 class ship {
-private:
-    int life = 3;
+protected:
+    vector<vector<string>> gameMap;
+    string sym;
+    int num;
+    int live = 3;
+    int kill = 0;
 
 public:
-    virtual void action(vector<vector<string>> &gameMap, char command,string sym) = 0;
+    virtual void action() = 0;
 
     void printMap(const vector<vector<string>> &gameMap) {
-    for (const auto &row : gameMap) {
-        for (const auto &cell : row) {
-            // Print each cell with a fixed width of 3
-            if (cell.empty()) {
-                cout << setw(5) << "0"; // Display "0" for empty cells
-            } else {
-                cout << setw(5) << cell; // Display the symbol
+        for (const auto &row : gameMap) {
+            for (const auto &cell : row) {
+                if (cell.empty()) {
+                    cout << setw(5) << "0"; // Display "0" for empty cells
+                } else {
+                    cout << setw(5) << cell; // Display the symbol
+                }
             }
+            cout << endl;
         }
-        cout << endl;
     }
-}
 
     void generateShip(vector<vector<string>> &gameMap, const string &sym) {
         int ranWid, ranHei;
         do {
+            srand(time(0));
             ranWid = rand() % gameMap[0].size();
             ranHei = rand() % gameMap.size();
-        } while (gameMap[ranHei][ranWid]!="1"); // Ensure the spot is valid
+        } while (!gameMap[ranHei][ranWid].empty()); // Ensure the spot is valid
 
         gameMap[ranHei][ranWid] = sym; // Place ship on map
-        cout << "Placed ship " << sym << " at (" << ranHei+1 << ", " << ranWid+1 << ")" << endl;
+        cout << "Placed ship " << sym << " at (" << ranHei + 1 << ", " << ranWid + 1 << ")" << endl;
     }
 
     pair<int, int> curpos(const vector<vector<string>> &gameMap, const string &sym) {
@@ -56,7 +61,45 @@ public:
 // Derived ship classes
 class movingShip : public virtual ship {
 public:
-    void action(vector<vector<string>> &gameMap, char movement,string sym) override {
+    void action() override {
+        cout << "Moving ship moves" << endl;
+    }
+
+    virtual void actionMoving(vector<vector<string>> &gameMap, char movement, string sym) = 0;
+};
+
+class seeingShip : public virtual ship {
+public:
+    void action() override {
+        cout << "Seeing ship sees" << endl;
+    }
+
+      virtual void see(const vector<vector<string>> &gameMap, const string &sym) = 0; 
+};
+
+class shootingShip : public virtual ship {
+public:
+    void action() override {
+        cout << "Shooting ship shoots" << endl;
+    }
+};
+
+
+class Battleship : public movingShip, public seeingShip {
+private:
+    string sym;
+    int num;
+
+public:
+     void action() override {
+        cout << "Battleship moves and sees" << endl;
+     }
+    Battleship() : sym(" "), num(0) {}
+    Battleship(string sym, int num, vector<vector<string>> &gameMap) : sym(sym), num(num) {
+        this->gameMap = gameMap;
+    }
+
+    void actionMoving(vector<vector<string>> &gameMap, char movement, string sym) override {
         pair<int, int> pos = curpos(gameMap, sym);
         if (pos.first == -1 || pos.second == -1) {
             cout << "Ship not found!" << endl;
@@ -84,32 +127,48 @@ public:
 
         // Check bounds and ensure the new position is empty
         if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ].empty()) {
-            gameMap[i][j] = "0";       // Clear old position
+            gameMap[i][j] = "";       // Clear old position
             gameMap[newI][newJ] = sym; // Move to new position
-            cout<<"Moved ship "<<sym<<" from ("<<i+1<<", "<<j+1<<") to ("<<newI+1<<", "<<newJ+1<<")"<<endl;
+            cout << "Moved ship " << sym << " from (" << i + 1 << ", " << j + 1 << ") to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
         } else {
             cout << "Invalid move: Out of bounds or position occupied!" << endl;
-        }//not complete it cant need to have while loop to input again invalid move
-    }
-};
-
-class shootingShip : public virtual ship {
-public:
-    void action(vector<vector<string>> &gameMap, char command,string sym) override {
-        cout << "Shooting ship shoots" << endl;
-    }
-};
-
-class Battleship : public movingShip, public shootingShip {
-public:
-    void action(vector<vector<string>> &gameMap, char command,string sym) override {
-        if (command == 'F') {
-            cout << "Battleship fires!" << endl;
-        } else {
-            movingShip::action(gameMap, command,sym); // Delegate movement to movingShip
         }
     }
+    
+    void see(const vector<vector<string>> &gameMap, const string &sym)override {
+        pair<int, int> pos = curpos(gameMap, sym);
+        if (pos.first == -1 || pos.second == -1) {
+            cout << "Ship not found!" << endl;
+            return;
+        }
+
+        int i = pos.first;
+        int j = pos.second;
+
+        vector<pair<int, int>> directions = {
+            {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}};
+        bool enemyFound = false;
+
+        for (const auto &[dx, dy] : directions) {
+            int ni = i + dx;
+            int nj = j + dy;
+
+            if (ni >= 0 && ni < gameMap.size() && nj >= 0 && nj < gameMap[0].size()) {
+                if (gameMap[ni][nj] == "1") {
+                    cout << "Enemy found at (" << ni + 1 << ", " << nj + 1 << ")" << endl;
+                    enemyFound = true;
+                }
+            }
+        }
+
+        if (!enemyFound) {
+            cout << "No enemies near ship " << sym << endl;
+        }
+    }
+
 };
+
+
 
 // Game configuration class
 class GameConfig {
@@ -190,30 +249,55 @@ public:
     vector<string> getBsym() { return Bsym; }
 };
 
+
+
+
+
 // Main function
 int main() {
+    // Load game configuration
     GameConfig config("game.txt");
-    vector<vector<string>> gameMap = config.getGameMap();
+    vector<vector<string>> gameMapA = config.getGameMap();
+    vector<vector<string>> gameMapB = config.getGameMap();
     vector<string> Asym = config.getAsym();
-    vector<string> Atest= {"A1","A2","A3"};
-    Battleship B;
-    for(const auto &sym : Atest){
-        B.generateShip(gameMap, sym);
-    }
-    B.printMap(gameMap);
+    vector<string> Bsym = config.getBsym();
 
+    // Display ship symbols for testing
+    cout << "Team A ships: ";
+    for (const auto &sym : Asym) {
+        cout << sym << " ";
+    }
+    cout << endl;
+
+    cout << "Team B ships: ";
+    for (const auto &sym : Bsym) {
+        cout << sym << " ";
+    }
+    cout << endl;
+
+    // Place a ship in the game map
+    Battleship battleShipA1("A1", 1, gameMapA);
+    battleShipA1.generateShip(gameMapA, "A1");
+
+    // Use polymorphism to move the ship
+    ship *pShip = &battleShipA1;
+    pShip->printMap(gameMapA);
+
+
+    while(true){
     char command;
-    while (true) {
-        for(const auto &sym : Atest){
-            cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
-            cin>>command;
-            if (command == 'Q'||command == 'q') return false;
-            B.action(gameMap, command,sym);
-            
-        }
-        B.printMap(gameMap);
+    cout << "Enter command (W/A/S/D for movement, F for fire, Q to quit): ";
+    cin >> command;
+    if (command == 'Q'||'q') break;
+    
+    // Perform move actions
+    
+    dynamic_cast<Battleship *>(pShip)->actionMoving(gameMapA, command, "A1");
+    pShip->printMap(gameMapA);
 
+   
     }
+
     return 0;
 
 }
