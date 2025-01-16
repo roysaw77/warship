@@ -259,8 +259,8 @@ int main() {
     GameConfig config("game.txt");
     vector<vector<string>> gameMapA = config.getGameMap();
     vector<vector<string>> gameMapB = config.getGameMap();
-    vector<string> Asym = config.getAsym();
-    vector<string> Bsym = config.getBsym();
+    vector<string> Asym = config.getAsym();//symbolA
+    vector<string> Bsym = config.getBsym();//symbolB
 
     // Display ship symbols for testing
     cout << "Team A ships: ";
