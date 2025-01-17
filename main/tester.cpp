@@ -77,6 +77,8 @@ public:
     void action() override {
         cout << "Shooting ship shoots" << endl;
     }
+
+    virtual void actionShooting() = 0;
 };
 
 class Battleship : public movingShip, public seeingShip {
@@ -185,36 +187,17 @@ public:
     }
 };
 
-class Frigate : public movingShip {
+class Frigate : public shootingShip {
 public:
     void action() override {
-        actionMoving();
+        actionShooting();
     }
      Frigate(string sym, vector<vector<string>> &gameMap)
         : ship(sym, -1, -1, gameMap) {
         generateShip(sym);
     }
-
-    void actionMoving() override {
-        pair<int, int> location = getLocation();
-        int i = location.first;
-        int j = location.second;
-
-        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
-        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
-
-        int newI = i + moveI;
-        int newJ = j + moveJ;
-
-        // Check if the new position is within bounds and not occupied
-        if (isWithinBound(newI, newJ)) {
-            gameMap[i][j] = ""; // Clear old position
-            placeShip(gameMap, sym, newI, newJ); // Move to new position
-            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-        } else {
-            cout << "Invalid move for ship: " << sym << endl;
-        }
-    }
+    void actionShooting() override {}
+    
 };
 
 // Game configuration class
