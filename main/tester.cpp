@@ -44,8 +44,20 @@ public:
     void setkill(int Kill) { kill = Kill; }
     int getkill() { return kill; }
 
+    vector<vector<string>> getMap() { return gameMap; }
+
     bool isWithinBounds(int i, int j) {
-        return i >= 0 && i < gameMap.size() && j >= 0 && j < gameMap[0].size();
+        if(i >= 0 && i < gameMap.size() && j >= 0 && j < gameMap[0].size()){
+            return true;
+        }
+        else {return false;}
+    }
+
+    bool isIsland(int i,int j){
+        if(gameMap[i][j] == "1"){
+            return false;
+        }
+        else {return true;}
     }
     
     void incrementKills() { kill++; }
@@ -97,6 +109,7 @@ public:
     }
 
     void actionMoving() override {
+        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -108,7 +121,7 @@ public:
         int newJ = j + moveJ;
 
         // Check if the new position is within bounds and not occupied
-        if (isWithinBounds(newI,newJ)) {
+        if (isWithinBounds(newI,newJ)&& isIsland(newI,newJ)) {
             gameMap[i][j] = ""; // Clear old position
             gameMap[newI][newJ] = sym; // Move to new position
             setLocation(newI, newJ);
@@ -131,7 +144,7 @@ public:
             int newJ = j + view.second;
 
             // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)) {
+            if (isWithinBounds(newI, newJ)&& isIsland(newI,newJ)) {
                 string cellContent = gameMap[newI][newJ];
 
                 // Check if the cell contains an enemy ship
@@ -164,6 +177,7 @@ public:
     }
 
     void actionMoving() override {
+        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -198,7 +212,7 @@ public:
             int newJ = j + view.second;
 
             // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)) {
+            if (isWithinBounds(newI, newJ)&& isIsland(newI,newJ)) {
                 string cellContent = gameMap[newI][newJ];
 
                 // Check if the cell contains an enemy ship
@@ -229,6 +243,7 @@ public:
     }
 
     void actionMoving() override {
+        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -294,6 +309,7 @@ public:
     }
 
     void actionMoving() override {
+        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -496,7 +512,6 @@ int main() {
     // Simulate iterations
     for (int iter = 0; iter < iterations; iter++) {
         cout << "\nIteration " << iter + 1 << ":" << endl;
-
         // Move all ships
         for (auto shipPtr : AShips) {
             shipPtr->action();
