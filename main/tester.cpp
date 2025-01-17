@@ -275,6 +275,7 @@ int main() {
 
     // Create Team A ships
     vector<ship*> AShips;
+    vector<ship*> Bships;
     for (int i = 0; i < Asym.size(); i++) {
         if (Asym[i][0] == '*') {
             AShips.push_back(new Battleship(Asym[i], gameMap));
@@ -289,9 +290,18 @@ int main() {
         }
     }
 
+     for (int i = 0; i < Bsym.size(); i++){
+          if (Bsym[i][0] == '<') {
+            Bships.push_back(new Battleship(Bsym[i], gameMap));
+        } else if (Bsym[i][0] == '>') {
+            Bships.push_back(new Cruiser(Bsym[i], gameMap));
+        } else {
+            cout << "Invalid symbol: " << Bsym[i] << endl;
+        }
+     }
+
     // Print the game map after placing ships
-    
-    AShips[0]->printMap(gameMap);
+    Bships[0]->printMap(gameMap);
 
     // Free memory
     for (auto shipPtr : AShips) {
