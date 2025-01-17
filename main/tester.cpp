@@ -11,7 +11,7 @@ using namespace std;
 // Base class for ships
 class ship {
 protected:
-    vector<vector<string>> gameMap;
+    vector<vector<string>> &gameMap;
     string sym; // Ship symbol
     int posI = -1; // Position I
     int posJ = -1; // Position J
@@ -19,11 +19,13 @@ protected:
     int kill = 0; // Ship kill
 
 public:
-    ship(string ship = "", int i = -1, int j = -1) : sym(ship), posI(i), posJ(j) {}
+   ship(string ship, int i, int j, vector<vector<string>> &mapRef)
+        : sym(ship), posI(i), posJ(j), gameMap(mapRef) {}
+
     virtual ~ship() {}
     virtual void action() = 0;
 
-    void generateShip(vector<vector<string>> &gameMap, const string &sym) {
+    void generateShip(const string &sym) {
         int ranWid, ranHei;
         do {
             ranWid = rand() % gameMap[0].size();
@@ -35,6 +37,11 @@ public:
         cout << "Placed ship " << sym << " at (" << ranHei + 1 << ", " << ranWid + 1 << ")" << endl;
     }
 
+    void placeShip(vector<vector<string>> &gameMap, const string &sym,int i ,int j) {
+        gameMap[i][j] = sym; // Place ship on map
+        setLocation(i, j);
+    }
+
     void setLocation(int i, int j) { posI = i; posJ = j; }
     pair<int, int> getLocation() { return {posI, posJ}; }
 
@@ -44,35 +51,11 @@ public:
     void setkill(int Kill) { kill = Kill; }
     int getkill() { return kill; }
 
-    vector<vector<string>> getMap() { return gameMap; }
+    void setSym(string Sym) { sym = Sym; }
+    string getSym() { return sym; }
 
-    bool isWithinBounds(int i, int j) {
-        if(i >= 0 && i < gameMap.size() && j >= 0 && j < gameMap[0].size()){
-            return true;
-        }
-        else {return false;}
-    }
-
-    bool isIsland(int i,int j){
-        if(gameMap[i][j] == "1"){
-            return false;
-        }
-        else {return true;}
-    }
-    
-    void incrementKills() { kill++; }
-
-    bool isAlly(const string &otherSym) {
-    // Team A symbols: *, $, #, @
-    // Team B symbols: <, >
-    if ((sym[0] == '*' || sym[0] == '$' || sym[0] == '#' || sym[0] == '@') &&
-        (otherSym[0] == '*' || otherSym[0] == '$' || otherSym[0] == '#' || otherSym[0] == '@')) {
-        return true; // Both are Team A
-    } else if ((sym[0] == '<' || sym[0] == '>') &&
-               (otherSym[0] == '<' || otherSym[0] == '>')) {
-        return true; // Both are Team B
-    }
-    return false; // Otherwise, they are enemies
+    bool isWithinBound(int newI,int newJ){
+        return newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ].empty(); 
     }
 };
 
@@ -102,14 +85,13 @@ public:
         actionMoving();
     }
 
-    Battleship() : ship(" ") {}
-    Battleship(string sym, vector<vector<string>> &gameMap) : ship(sym) {
-        this->gameMap = gameMap;
-        generateShip(gameMap, sym);
+    
+   Battleship(string sym, vector<vector<string>> &gameMap)
+        : ship(sym, -1, -1, gameMap) {
+        generateShip(sym);
     }
 
     void actionMoving() override {
-        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -121,10 +103,9 @@ public:
         int newJ = j + moveJ;
 
         // Check if the new position is within bounds and not occupied
-        if (isWithinBounds(newI,newJ)&& isIsland(newI,newJ)) {
+        if (isWithinBound(newI, newJ)) {
             gameMap[i][j] = ""; // Clear old position
-            gameMap[newI][newJ] = sym; // Move to new position
-            setLocation(newI, newJ);
+            placeShip(gameMap, sym, newI, newJ);
             cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
         } else {
             cout << "Invalid move for ship: " << sym << endl;
@@ -132,52 +113,57 @@ public:
     }
 
     void actionSeeing() override {
+        cout << "Battleship is seeing!" << endl;
+    }
+};
+
+class Cruiser : public movingShip {
+public:
+    void action() override {
+        actionMoving();
+    }
+
+
+     Cruiser(string sym, vector<vector<string>> &gameMap)
+        : ship(sym, -1, -1, gameMap) {
+        generateShip(sym);
+    }
+
+    void actionMoving() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
 
-        // Define the relative positions to check around the ship
-        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}};
+        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
+        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
 
-        for (auto view : views) {
-            int newI = i + view.first;
-            int newJ = j + view.second;
+        int newI = i + moveI;
+        int newJ = j + moveJ;
 
-            // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)&& isIsland(newI,newJ)) {
-                string cellContent = gameMap[newI][newJ];
-
-                // Check if the cell contains an enemy ship
-              if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
-                    // Determine if the cell contains an enemy ship
-                 if (!cellContent.empty() && cellContent != "1") {
-                       if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                    }
-                }
-              }
-            }
+        // Check if the new position is within bounds and not occupied
+        if (isWithinBound(newI, newJ)) {
+            gameMap[i][j] = ""; // Clear old position
+            placeShip(gameMap, sym, newI, newJ);
+            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        } else {
+            cout << "Invalid move for ship: " << sym << endl;
         }
     }
 };
 
-class Cruiser : public movingShip,public seeingShip{
+class Destroyer : public movingShip {
 public:
     void action() override {
-        actionSeeing();
         actionMoving();
     }
 
-    Cruiser() : ship(" ") {}
-    Cruiser(string sym, vector<vector<string>> &gameMap) : ship(sym) {
-        this->gameMap = gameMap;
-        generateShip(gameMap, sym);
+ 
+      Destroyer(string sym, vector<vector<string>> &gameMap)
+        : ship(sym, -1, -1, gameMap) {
+        generateShip(sym);
     }
 
     void actionMoving() override {
-        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -189,61 +175,27 @@ public:
         int newJ = j + moveJ;
 
         // Check if the new position is within bounds and not occupied
-        if (isWithinBounds(newI,newJ)) {
+        if (isWithinBound(newI, newJ)) {
             gameMap[i][j] = ""; // Clear old position
-            gameMap[newI][newJ] = sym; // Move to new position
-            setLocation(newI, newJ);
+            placeShip(gameMap, sym, newI, newJ);
             cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
         } else {
             cout << "Invalid move for ship: " << sym << endl;
-        }
-    }
-
-    void actionSeeing() override {
-        pair<int, int> location = getLocation();
-        int i = location.first;
-        int j = location.second;
-
-        // Define the relative positions to check around the ship
-        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}};
-
-        for (auto view : views) {
-            int newI = i + view.first;
-            int newJ = j + view.second;
-
-            // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)&& isIsland(newI,newJ)) {
-                string cellContent = gameMap[newI][newJ];
-
-                // Check if the cell contains an enemy ship
-                if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
-                    // Determine if the cell contains an enemy ship
-                    if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                    }
-                }
-            }
         }
     }
 };
 
-class Destroyer : public movingShip,public seeingShip {
+class Frigate : public movingShip {
 public:
     void action() override {
-        actionSeeing();
         actionMoving();
     }
-
-    Destroyer() : ship(" ") {}
-    Destroyer(string sym, vector<vector<string>> &gameMap) : ship(sym) {
-        this->gameMap = gameMap;
-        generateShip(gameMap, sym);
+     Frigate(string sym, vector<vector<string>> &gameMap)
+        : ship(sym, -1, -1, gameMap) {
+        generateShip(sym);
     }
 
     void actionMoving() override {
-        srand(time(0));
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -255,108 +207,12 @@ public:
         int newJ = j + moveJ;
 
         // Check if the new position is within bounds and not occupied
-        if (isWithinBounds(newI,newJ)) {
+        if (isWithinBound(newI, newJ)) {
             gameMap[i][j] = ""; // Clear old position
-            gameMap[newI][newJ] = sym; // Move to new position
-            setLocation(newI, newJ);
+            placeShip(gameMap, sym, newI, newJ); // Move to new position
             cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
         } else {
             cout << "Invalid move for ship: " << sym << endl;
-        }
-    }
-
-    void actionSeeing() override {
-        pair<int, int> location = getLocation();
-        int i = location.first;
-        int j = location.second;
-
-        // Define the relative positions to check around the ship
-        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}};
-
-        for (auto view : views) {
-            int newI = i + view.first;
-            int newJ = j + view.second;
-
-            // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)) {
-                string cellContent = gameMap[newI][newJ];
-
-                // Check if the cell contains an enemy ship
-                if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
-                    // Determine if the cell contains an enemy ship
-                   if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                    }
-                }
-            }
-        }
-    }
-};
-
-class Frigate : public movingShip ,public seeingShip{
-public:
-    void action() override {
-        actionSeeing();
-        actionMoving();
-    }
-
-    Frigate() : ship(" ") {}
-    Frigate(string sym, vector<vector<string>> &gameMap) : ship(sym) {
-        this->gameMap = gameMap;
-        generateShip(gameMap, sym);
-    }
-
-    void actionMoving() override {
-        srand(time(0));
-        pair<int, int> location = getLocation();
-        int i = location.first;
-        int j = location.second;
-
-        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
-        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
-
-        int newI = i + moveI;
-        int newJ = j + moveJ;
-
-        // Check if the new position is within bounds and not occupied
-        if (isWithinBounds(newI,newJ)) {
-            gameMap[i][j] = ""; // Clear old position
-            gameMap[newI][newJ] = sym; // Move to new position
-            setLocation(newI, newJ);
-            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-        } else {
-            cout << "Invalid move for ship: " << sym << endl;
-        }
-    }
-
-    void actionSeeing() override {
-        pair<int, int> location = getLocation();
-        int i = location.first;
-        int j = location.second;
-
-        // Define the relative positions to check around the ship
-        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}};
-
-        for (auto view : views) {
-            int newI = i + view.first;
-            int newJ = j + view.second;
-
-            // Check if the new position is within bounds
-            if (isWithinBounds(newI, newJ)) {
-                string cellContent = gameMap[newI][newJ];
-
-                // Check if the cell contains an enemy ship
-                if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
-                    // Determine if the cell contains an enemy ship
-                    if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                    }
-                }
-            }
         }
     }
 };
@@ -512,6 +368,7 @@ int main() {
     // Simulate iterations
     for (int iter = 0; iter < iterations; iter++) {
         cout << "\nIteration " << iter + 1 << ":" << endl;
+
         // Move all ships
         for (auto shipPtr : AShips) {
             shipPtr->action();
