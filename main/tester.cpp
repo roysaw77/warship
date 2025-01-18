@@ -21,8 +21,7 @@ protected:
     int kill = 0; // Ship kill
 
 public:
-   ship(string ship, int i, int j, vector<vector<string>> &mapRef)
-        : sym(ship), posI(i), posJ(j), gameMap(mapRef) {}
+   ship(string ship, int i, int j, vector<vector<string>> &mapRef): sym(ship), posI(i), posJ(j), gameMap(mapRef) {}
 
     virtual ~ship() {}
     virtual void action() = 0;
@@ -91,6 +90,13 @@ public:
             cout << "Ship " << sym << " has been shot and lost 1 life, remaining life " <<life<< endl; 
         }
         return life > 0;
+    }
+
+    bool checkUpgrade(){
+        if (kill == 4) {
+            return true; // the ship has fulfill the upgrade requirement
+        }
+        return false;//not fulfill the upgrade requirement
     }
 };
 
@@ -177,6 +183,9 @@ public:
                 } else {
                     cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                     }
+                }
+                else if(cellContent.empty() && cellContent == "1"){
+                    cout << "Ship " << sym << " detected nothing  "<< endl;
                 }
             }
         }
@@ -396,6 +405,14 @@ public:
 // Main function
 int main() {
     srand(time(0)); // Seed the random number generator
+
+    ofstream outFile("output.txt");
+    if (!outFile) {
+        cerr << "Error opening output.txt" << endl;
+        return 1;
+    }
+    streambuf *coutbuf = cout.rdbuf(); // Save old buffer
+    cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
 
     // Load game configuration
     GameConfig config("game.txt");
