@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <queue>
+#include <list>
 
 using namespace std;
 
@@ -57,6 +59,33 @@ public:
     bool isWithinBound(int newI,int newJ){
         return newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size() && gameMap[newI][newJ].empty(); 
     }
+
+    bool isAlly(const string &otherSym) {
+    // Team A symbols: *, $, #, @
+    // Team B symbols: <, >
+    if ((sym[0] == '*' || sym[0] == '$' || sym[0] == '#' || sym[0] == '@') &&
+        (otherSym[0] == '*' || otherSym[0] == '$' || otherSym[0] == '#' || otherSym[0] == '@')) {
+        return true; // Both are Team A
+    } else if ((sym[0] == '<' || sym[0] == '>') &&
+               (otherSym[0] == '<' || otherSym[0] == '>')) {
+        return true; // Both are Team B
+    }
+    return false; // Otherwise, they are enemies
+    }
+
+    void killIncreament() { kill++; }
+
+    bool checkStatus() {
+        if (life <= 0) {
+            return false; // Ship is destroyed
+        }
+        if (gameMap[posI][posJ].empty()) {
+            cout << "Ship " << sym << " has been shot and lost 1 life, remaining life " <<life<< endl;
+            life--;
+            
+        }
+        return life > 0;
+    }
 };
 
 // Derived ship classes
@@ -81,10 +110,14 @@ public:
     virtual void actionShooting() = 0;
 };
 
-class Battleship : public movingShip, public seeingShip {
+class Battleship : public movingShip,public seeingShip, public shootingShip {
 public:
+     
+
     void action() override {
+        actionSeeing();
         actionMoving();
+        actionShooting();
     }
 
     
@@ -114,9 +147,70 @@ public:
         }
     }
 
-    void actionSeeing() override {
-        cout << "Battleship is seeing!" << endl;
+   void actionSeeing() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        // Define the relative positions to check around the ship
+        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {0, -1}};
+
+        for (auto view : views) {
+            int newI = i + view.first;
+            int newJ = j + view.second;
+
+            // Check if the new position is within bounds
+            if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+                string cellContent = gameMap[newI][newJ];
+
+                // Check if the cell contains an enemy ship
+                if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
+                    // Determine if the cell contains an enemy ship
+                   if (!isAlly(cellContent)) { // If not an ally, it's an enemy
+                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                } else {
+                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    }
+                }
+            }
+        }
     }
+
+   void actionShooting() override {
+    pair<int, int> location = getLocation();
+    int i = location.first;
+    int j = location.second;
+
+    vector<pair<int, int>> shoot = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {0, -1}};
+
+    for (int count = 0; count < 3; count++) { // Allow up to 3 shots
+        srand(time(0) + count); // Different seed for randomness
+        int ran = rand() % shoot.size(); // Random index within the shoot vector
+
+        int newI = i + shoot[ran].first;
+        int newJ = j + shoot[ran].second;
+
+        // Ensure the target is within bounds
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+            string &target = gameMap[newI][newJ];
+            
+            // Check if the target is not an ally and not an island
+            if (!target.empty() && target != "1" && !isAlly(target)) {
+                cout << "Battleship " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
+                     << ") and hits enemy " << target << endl;
+                target = ""; // Clear the target
+                killIncreament();
+            } else {
+                cout << "Battleship " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
+                     << ") but misses." << endl;
+            }
+        } else {
+            cout << "Battleship " << sym << " shoots out of bounds at (" 
+                 << newI + 1 << ", " << newJ + 1 << ")." << endl;
+        }
+    }
+}
+
 };
 
 class Cruiser : public movingShip {
@@ -318,8 +412,8 @@ int main() {
     cout << endl;
 
     // Create Team A ships
-    vector<ship*> AShips;
-    vector<ship*> Bships;
+    list<ship*> AShips;
+    list<ship*> Bships;
     for (int i = 0; i < Asym.size(); i++) {
         if (Asym[i][0] == '*') {
             AShips.push_back(new Battleship(Asym[i], gameMap));
@@ -349,20 +443,43 @@ int main() {
     config.printMap(gameMap);
 
     // Simulate iterations
+   // Simulate iterations
     for (int iter = 0; iter < iterations; iter++) {
         cout << "\nIteration " << iter + 1 << ":" << endl;
 
-        // Move all ships
-        for (auto shipPtr : AShips) {
-            shipPtr->action();
+        // Move all Team A ships
+        for (auto it = AShips.begin(); it != AShips.end();) {
+            ship* shipPtr = *it;
+            if (shipPtr->checkStatus()) {
+                shipPtr->action(); // Perform action only if alive
+                ++it;
+            } else {
+                cout << "Ship " << shipPtr->getSym() << " from Team A has been destroyed." << endl;
+                delete shipPtr; // Free memory
+                it = AShips.erase(it); // Remove ship from list
+            }
         }
-        for (auto shipPtr : Bships) {
-            shipPtr->action();
+
+        // Move all Team B ships
+        for (auto it = Bships.begin(); it != Bships.end();) {
+            ship* shipPtr = *it;
+            if (shipPtr->checkStatus()) {
+                shipPtr->action(); // Perform action only if alive
+                ++it;
+            } else {
+                cout << "Ship " << shipPtr->getSym() << " from Team B has been destroyed." << endl;
+                delete shipPtr; // Free memory
+                it = Bships.erase(it); // Remove ship from list
+            }
         }
 
         // Print the updated map
         config.printMap(gameMap);
+
+        cout << "Press Enter to continue..." << endl;
+        cin.ignore();
     }
+
 
     // Free memory
     for (auto shipPtr : AShips) {
