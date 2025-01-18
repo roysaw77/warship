@@ -75,14 +75,20 @@ public:
 
     void killIncreament() { kill++; }
 
+    bool checkDestroyed() {
+         if (gameMap[posI][posJ].empty()) {
+           return true; // Ship is destroyed
+        }
+        return false; // Ship is not destroyed
+    }
+
     bool checkStatus() {
         if (life <= 0) {
             return false; // Ship is destroyed
         }
         if (gameMap[posI][posJ].empty()) {
-            cout << "Ship " << sym << " has been shot and lost 1 life, remaining life " <<life<< endl;
-            life--;
-            
+             life--;
+            cout << "Ship " << sym << " has been shot and lost 1 life, remaining life " <<life<< endl; 
         }
         return life > 0;
     }
@@ -414,6 +420,7 @@ int main() {
     // Create Team A ships
     list<ship*> AShips;
     list<ship*> Bships;
+    queue<ship*> destroyships;
     for (int i = 0; i < Asym.size(); i++) {
         if (Asym[i][0] == '*') {
             AShips.push_back(new Battleship(Asym[i], gameMap));
@@ -447,7 +454,7 @@ int main() {
     for (int iter = 0; iter < iterations; iter++) {
         cout << "\nIteration " << iter + 1 << ":" << endl;
 
-        // Move all Team A ships
+        //doing action
         for (auto it = AShips.begin(); it != AShips.end();) {
             ship* shipPtr = *it;
             if (shipPtr->checkStatus()) {
@@ -460,9 +467,10 @@ int main() {
             }
         }
 
-        // Move all Team B ships
+        // doing action
         for (auto it = Bships.begin(); it != Bships.end();) {
             ship* shipPtr = *it;
+            
             if (shipPtr->checkStatus()) {
                 shipPtr->action(); // Perform action only if alive
                 ++it;
@@ -475,19 +483,12 @@ int main() {
 
         // Print the updated map
         config.printMap(gameMap);
+        cout<<endl;
 
         cout << "Press Enter to continue..." << endl;
         cin.ignore();
     }
 
-
-    // Free memory
-    for (auto shipPtr : AShips) {
-        delete shipPtr;
-    }
-    for (auto shipPtr : Bships) {
-        delete shipPtr;
-    }
 
     return 0;
 }
