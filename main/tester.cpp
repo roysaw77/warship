@@ -115,11 +115,14 @@ public:
 
 class shootingShip : public virtual ship {
 public:
-    void action() override {
-        cout << "Shooting ship shoots" << endl;
-    }
-
+    virtual ~shootingShip() {}
     virtual void actionShooting() = 0;
+};
+
+class rammingShip: public virtual ship {
+    public:
+    virtual ~rammingShip() {}
+     virtual void actionRamming() = 0;
 };
 
 class Battleship : public movingShip,public seeingShip, public shootingShip {
@@ -151,7 +154,7 @@ public:
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location after moving
         setLocation(newI, newJ);
@@ -226,10 +229,11 @@ public:
 
 };
 
-class Cruiser : public movingShip {
+class Cruiser : public movingShip , public rammingShip{
 public:
     void action() override {
         actionMoving();
+        actionRamming();
     }
 
 
@@ -251,57 +255,39 @@ public:
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "Cruiser: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location after moving
         setLocation(newI, newJ);
     }
-};
 
-class Destroyer : public movingShip {
-public:
-    void action() override {
-        actionMoving();
-    }
-
- 
-      Destroyer(string sym, vector<vector<string>> &gameMap)
-        : ship(sym, -1, -1, gameMap) {
-        generateShip(sym);
-    }
-
-        void actionMoving() override {
+    void actionRamming() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
 
-        int newI, newJ; // Declare variables outside the loop
-        do {
-            newI = i + (rand() % 3 - 1); // Generate new random position
-            newJ = j + (rand() % 3 - 1);
-        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
+        vector<pair<int, int>> ram = { {1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        srand(time(0));
+        int ran = rand() % ram.size();
 
-        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
-        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        int newI = i + ram[ran].first;
+        int newJ = j + ram[ran].second;
 
-        // Update ship's location after moving
-        setLocation(newI, newJ);
+        // Ensure the target is within bounds
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+            string &target = gameMap[newI][newJ];
+
+            // Check if the target is not an ally and not an island
+            if (!target.empty() && target != "1" && !isAlly(target)) {
+                cout << "Cruiser " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                target = ""; // Clear the target
+                killIncreament();
+            }
+            else{cout<<"Cruiser " << sym << " rammed nothing at (" << newI + 1 << ", " << newJ + 1 << ")"<<endl;}
+        }
     }
 };
 
-class Frigate : public shootingShip {
-public:
-    void action() override {
-        actionShooting();
-    }
-     Frigate(string sym, vector<vector<string>> &gameMap)
-        : ship(sym, -1, -1, gameMap) {
-        generateShip(sym);
-    }
-    void actionShooting() override {}
-    
-};
 
 // Game configuration class
 class GameConfig {
@@ -436,10 +422,10 @@ int main() {
             AShips.push_back(new Battleship(Asym[i], gameMap));
         } else if (Asym[i][0] == '$') {
             AShips.push_back(new Cruiser(Asym[i], gameMap));
-        } else if (Asym[i][0] == '#') {
-            AShips.push_back(new Destroyer(Asym[i], gameMap));
-        } else if (Asym[i][0] == '@') {
-            AShips.push_back(new Frigate(Asym[i], gameMap));
+        // } else if (Asym[i][0] == '#') {
+        //     AShips.push_back(new Destroyer(Asym[i], gameMap));
+        // } else if (Asym[i][0] == '@') {
+        //     AShips.push_back(new Frigate(Asym[i], gameMap));
         } else {
             cout << "Invalid symbol: " << Asym[i] << endl;
         }
