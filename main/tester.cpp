@@ -143,20 +143,18 @@ public:
         int i = location.first;
         int j = location.second;
 
-        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
-        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
+        int newI, newJ; // Declare variables outside the loop
+        do {
+            newI = i + (rand() % 3 - 1); // Generate new random position
+            newJ = j + (rand() % 3 - 1);
+        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
 
-        int newI = i + moveI;
-        int newJ = j + moveJ;
+        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
+        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Check if the new position is within bounds and not occupied
-        if (isWithinBound(newI, newJ)) {
-            gameMap[i][j] = ""; // Clear old position
-            placeShip(gameMap, sym, newI, newJ);
-            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-        } else {
-            cout << "Invalid move for ship: " << sym << endl;
-        }
+        // Update ship's location after moving
+        setLocation(newI, newJ);
     }
 
    void actionSeeing() override {
@@ -240,25 +238,23 @@ public:
         generateShip(sym);
     }
 
-    void actionMoving() override {
+     void actionMoving() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
 
-        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
-        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
+        int newI, newJ; // Declare variables outside the loop
+        do {
+            newI = i + (rand() % 3 - 1); // Generate new random position
+            newJ = j + (rand() % 3 - 1);
+        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
 
-        int newI = i + moveI;
-        int newJ = j + moveJ;
+        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
+        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Check if the new position is within bounds and not occupied
-        if (isWithinBound(newI, newJ)) {
-            gameMap[i][j] = ""; // Clear old position
-            placeShip(gameMap, sym, newI, newJ);
-            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-        } else {
-            cout << "Invalid move for ship: " << sym << endl;
-        }
+        // Update ship's location after moving
+        setLocation(newI, newJ);
     }
 };
 
@@ -274,25 +270,23 @@ public:
         generateShip(sym);
     }
 
-    void actionMoving() override {
+        void actionMoving() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
 
-        int moveI = rand() % 3 - 1; // Random move for row (-1, 0, 1)
-        int moveJ = rand() % 3 - 1; // Random move for column (-1, 0, 1)
+        int newI, newJ; // Declare variables outside the loop
+        do {
+            newI = i + (rand() % 3 - 1); // Generate new random position
+            newJ = j + (rand() % 3 - 1);
+        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
 
-        int newI = i + moveI;
-        int newJ = j + moveJ;
+        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
+        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+        cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Check if the new position is within bounds and not occupied
-        if (isWithinBound(newI, newJ)) {
-            gameMap[i][j] = ""; // Clear old position
-            placeShip(gameMap, sym, newI, newJ);
-            cout << "Ship: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-        } else {
-            cout << "Invalid move for ship: " << sym << endl;
-        }
+        // Update ship's location after moving
+        setLocation(newI, newJ);
     }
 };
 
@@ -406,13 +400,12 @@ public:
 int main() {
     srand(time(0)); // Seed the random number generator
 
-    ofstream outFile("output.txt");
-    if (!outFile) {
-        cerr << "Error opening output.txt" << endl;
-        return 1;
-    }
-    streambuf *coutbuf = cout.rdbuf(); // Save old buffer
-    cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
+    // ofstream outFile("output.txt");
+    // if (!outFile) {
+    //     cerr << "Error opening output.txt" << endl;
+    //     return 1;
+    // }
+    // cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
 
     // Load game configuration
     GameConfig config("game.txt");
