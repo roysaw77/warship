@@ -285,10 +285,12 @@ public:
     }
 };
 
-class Destroyer : public movingShip {
+class Destroyer : public movingShip,public shootingShip,public rammingShip {
  public:
     void action() override {
         actionMoving();
+        actionShooting();
+        actionRamming();
     }
 
  
@@ -310,10 +312,73 @@ class Destroyer : public movingShip {
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "destroyer: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "Destroyer : " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location after moving
         setLocation(newI, newJ);
+    }
+
+    void actionShooting() override{
+         pair<int, int> location = getLocation();
+    int i = location.first;
+    int j = location.second;
+
+    vector<pair<int, int>> shoot = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {0, -1}};
+
+    for (int count = 0; count < 3; count++) { // Allow up to 3 shots
+        srand(time(0) + count); // Different seed for randomness
+        int ran = rand() % shoot.size(); // Random index within the shoot vector
+
+        int newI = i + shoot[ran].first;
+        int newJ = j + shoot[ran].second;
+
+        // Ensure the target is within bounds
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+            string &target = gameMap[newI][newJ];
+            
+            // Check if the target is not an ally and not an island
+            if (!target.empty() && target != "1" && !isAlly(target)) {
+                cout << "Destroyer " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
+                     << ") and hits enemy " << target << endl;
+                target = ""; // Clear the target
+                killIncreament();
+                cout<<sym<<" Kill: "<<kill<<endl;
+            } else {
+                cout << "Destroyer  " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
+                     << ") but misses." << endl;
+            }
+        } else {
+            cout << "Destroyer " << sym << " shoots out of bounds at (" 
+                 << newI + 1 << ", " << newJ + 1 << ")." << endl;
+        }
+       }
+    }
+
+    void actionRamming() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        vector<pair<int, int>> ram = { {1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        srand(time(0));
+        int ran = rand() % ram.size();
+
+        int newI = i + ram[ran].first;
+        int newJ = j + ram[ran].second;
+
+        // Ensure the target is within bounds
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+            string &target = gameMap[newI][newJ];
+
+            // Check if the target is not an ally and not an island
+            if (!target.empty() && target != "1" && !isAlly(target)) {
+                cout << "Destroyer  " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                target = ""; // Clear the target
+                killIncreament();
+                cout<<sym<<" Kill: "<<kill<<endl;
+            }
+            else{cout<<"Destroyer " << sym << " rammed nothing at (" << newI + 1 << ", " << newJ + 1 << ")"<<endl;}
+        }
     }
 };
 
