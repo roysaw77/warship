@@ -140,25 +140,40 @@ public:
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
-        int iter=0;
+        int iter = 0;
 
-        int newI, newJ; // Declare variables outside the loop
+        int newI, newJ;
+        bool moved = false; // Flag to track if the ship successfully moved
+
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-            iter++;
-            if(iter==99){
-               cout<<sym<< " are no place to move"<<endl;
-            }
-        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
-        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
-        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+            if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
+                // Position is within bounds and not occupied
+                moved = true;
+                break;
+            }
+            iter++;
+        } while (iter < 100); // Stop after 100 iterations
+
+        if (!moved) {
+            // No valid moves after 100 attempts
+            cout << "BattleShip: " << sym << " could not move due to lack of valid positions." << endl;
+            return;
+        }
+
+        // Clear old position
+        gameMap[i][j] = "";
+
+        // Place ship at new position
+        placeShip(gameMap, sym, newI, newJ);
         cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Update ship's location after moving
+        // Update ship's location
         setLocation(newI, newJ);
     }
+
 
    void actionSeeing() override {
         pair<int, int> location = getLocation();
@@ -243,29 +258,43 @@ public:
         generateShip(sym);
     }
 
-     void actionMoving() override {
+    void actionMoving() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
-        int iter=0;
+        int iter = 0;
 
-        int newI, newJ; // Declare variables outside the loop
+        int newI, newJ;
+        bool moved = false; // Flag to track if the ship successfully moved
+
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-            iter++;
-            if(iter==99){
-               cout<<sym<< " are no place to move"<<endl;
-            }
-        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
-        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
-        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+            if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
+                // Position is within bounds and not occupied
+                moved = true;
+                break;
+            }
+            iter++;
+        } while (iter < 100); // Stop after 100 iterations
+
+        if (!moved) {
+            // No valid moves after 100 attempts
+            cout << "BattleShip: " << sym << " could not move due to lack of valid positions." << endl;
+            return;
+        }
+
+        // Clear old position
+        gameMap[i][j] = "";
+
+        // Place ship at new position
+        placeShip(gameMap, sym, newI, newJ);
         cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Update ship's location after moving
+        // Update ship's location
         setLocation(newI, newJ);
-    }
+        }
 
     void actionRamming() override {
         pair<int, int> location = getLocation();
@@ -309,27 +338,41 @@ class Destroyer : public movingShip,public shootingShip,public rammingShip {
         placeShip(gameMap, sym, i, j);
     }
 
-        void actionMoving() override {
+       void actionMoving() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
-         int iter=0;
+        int iter = 0;
 
-        int newI, newJ; // Declare variables outside the loop
+        int newI, newJ;
+        bool moved = false; // Flag to track if the ship successfully moved
+
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-            iter++;
-            if(iter==99){
-               cout<<sym<< " are no place to move"<<endl;
-            }
-        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
-        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
-        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+            if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
+                // Position is within bounds and not occupied
+                moved = true;
+                break;
+            }
+            iter++;
+        } while (iter < 100); // Stop after 100 iterations
+
+        if (!moved) {
+            // No valid moves after 100 attempts
+            cout << "BattleShip: " << sym << " could not move due to lack of valid positions." << endl;
+            return;
+        }
+
+        // Clear old position
+        gameMap[i][j] = "";
+
+        // Place ship at new position
+        placeShip(gameMap, sym, newI, newJ);
         cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
-        // Update ship's location after moving
+        // Update ship's location
         setLocation(newI, newJ);
     }
 
@@ -613,7 +656,7 @@ int main() {
 
     // Simulate iterations
    // Simulate iterations
-    for (int iter = 0; iter < 51; iter++) {
+    for (int iter = 0; iter < iterations; iter++) {
     cout << "\nIteration " << iter + 1 << ":" << endl;
 
     // Team A actions
