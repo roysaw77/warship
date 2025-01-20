@@ -456,7 +456,7 @@ ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<string> 
         cout<<"Ship "<<oldShip->getSym()<<" upgraded to Destroyer "<<newSym<<endl;
 
         // Delete the old ship
-        delete oldShip;
+        
 
         return newShip;
     }
@@ -571,7 +571,6 @@ int main() {
             ++it;
         } else {
             cout << "Ship " << shipPtr->getSym() << " from Team B has been destroyed." << endl;
-            delete shipPtr; // Free memory
             it = Bships.erase(it); // Remove ship from list
         }
     }
