@@ -140,12 +140,17 @@ public:
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
+        int iter=0;
 
         int newI, newJ; // Declare variables outside the loop
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
+            iter++;
+            if(iter==99){
+               cout<<sym<< " are no place to move"<<endl;
+            }
+        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
@@ -242,16 +247,21 @@ public:
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
+        int iter=0;
 
         int newI, newJ; // Declare variables outside the loop
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
+            iter++;
+            if(iter==99){
+               cout<<sym<< " are no place to move"<<endl;
+            }
+        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "Cruiser: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location after moving
         setLocation(newI, newJ);
@@ -303,16 +313,21 @@ class Destroyer : public movingShip,public shootingShip,public rammingShip {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
+         int iter=0;
 
         int newI, newJ; // Declare variables outside the loop
         do {
             newI = i + (rand() % 3 - 1); // Generate new random position
             newJ = j + (rand() % 3 - 1);
-        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
+            iter++;
+            if(iter==99){
+               cout<<sym<< " are no place to move"<<endl;
+            }
+        } while (!isWithinBound(newI, newJ)&& iter!=100); // Check bounds only in the loop
 
         gameMap[i][j] = ""; // Clear old position after confirming new position is valid
         placeShip(gameMap, sym, newI, newJ); // Place ship at new position
-        cout << "Destroyer : " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location after moving
         setLocation(newI, newJ);
@@ -521,7 +536,7 @@ ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<string> 
         cout<<"Ship "<<oldShip->getSym()<<" upgraded to Destroyer "<<newSym<<endl;
 
         // Delete the old ship
-        
+        delete oldship;
 
         return newShip;
     }
@@ -624,6 +639,7 @@ int main() {
         } else {
             // Ship is destroyed
             cout << "Ship " << shipPtr->getSym() << " from Team A has been destroyed." << endl;
+             delete shipPtr;
             it = AShips.erase(it); // Remove ship from list
         }
     }
@@ -636,7 +652,9 @@ int main() {
             ++it;
         } else {
             cout << "Ship " << shipPtr->getSym() << " from Team B has been destroyed." << endl;
+            delete shipPtr;
             it = Bships.erase(it); // Remove ship from list
+            
         }
     }
 
@@ -654,7 +672,6 @@ int main() {
         break; // End the game
     }
 }
-
     // Clean up remaining ships in AShips
     for (auto shipPtr : AShips) {
         delete shipPtr;
@@ -666,9 +683,5 @@ int main() {
         delete shipPtr;
     }
     Bships.clear();
-
-
-    
-
     return 0;
 }
