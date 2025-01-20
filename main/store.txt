@@ -56,3 +56,11 @@
 //     }
     
 // };
+
+
+
+  else if (Asym[i][0] == '#') {
+             AShips.push_back(new Destroyer(Asym[i], gameMap));
+         } else if (Asym[i][0] == '@') {
+             AShips.push_back(new Frigate(Asym[i], gameMap));
+        }

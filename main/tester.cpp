@@ -19,6 +19,7 @@ protected:
     int posJ = -1; // Position J
     int life = 3; // Ship life
     int kill = 0; // Ship kill
+    bool upgraded = false;
 
 public:
    ship(string ship, int i, int j, vector<vector<string>> &mapRef): sym(ship), posI(i), posJ(j), gameMap(mapRef) {}
@@ -47,7 +48,7 @@ public:
     pair<int, int> getLocation() { return {posI, posJ}; }
 
     void setLife(int Life) { life = Life; }
-    int getLive() { return life; }
+    int getLife() { return life; }
 
     void setkill(int Kill) { kill = Kill; }
     int getkill() { return kill; }
@@ -74,13 +75,6 @@ public:
 
     void killIncreament() { kill++; }
 
-    bool checkDestroyed() {
-         if (gameMap[posI][posJ].empty()) {
-           return true; // Ship is destroyed
-        }
-        return false; // Ship is not destroyed
-    }
-
     bool checkStatus() {
         if (life <= 0) {
             return false; // Ship is destroyed
@@ -91,13 +85,14 @@ public:
         }
         return life > 0;
     }
+    
+    // Mark the ship as upgraded
+    void markAsUpgraded() { upgraded = true; }
 
-    bool checkUpgrade(){
-        if (kill == 4) {
-            return true; // the ship has fulfill the upgrade requirement
-        }
-        return false;//not fulfill the upgrade requirement
-    }
+    // Check if the ship has been upgraded
+    bool isUpgraded() const { return upgraded; }
+
+   
 };
 
 // Derived ship classes
@@ -180,13 +175,13 @@ public:
                 if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
                     // Determine if the cell contains an enemy ship
                    if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    cout << "BattleShip " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                 } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    cout << "BattleShip " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                     }
                 }
                 else if(cellContent.empty() && cellContent == "1"){
-                    cout << "Ship " << sym << " detected nothing  "<< endl;
+                    cout << "BattleShip " << sym << " detected nothing  "<< endl;
                 }
             }
         }
@@ -216,6 +211,7 @@ public:
                      << ") and hits enemy " << target << endl;
                 target = ""; // Clear the target
                 killIncreament();
+                cout<<sym<<" Kill: "<<kill<<endl;
             } else {
                 cout << "Battleship " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
                      << ") but misses." << endl;
@@ -282,10 +278,70 @@ public:
                 cout << "Cruiser " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                 target = ""; // Clear the target
                 killIncreament();
+                cout<<sym<<" Kill: "<<kill<<endl;
             }
             else{cout<<"Cruiser " << sym << " rammed nothing at (" << newI + 1 << ", " << newJ + 1 << ")"<<endl;}
         }
     }
+};
+
+class Destroyer : public movingShip {
+ public:
+    void action() override {
+        actionMoving();
+    }
+
+ 
+      Destroyer(string sym, vector<vector<string>> &gameMap,int i,int j)
+        : ship(sym, -1, -1, gameMap) {
+        placeShip(gameMap, sym, i, j);
+    }
+
+        void actionMoving() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        int newI, newJ; // Declare variables outside the loop
+        do {
+            newI = i + (rand() % 3 - 1); // Generate new random position
+            newJ = j + (rand() % 3 - 1);
+        } while (!isWithinBound(newI, newJ)); // Check bounds only in the loop
+
+        gameMap[i][j] = ""; // Clear old position after confirming new position is valid
+        placeShip(gameMap, sym, newI, newJ); // Place ship at new position
+        cout << "destroyer: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+
+        // Update ship's location after moving
+        setLocation(newI, newJ);
+    }
+};
+
+class Frigate : public shootingShip {
+public:
+    void action() override {
+        actionShooting();
+    }
+     Frigate(string sym, vector<vector<string>> &gameMap)
+        : ship(sym, -1, -1, gameMap) {
+        generateShip(sym);
+    }
+    void actionShooting() override {
+        static int count = 0;
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        vector<pair<int, int>> shoot = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {0, -1}};
+
+        for (int count = 0; count < 3; count++) { // Allow up to 3 shots
+            srand(time(0) + count); // Different seed for randomness
+            int ran = rand() % shoot.size(); // Random index within the shoot vector
+
+            int newI = i + shoot[ran].first;
+        }
+    }
+    
 };
 
 
@@ -382,6 +438,31 @@ public:
     int getIterations() { return iterations; }
 };
 
+ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<string> &destroyerShips) {
+    if (!destroyerShips.empty() && oldShip->getkill() >= 3) {
+        string newSym = destroyerShips.front();
+        destroyerShips.pop();
+         
+         int i=oldShip->getLocation().first;
+         int j=oldShip->getLocation().second;
+        // Create a new Destroyer with the new symbol
+        ship* newShip = new Destroyer(newSym, gameMap,i,j);
+        ship* oldship = oldShip;
+
+        // Transfer the state from the old ship to the new ship
+        newShip->setLocation(oldShip->getLocation().first, oldShip->getLocation().second);
+        newShip->setLife(oldShip->getLife());
+        newShip->setkill(oldShip->getkill());
+        cout<<"Ship "<<oldShip->getSym()<<" upgraded to Destroyer "<<newSym<<endl;
+
+        // Delete the old ship
+        delete oldShip;
+
+        return newShip;
+    }
+    return oldShip; // Return the old ship if no upgrade is needed
+}
+
 // Main function
 int main() {
     srand(time(0)); // Seed the random number generator
@@ -416,20 +497,25 @@ int main() {
     // Create Team A ships
     list<ship*> AShips;
     list<ship*> Bships;
-    queue<ship*> destroyships;
+    queue<string> destroyerShips;
+    queue<string> frigateShips;
+    queue<ship*> destroyedShips;
     for (int i = 0; i < Asym.size(); i++) {
         if (Asym[i][0] == '*') {
             AShips.push_back(new Battleship(Asym[i], gameMap));
         } else if (Asym[i][0] == '$') {
             AShips.push_back(new Cruiser(Asym[i], gameMap));
-        // } else if (Asym[i][0] == '#') {
-        //     AShips.push_back(new Destroyer(Asym[i], gameMap));
-        // } else if (Asym[i][0] == '@') {
-        //     AShips.push_back(new Frigate(Asym[i], gameMap));
-        } else {
+        }  
+        else if (Asym[i][0] == '#') {
+             destroyerShips.push(Asym[i]);
+         } else if (Asym[i][0] == '@') {
+             frigateShips.push(Asym[i]);
+        }
+        else {
             cout << "Invalid symbol: " << Asym[i] << endl;
         }
     }
+    
 
     for (int i = 0; i < Bsym.size(); i++) {
         if (Bsym[i][0] == '<') {
@@ -447,44 +533,78 @@ int main() {
 
     // Simulate iterations
    // Simulate iterations
-    for (int iter = 0; iter < iterations; iter++) {
-        cout << "\nIteration " << iter + 1 << ":" << endl;
+    for (int iter = 0; iter < 51; iter++) {
+    cout << "\nIteration " << iter + 1 << ":" << endl;
 
-        //doing action
-        for (auto it = AShips.begin(); it != AShips.end();) {
-            ship* shipPtr = *it;
-            if (shipPtr->checkStatus()) {
-                shipPtr->action(); // Perform action only if alive
-                ++it;
-            } else {
-                cout << "Ship " << shipPtr->getSym() << " from Team A has been destroyed." << endl;
-                delete shipPtr; // Free memory
-                it = AShips.erase(it); // Remove ship from list
-            }
+    // Team A actions
+    for (auto it = AShips.begin(); it != AShips.end();) {
+        ship* shipPtr = *it;
+
+        // Check if the ship should be upgraded
+        if (shipPtr->getkill() >= 3 && !shipPtr->isUpgraded()) {
+            // Upgrade the ship
+            ship* upgradedShip = upgradeShip(shipPtr, gameMap, destroyerShips);
+           
+            it = AShips.erase(it); // Remove the old ship from the list
+            it = AShips.insert(it, upgradedShip); // Insert the upgraded ship
+            (*it)->markAsUpgraded(); // Mark the upgraded ship
+            ++it; // Move to the next ship
+            continue; // Skip the rest of the loop for this ship
         }
 
-        // doing action
-        for (auto it = Bships.begin(); it != Bships.end();) {
-            ship* shipPtr = *it;
-            
-            if (shipPtr->checkStatus()) {
-                shipPtr->action(); // Perform action only if alive
-                ++it;
-            } else {
-                cout << "Ship " << shipPtr->getSym() << " from Team B has been destroyed." << endl;
-                delete shipPtr; // Free memory
-                it = Bships.erase(it); // Remove ship from list
-            }
+        // Perform action only if the ship is alive
+        if (shipPtr->checkStatus()) {
+            shipPtr->action(); // Perform action
+            ++it;
+        } else {
+            // Ship is destroyed
+            cout << "Ship " << shipPtr->getSym() << " from Team A has been destroyed." << endl;
+            it = AShips.erase(it); // Remove ship from list
         }
-
-        // Print the updated map
-        config.printMap(gameMap);
-        cout<<endl;
-
-        cout << "Press Enter to continue..." << endl;
-        cin.ignore();
     }
 
+    // Team B actions
+    for (auto it = Bships.begin(); it != Bships.end();) {
+        ship* shipPtr = *it;
+        if (shipPtr->checkStatus()) {
+            shipPtr->action(); // Perform action only if alive
+            ++it;
+        } else {
+            cout << "Ship " << shipPtr->getSym() << " from Team B has been destroyed." << endl;
+            delete shipPtr; // Free memory
+            it = Bships.erase(it); // Remove ship from list
+        }
+    }
+
+    // Print the updated map
+    config.printMap(gameMap);
+    cout << endl;
+
+    // Check win conditions
+    if (Bships.empty()) {
+        cout << "Team A wins!" << endl;
+        break; // End the game
+    }
+    if (AShips.empty()) {
+        cout << "Team B wins!" << endl;
+        break; // End the game
+    }
+}
+
+    // Clean up remaining ships in AShips
+    for (auto shipPtr : AShips) {
+        delete shipPtr;
+    }
+    AShips.clear();
+
+    // Clean up remaining ships in Bships
+    for (auto shipPtr : Bships) {
+        delete shipPtr;
+    }
+    Bships.clear();
+
+
+    
 
     return 0;
 }
