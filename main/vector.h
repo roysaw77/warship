@@ -1,15 +1,15 @@
-#ifndef CVECTOR_H
-#define CVECTOR_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
 #include <cstddef>
 
-
+#include <iostream>
 
 template <typename T>
-class CVector {
+class cvector {
 private:
-    size_t _size;       // Renamed from size to _size
-    size_t _capacity;   // Renamed from capacity to _capacity
+    size_t _size;
+    size_t _capacity;
     T *data;
 
     void resize() {
@@ -25,24 +25,22 @@ private:
     }
 
 public:
-    CVector() : data(nullptr), _size(0), _capacity(0) {}
+    cvector() : data(nullptr), _size(0), _capacity(0) {}
 
-    CVector(const CVector& other) : _size(other._size), _capacity(other._capacity) {
+    cvector(const cvector &other) : _size(other._size), _capacity(other._capacity) {
         data = new T[_capacity];
         for (size_t i = 0; i < _size; ++i) {
             data[i] = other.data[i];
         }
     }
 
-    CVector(CVector&& other) : data(other.data), _size(other._size), _capacity(other._capacity) {
+    cvector(cvector &&other) noexcept : data(other.data), _size(other._size), _capacity(other._capacity) {
         other.data = nullptr;
         other._size = 0;
         other._capacity = 0;
     }
 
- 
-
-    CVector& operator=(const CVector& other) {
+    cvector &operator=(const cvector &other) {
         if (this != &other) {
             delete[] data;
             _size = other._size;
@@ -55,26 +53,26 @@ public:
         return *this;
     }
 
-    ~CVector() {
+    ~cvector() {
         delete[] data;
     }
 
-    void push_back(const T& value) {
+    void push_back(const T &value) {
         if (_size == _capacity) {
             resize();
         }
         data[_size++] = value;
     }
 
-    T& operator[](size_t index) {
-        return data[index]; 
+    T &operator[](size_t index) {
+        return data[index];
     }
 
-    const T& operator[](size_t index) const {
-        return data[index]; 
+    const T &operator[](size_t index) const {
+        return data[index];
     }
 
-    size_t size() const { // No naming conflict here
+    size_t size() const {
         return _size;
     }
 
@@ -86,12 +84,10 @@ public:
         _size = 0;
     }
 
-    T* begin() { return data; }
-    T* end() { return data + _size; }
-    const T* begin() const { return data; }
-    const T* end() const { return data + _size; }
-
-    
+    T *begin() { return data; }
+    T *end() { return data + _size; }
+    const T *begin() const { return data; }
+    const T *end() const { return data + _size; }
 };
 
-#endif // CVECTOR_H
+#endif // VECTOR_H
