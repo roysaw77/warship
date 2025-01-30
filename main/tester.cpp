@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <queue>
 #include <list>
+#include "gameconfig.h"
 
 using namespace std;
 
@@ -20,6 +21,8 @@ protected:
     int life = 3; // Ship life
     int kill = 0; // Ship kill
     bool upgraded = false;
+    ship* shipPtr;
+    
 
 public:
    ship(string ship, int i, int j, vector<vector<string>> &mapRef): sym(ship), posI(i), posJ(j), gameMap(mapRef) {}
@@ -91,7 +94,6 @@ public:
 
     // Check if the ship has been upgraded
     bool isUpgraded() const { return upgraded; }
-
    
 };
 
@@ -281,7 +283,7 @@ public:
 
         if (!moved) {
             // No valid moves after 100 attempts
-            cout << "BattleShip: " << sym << " could not move due to lack of valid positions." << endl;
+            cout << "Cruiser: " << sym << " could not move due to lack of valid positions." << endl;
             return;
         }
 
@@ -290,7 +292,7 @@ public:
 
         // Place ship at new position
         placeShip(gameMap, sym, newI, newJ);
-        cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "Cruiser: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location
         setLocation(newI, newJ);
@@ -310,12 +312,14 @@ public:
 
         // Ensure the target is within bounds
         if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
-            string &target = gameMap[newI][newJ];
+            string& target = gameMap[newI][newJ];
 
             // Check if the target is not an ally and not an island
             if (!target.empty() && target != "1" && !isAlly(target)) {
                 cout << "Cruiser " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                target = ""; // Clear the target
+                gameMap[i][j] = ""; // Clear the target
+                target = sym; // Clear the target
+                setLocation(newI, newJ);
                 killIncreament();
                 cout<<sym<<" Kill: "<<kill<<endl;
             }
@@ -361,7 +365,7 @@ class Destroyer : public movingShip,public shootingShip,public rammingShip {
 
         if (!moved) {
             // No valid moves after 100 attempts
-            cout << "BattleShip: " << sym << " could not move due to lack of valid positions." << endl;
+            cout << "Destroyer: " << sym << " could not move due to lack of valid positions." << endl;
             return;
         }
 
@@ -370,7 +374,7 @@ class Destroyer : public movingShip,public shootingShip,public rammingShip {
 
         // Place ship at new position
         placeShip(gameMap, sym, newI, newJ);
-        cout << "BattleShip: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+        cout << "Destroyer: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
 
         // Update ship's location
         setLocation(newI, newJ);
@@ -430,12 +434,14 @@ class Destroyer : public movingShip,public shootingShip,public rammingShip {
 
             // Check if the target is not an ally and not an island
             if (!target.empty() && target != "1" && !isAlly(target)) {
-                cout << "Destroyer  " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-                target = ""; // Clear the target
+                cout << "Cruiser " << sym << " rammed enemy " << target << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                gameMap[i][j] = ""; // Clear the target
+                target = sym; // Clear the target
+                setLocation(newI, newJ);
                 killIncreament();
                 cout<<sym<<" Kill: "<<kill<<endl;
             }
-            else{cout<<"Destroyer " << sym << " rammed nothing at (" << newI + 1 << ", " << newJ + 1 << ")"<<endl;}
+            else{cout<<"Cruiser " << sym << " rammed nothing at (" << newI + 1 << ", " << newJ + 1 << ")"<<endl;}
         }
     }
 };
@@ -468,99 +474,6 @@ public:
 };
 
 
-// Game configuration class
-class GameConfig {
-private:
-    int iterations;
-    int mW;
-    int mH;
-    vector<int> Anum;
-    vector<string> Asym;
-    vector<int> Bnum;
-    vector<string> Bsym;
-    vector<vector<string>> gameMap;
-
-public:
-    GameConfig(const string &filename) : iterations(0), mW(0), mH(0) {
-        ifstream file(filename);
-
-        if (file.is_open()) {
-            string key;
-
-            while (file >> key) {
-                if (key == "iterations") {
-                    file >> iterations;
-                } else if (key == "width") {
-                    file >> mW;
-                } else if (key == "height") {
-                    file >> mH;
-                } else if (key == "Team") {
-                    string teamName;
-                    int numShips;
-                    file >> teamName >> numShips;
-
-                    if (teamName == "A") {
-                        for (int i = 0; i < numShips; i++) {
-                            string shipType;
-                            char symbol;
-                            int count;
-                            file >> shipType >> symbol >> count;
-                            Anum.push_back(count);
-
-                            for (int j = 1; j <= count; ++j) {
-                                Asym.push_back(string(1, symbol) + to_string(j));
-                            }
-                        }
-                    } else if (teamName == "B") {
-                        for (int i = 0; i < numShips; i++) {
-                            string shipType;
-                            char symbol;
-                            int count;
-                            file >> shipType >> symbol >> count;
-                            Bnum.push_back(count);
-
-                            for (int j = 1; j <= count; ++j) {
-                                Bsym.push_back(string(1, symbol) + to_string(j));
-                            }
-                        }
-                    }
-                } else if (key == "0" || key == "1") {
-                    gameMap.resize(mH, vector<string>(mW, "")); // Resize the map
-                    file.unget();
-                    for (int i = 0; i < mH; i++) {
-                        for (int j = 0; j < mW; j++) {
-                            char cell;
-                            file >> cell;
-                            gameMap[i][j] = (cell == '1' ? "1" : ""); // Mark islands as "1"
-                        }
-                    }
-                }
-            }
-            file.close();
-        } else {
-            cout << "Error opening file" << endl;
-        }
-    }
-
-    void printMap(const vector<vector<string>> &gameMap) {
-        for (const auto &row : gameMap) {
-            for (const auto &cell : row) {
-                if (cell.empty()) {
-                    cout << setw(5) << "0"; // Display "0" for empty cells
-                } else {
-                    cout << setw(5) << cell; // Display the symbol
-                }
-            }
-            cout << endl;
-        }
-    }
-
-    vector<vector<string>> getGameMap() { return gameMap; }
-    vector<string> getAsym() { return Asym; }
-    vector<string> getBsym() { return Bsym; }
-    int getIterations() { return iterations; }
-};
-
 ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<string> &destroyerShips) {
     if (!destroyerShips.empty() && oldShip->getkill() >= 3) {
         string newSym = destroyerShips.front();
@@ -590,12 +503,12 @@ ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<string> 
 int main() {
     srand(time(0)); // Seed the random number generator
 
-    // ofstream outFile("output.txt");
-    // if (!outFile) {
-    //     cerr << "Error opening output.txt" << endl;
-    //     return 1;
-    // }
-    // cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
+    ofstream outFile("output.txt");
+    if (!outFile) {
+        cerr << "Error opening output.txt" << endl;
+        return 1;
+    }
+    cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
 
     // Load game configuration
     GameConfig config("game.txt");
@@ -656,9 +569,11 @@ int main() {
 
     // Simulate iterations
    // Simulate iterations
+     
     for (int iter = 0; iter < iterations; iter++) {
     cout << "\nIteration " << iter + 1 << ":" << endl;
-
+     cout<<"--------------------------------------------------------------------------"<<endl;
+     cout<<"Team A"<<endl;
     // Team A actions
     for (auto it = AShips.begin(); it != AShips.end();) {
         ship* shipPtr = *it;
@@ -686,7 +601,8 @@ int main() {
             it = AShips.erase(it); // Remove ship from list
         }
     }
-
+cout<<"--------------------------------------------------------------------------"<<endl;
+cout<<"Team B"<<endl;
     // Team B actions
     for (auto it = Bships.begin(); it != Bships.end();) {
         ship* shipPtr = *it;
@@ -704,7 +620,7 @@ int main() {
     // Print the updated map
     config.printMap(gameMap);
     cout << endl;
-
+  
     // Check win conditions
     if (Bships.empty()) {
         cout << "Team A wins!" << endl;
@@ -714,6 +630,7 @@ int main() {
         cout << "Team B wins!" << endl;
         break; // End the game
     }
+    
 }
     // Clean up remaining ships in AShips
     for (auto shipPtr : AShips) {
