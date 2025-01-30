@@ -6,6 +6,7 @@
 #include <tuple>
 #include <ctime>
 #include <algorithm>
+
 using namespace std;
 
 class ship {
@@ -210,7 +211,6 @@ class Battleship : public movingShip, public shootingShip {
                                 gameMap[newI][newJ] = "";
                                 killIncrement();
                                 cout << sym << " Kill: " << kill << endl;
-                                delete enemyShip; // Free memory
                                 it = enemiesShips.erase(it);
                             }
                             break;
@@ -322,6 +322,7 @@ class Destroyer : public movingShip, public rammingShip{
                 cout << sym << " Kill: " << kill << endl;
             }
         }
+        else{cout<<"Destroyer "<<sym<<" rammed at ("<<newI+1<<", "<<newJ+1<<") but misses."<<endl;}
     }
 };
 
@@ -350,34 +351,29 @@ void printQueue(queue<ship*> &respawnQueue) {
 }
 
 ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<ship*> &respawnQueue, list<ship*> &teamShips) {
-    int i = oldShip->getLocation().first;
-    int j = oldShip->getLocation().second;
-
-    // Create a new Destroyer
-    ship* newShip = new Destroyer(oldShip->getSym(), gameMap, teamShips, respawnQueue);
-
-    // Preserve the ship's attributes
-    newShip->setLocation(i, j);
-    newShip->setLife(oldShip->getLife());
-    newShip->setKill(oldShip->getKill());
-    newShip->markAsUpgraded();
-    gameMap[i][j] = newShip->getSym();
-
-    cout << "Ship " << oldShip->getSym() << " upgraded to Destroyer!" << endl;
-
-    // Custom findShip usage
-    for (auto it = teamShips.begin(); it != teamShips.end(); ++it) {
-        if (*it == oldShip) {
-            teamShips.erase(it);  // Remove old ship
-            teamShips.push_back(newShip); // Add new upgraded ship
-            break;
-        }
+    if (oldShip == nullptr) {
+        cerr << "Error: oldShip is null" << endl;
+        return nullptr;
     }
 
-    delete oldShip; // Free memory
-    return newShip;
-}
+    try {
+        // Create a new Destroyer
+        ship* newShip = new Destroyer(oldShip->getSym(), gameMap, teamShips, respawnQueue);
 
+        // Preserve the ship's attributes
+        newShip->setLife(oldShip->getLife());
+        newShip->setKill(oldShip->getKill());
+        newShip->markAsUpgraded();
+
+        cout << "Ship " << oldShip->getSym() << " upgraded to Destroyer!" << endl;
+     
+        delete oldShip; // Free memory of the old ship
+        return newShip;
+    } catch (const exception& e) {
+        cerr << "Upgrade failed: " << e.what() << endl;
+        return nullptr;
+    }
+}
 
 
 int main() {
@@ -437,7 +433,13 @@ int main() {
     // Perform ship actions
     for (auto it = AShips.begin(); it != AShips.end(); ) {
         if ((*it)->getKill() == 3 && !(*it)->isUpgraded()) {
-            *it = upgradeShip(*it, gameMap, respawnQueueA, AShips);
+            int i=(*it)->getLocation().first;
+            int j=(*it)->getLocation().second;
+             gameMap[i][j]="";
+            (*it)->setLocation(-1, -1); // Mark as removed from the map
+            ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueA, AShips);
+            it = AShips.erase(it); // Remove the old ship from the list
+            it = AShips.insert(it, upgradedShip);
             continue;
         }
         (*it)->action();
@@ -446,7 +448,13 @@ int main() {
 
     for (auto it = BShips.begin(); it != BShips.end(); ) {
         if ((*it)->getKill() == 3 && !(*it)->isUpgraded()) {
-            *it = upgradeShip(*it, gameMap, respawnQueueB, BShips);
+            int i=(*it)->getLocation().first;
+            int j=(*it)->getLocation().second;
+             gameMap[i][j]="";
+            (*it)->setLocation(-1, -1); // Mark as removed from the map
+           ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueA, AShips);
+            it = AShips.erase(it); // Remove the old ship from the list
+            it = AShips.insert(it, upgradedShip);
             continue;
         }
         (*it)->action();
@@ -469,7 +477,8 @@ int main() {
         cout << "Team A wins!" << endl;
         break;
     }
-  }
+   }
+    printMap(gameMap);
 }
 
 //respawn 错是之前没有放进对的list里
