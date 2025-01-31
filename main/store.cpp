@@ -323,51 +323,20 @@ if (!respawnQueueB.empty()) {
     return 0;
 }
 
-// class Destroyer : public movingShip, public shootingShip {   
+// class Frigate: public shootingShip {   
 // private:
 // int currentDirectionIndex = 0;
 // public:
-//     Destroyer(string sym, vector<vector<string>> &gameMap, list<ship*> &enemies, queue<ship*> &respawnQueue)
+//     Frigate(string sym, vector<vector<string>> &gameMap, list<ship*> &enemies, queue<ship*> &respawnQueue)
 //         : ship(sym, -1, -1, gameMap, enemies, respawnQueue) {
 //         generateShip(sym);
 //     }
 
 //     void action() override {
-//         actionMoving();
 //         actionShooting();
 //     }
 
-//     void actionMoving() override {
-//         pair<int, int> location = getLocation();
-//         int i = location.first;
-//         int j = location.second;
-//         int iter = 0;
-
-//         int newI, newJ;
-//         bool moved = false;
-
-//         do {
-//             newI = i + (rand() % 3 - 1);
-//             newJ = j + (rand() % 3 - 1);
-
-//             if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
-//                 moved = true;
-//                 break;
-//             }
-//             iter++;
-//         } while (iter < 100);
-
-//         if (!moved) {
-//             cout << "Destroyer: " << sym << " could not move." << endl;
-//             return;
-//         }
-
-//         gameMap[i][j] = "";
-//         placeShip(gameMap, sym, newI, newJ);
-//         setLocation(newI, newJ);
-//         cout << "Destroyer: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
-//     }
-
+//    
 //      void actionShooting() override {
 //     pair<int, int> location = getLocation();
 //     int i = location.first;
