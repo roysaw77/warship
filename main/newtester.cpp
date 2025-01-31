@@ -1,8 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include "vector.h"
-#include <list>
-#include <queue>
+#include "list.h"
+#include "queue.h"
 #include <tuple>
 #include <ctime>
 #include "gameconfig.h"
@@ -194,7 +194,7 @@ class Battleship : public movingShip, public shootingShip {
                 string &target = gameMap[newI][newJ];
 
                 if (!target.empty() && target != "1" && !isAlly(target)) {
-                    for (auto it = enemiesShips.begin(); it != enemiesShips.end(); ) {
+                  for (auto it = enemiesShips.begin(); it != enemiesShips.end(); ) {
                         ship* enemyShip = *it;
                         pair<int, int> enemyLoc = enemyShip->getLocation();
 
@@ -1000,13 +1000,14 @@ int main() {
              gameMap[i][j]="";
             (*it)->setLocation(-1, -1); // Mark as removed from the map
            ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueA, AShips);
-            it = AShips.erase(it); // Remove the old ship from the list
-            it = AShips.insert(it, upgradedShip);
+            it = BShips.erase(it); // Remove the old ship from the list
+            it = BShips.insert(it, upgradedShip);
             continue;
         }
         (*it)->action();
         ++it;
     }
+
     config.printMap(gameMap);
     cout << endl;
 
