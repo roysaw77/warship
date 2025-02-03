@@ -125,7 +125,7 @@ public:
     }
 
     // Erase element by iterator
-    class Iterator {
+class Iterator {
 private:
     Node* current;
     Node* previous;

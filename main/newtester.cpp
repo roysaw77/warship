@@ -834,6 +834,10 @@ public:
     }
 };
 
+// class sniperShip : public shootingShip {
+    
+// };
+
 void printQueue(queue<ship*> &respawnQueue) {
     queue<ship*> temp = respawnQueue;
     while (!temp.empty()) {
