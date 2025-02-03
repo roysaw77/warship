@@ -310,8 +310,8 @@ class Cruiser : public movingShip, public rammingShip{
                 cout << targetSymbol << "'s life is now " << enemyShip->getLife() << endl;
 
                 if (enemyShip->getLife() != 0) {
-                    cout << "  " << targetSymbol << " is permanently destroyed!" << endl;
                     gameMap[newI][newJ] = "";
+                    enemyShip->setLocation(-1, -1);
                     respawnQueue.push(enemyShip);
                     enemiesShips.erase(it);
                     killIncrement();
@@ -321,6 +321,8 @@ class Cruiser : public movingShip, public rammingShip{
                     cout << sym << " moved to (" << newI+1 << ", " << newJ+1 << ") after ramming." << endl;
                 } else {
                     cout<<"  "<<targetSymbol<<" is permanently destroyed!"<<endl;
+                    gameMap[newI][newJ] = "";
+                    enemyShip->setLocation(-1, -1);
                     enemiesShips.erase(it);
                 }
                 cout << sym << " Kill: " << kill << endl;
@@ -437,7 +439,7 @@ class Destroyer : public movingShip,public shootingShip, public rammingShip{
         
     }
 
-     void actionRamming() override {
+      void actionRamming() override {
         pair<int, int> location = getLocation();
         int i = location.first;
         int j = location.second;
@@ -469,8 +471,8 @@ class Destroyer : public movingShip,public shootingShip, public rammingShip{
                 cout << targetSymbol << "'s life is now " << enemyShip->getLife() << endl;
 
                 if (enemyShip->getLife() != 0) {
-                    cout << "  " << targetSymbol << " is permanently destroyed!" << endl;
                     gameMap[newI][newJ] = "";
+                    enemyShip->setLocation(-1, -1);
                     respawnQueue.push(enemyShip);
                     enemiesShips.erase(it);
                     killIncrement();
@@ -480,6 +482,8 @@ class Destroyer : public movingShip,public shootingShip, public rammingShip{
                     cout << sym << " moved to (" << newI+1 << ", " << newJ+1 << ") after ramming." << endl;
                 } else {
                     cout<<"  "<<targetSymbol<<" is permanently destroyed!"<<endl;
+                    gameMap[newI][newJ] = "";
+                    enemyShip->setLocation(-1, -1);
                     enemiesShips.erase(it);
                 }
                 cout << sym << " Kill: " << kill << endl;
@@ -898,12 +902,12 @@ int main() {
     vector<string> Asym = config.getAsym(); // SymbolA
     vector<string> Bsym = config.getBsym(); // SymbolB
     int iterations = config.getIterations();
-    ofstream outFile("tt.txt");
-    if (!outFile) {
-        cerr << "Error opening output.txt" << endl;
-        return 1;
-    }
-    cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
+    // ofstream outFile("tt.txt");
+    // if (!outFile) {
+    //     cerr << "Error opening output.txt" << endl;
+    //     return 1;
+    // }
+    // cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
 
 
 
