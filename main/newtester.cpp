@@ -19,6 +19,7 @@ protected:
     int kill = 0; 
     bool upgraded = false;
     
+    
 
 public:
     ship(string sym, int i, int j, vector<vector<string>> &mapRef, list<ship*> &enemies, queue<ship*> &Queue)
@@ -105,7 +106,14 @@ public:
 
     // Check if the ship has been upgraded
     bool isUpgraded() const { return upgraded; }
+    
 
+};
+
+class seeingShip : public virtual ship {
+public:
+    virtual ~seeingShip() {}
+    virtual void actionSeeing() = 0;
 };
 
 class movingShip : public virtual ship {
@@ -126,9 +134,7 @@ public:
     virtual void actionShooting() = 0;
 };
 
-class Battleship : public movingShip, public shootingShip {
-     private:
-    int currentDirectionIndex = 0;
+class Battleship : public seeingShip,public movingShip, public shootingShip {
     public:
     Battleship(string sym, vector<vector<string>> &gameMap, list<ship*> &enemies, queue<ship*> &respawnQueue)
         : ship(sym, -1, -1, gameMap, enemies, respawnQueue) {
@@ -136,8 +142,17 @@ class Battleship : public movingShip, public shootingShip {
     }
 
     void action() override {
+        actionSeeing();
         actionMoving();
         actionShooting();
+    }
+
+    void actionSeeing() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        cout<<"Battleship "<<sym<<" position is ("<<i<<","<<j<<")"<<endl;
     }
 
     void actionMoving() override {
@@ -150,8 +165,10 @@ class Battleship : public movingShip, public shootingShip {
         bool moved = false;
 
         do {
-            newI = i + (rand() % 3 - 1);
-            newJ = j + (rand() % 3 - 1);
+            do{
+                newI = i + (rand() % 3 - 1);
+                newJ = j + (rand() % 3 - 1);
+            }while(newI==i && newJ==j);
 
             if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
                 moved = true;
@@ -235,7 +252,7 @@ class Battleship : public movingShip, public shootingShip {
     
 };
 
-class Cruiser : public movingShip, public rammingShip{
+class Cruiser : public seeingShip,public movingShip, public rammingShip{
     public:
     Cruiser(string sym, vector<vector<string>> &gameMap, list<ship*> &enemies, queue<ship*> &respawnQueue)
         : ship(sym, -1, -1, gameMap, enemies, respawnQueue) {
@@ -243,8 +260,41 @@ class Cruiser : public movingShip, public rammingShip{
     }
 
     void action() override {
+        actionSeeing();
         actionMoving();
         actionRamming();
+    }
+
+    void actionSeeing() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        // Define the relative positions to check around the ship
+        vector<pair<int, int>> views = {{1, 1}, {1, 0}, {0, 1}, {-1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {0, -1}};
+
+        for (auto view : views) {
+            int newI = i + view.first;
+            int newJ = j + view.second;
+
+            // Check if the new position is within bounds
+            if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+                string cellContent = gameMap[newI][newJ];
+
+                // Check if the cell contains an enemy ship
+                if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
+                    // Determine if the cell contains an enemy ship
+                   if (!isAlly(cellContent)) { // If not an ally, it's an enemy
+                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                } else {
+                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    }
+                }
+                else if(cellContent.empty() && cellContent == "1"){
+                    cout << "Ship " << sym << " detected nothing  "<< endl;
+                }
+            }
+        }
     }
 
     void actionMoving() override {
@@ -257,8 +307,9 @@ class Cruiser : public movingShip, public rammingShip{
         bool moved = false;
 
         do {
-            newI = i + (rand() % 3 - 1);
-            newJ = j + (rand() % 3 - 1);
+            do{newI = i + (rand() % 3 - 1);
+                newJ = j + (rand() % 3 - 1);
+            }while(newI==i && newJ==j);
 
             if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
                 moved = true;
@@ -613,8 +664,10 @@ class Supership : public movingShip,public shootingShip, public rammingShip{
         bool moved = false;
 
         do {
-            newI = i + (rand() % 3 - 1);
-            newJ = j + (rand() % 3 - 1);
+            do{
+                newI = i + (rand() % 3 - 1);
+                newJ = j + (rand() % 3 - 1);
+            }while(newI==i && newJ==j);
 
             if (isWithinBound(newI, newJ) && gameMap[newI][newJ].empty()) {
                 moved = true;
@@ -838,9 +891,190 @@ public:
     }
 };
 
-// class sniperShip : public shootingShip {
+class Amphibious : public movingShip, public  shootingShip{
+public:
+    Amphibious(string sym, vector<vector<string>>& gameMap, list<ship*>& enemies, queue<ship*>& respawnQueue)
+        : ship(sym, -1, -1, gameMap, enemies, respawnQueue) {
+        generateShip(sym);
+    }
+
+    void action() override {
+        actionMoving();
+        actionShooting();
+    }
+
+    void actionMoving() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+        int iter = 0;
+
+        int newI, newJ;
+        bool moved = false;
+
+        do {
+            do{newI = i + (rand() % 3 - 1);
+                newJ = j + (rand() % 3 - 1);
+            }while(newI==i && newJ==j);
+
+            if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()){
+                moved = true;
+                break;
+            }
+            iter++;
+        } while (iter < 100);
+
+        if (!moved) {
+            cout << "Amphibious: " << sym << " could not move." << endl;
+            return;
+        }
+
+        gameMap[i][j] = "";
+        placeShip(gameMap, sym, newI, newJ);
+        setLocation(newI, newJ);
+        cout << "Amphibious: " << sym << " moved to (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+    }
+
+    void actionShooting() override {
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+
+        const vector<pair<std::pair<int, int>, string>> shootDirections = {
+            {{1, 1}, "South-East"}, {{1, 0}, "South"}, {{0, 1}, "East"},
+            {{-1, 0}, "North"}, {{-1, -1}, "North-West"}, {{1, -1}, "South-West"},
+            {{-1, 1}, "North-East"}, {{0, -1}, "West"}
+        };
+
+        for (int count = 0; count < 2; count++) { // Allow up to 2 shots
+            int ran = rand() % shootDirections.size();
+            pair<int, int> direction = shootDirections[ran].first;
+            string directionName = shootDirections[ran].second;
+
+            int newI = i + direction.first;
+            int newJ = j + direction.second;
+
+            if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+                string &target = gameMap[newI][newJ];
+
+                if (!target.empty() && target != "1" && !isAlly(target)) {
+                  for (auto it = enemiesShips.begin(); it != enemiesShips.end(); ) {
+                        ship* enemyShip = *it;
+                        pair<int, int> enemyLoc = enemyShip->getLocation();
+
+                        if (enemyLoc.first == newI && enemyLoc.second == newJ) {
+                            enemyShip->lifeDecrement();
+                            cout << "Ship " << getSym() << " shoots " << directionName 
+                                << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                            cout << enemyShip->getSym() << "'s life is now " << enemyShip->getLife() << endl;
+
+                            if (enemyShip->getLife() > 0) {
+                                enemyShip->setLocation(-1, -1);
+                                gameMap[newI][newJ] = "";
+                                killIncrement();
+                                cout << sym << " Kill: " << kill << endl;
+                                respawnQueue.push(enemyShip);
+                                it = enemiesShips.erase(it); // Erase properly
+                            } else {
+                                cout << "  " << enemyShip->getSym() << " is permanently destroyed!" << endl;
+                                enemyShip->setLocation(-1, -1);
+                                gameMap[newI][newJ] = "";
+                                killIncrement();
+                                cout << sym << " Kill: " << kill << endl;
+                                it = enemiesShips.erase(it);
+                            }
+                            break;
+                        } else {
+                            ++it;
+                        }
+                    }
+                } else {
+                    cout << "Amphibious " << sym << " shoots at (" << newI + 1 << ", " << newJ + 1 
+                        << ") but misses."<< endl;
+                }
+            }
+        }
+        
+    }
+};
+
+class sniperShip : public shootingShip {
+public:
+    sniperShip(string sym, vector<vector<string>>& gameMap, list<ship*>& enemies, queue<ship*>& respawnQueue)
+    : ship(sym, -1, -1, gameMap, enemies, respawnQueue) {
+    generateShip(sym); 
+    }
+    void action() override {
+        actionShooting();
+    }
     
-// };
+    void actionShooting() override{
+        pair<int, int> location = getLocation();
+        int i = location.first;
+        int j = location.second;
+  
+        int newI, newJ;
+        newI = i+rand()%5;
+        newJ = j+rand()%5;
+        
+        if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()) {
+            string& target = gameMap[newI][newJ];
+
+            // Skip allies and islands
+            if (!target.empty() && target != "1" && !isAlly(target)) {
+                ship* enemyShip = nullptr;
+                auto it = enemiesShips.begin();
+
+                // Find the enemy ship at the target location
+                while (it != enemiesShips.end()) {
+                    pair<int, int> enemyLoc = (*it)->getLocation();
+                    if (enemyLoc.first == newI && enemyLoc.second == newJ) {
+                        enemyShip = *it;
+                        break;
+                    }
+                    ++it;
+                }
+
+                if (enemyShip) {
+                    enemyShip->lifeDecrement();
+                    cout << "SniperShip " << sym << " shoots " << i<< j << " to ("
+                         << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    cout << enemyShip->getSym() << "'s life: " << enemyShip->getLife() << endl;
+
+                    // Handle destruction
+                    if (enemyShip->getLife() != 0) {
+                    cout << "  " << enemyShip->getSym() << " is permanently destroyed!" << endl;
+                    gameMap[newI][newJ] = "";
+                    enemyShip->setLocation(-1, -1);
+                    // Increase kill count for the attacking ship
+                    killIncrement();
+                    cout << sym << " Kill: " << kill << endl;
+
+                    // Move enemy to respawn queue and remove from list
+                    respawnQueue.push(enemyShip);
+                    it = enemiesShips.erase(it); // Fix iterator issue
+
+                    cout << enemyShip->getSym() << " added to respawn queue." << endl;
+                    }
+                    else{
+                        cout<<"  "<<enemyShip->getSym()<<" is permanently destroyed!"<<endl;
+                        gameMap[newI][newJ] = "";
+                        enemyShip->setLocation(-1, -1);
+                        killIncrement();
+                        cout << sym << " Kill: " << kill << endl;
+                        it = enemiesShips.erase(it);
+                    }
+                }
+            } else {
+                cout << "SniperShip " << sym << " shoots " << i << j<<" but misses." << endl;
+            }
+        } else {
+            cout << "SniperShip " << sym << " shoots " << i << j << " out of bounds." << endl;
+        }
+    
+
+    }
+};
 
 void printQueue(queue<ship*> &respawnQueue) {
     queue<ship*> temp = respawnQueue;
@@ -852,6 +1086,7 @@ void printQueue(queue<ship*> &respawnQueue) {
 }
 
 ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<ship*> &respawnQueue, list<ship*> &teamShips) {
+    int randomUpgrade= rand()%3;
     if (oldShip == nullptr) {
         cerr << "Error: oldShip is null" << endl;
         return nullptr;
@@ -867,8 +1102,17 @@ ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<ship*> &
             cout << "Ship " << oldShip->getSym() << " upgraded to Destroyer!" << endl;
         } 
         else if (sym == '@') {
-            newShip = new Corvette(oldShip->getSym(), gameMap, teamShips, respawnQueue);
-            cout << "Ship " << oldShip->getSym() << " upgraded to Corvette!" << endl;
+            if(randomUpgrade==0){
+                newShip = new Corvette(oldShip->getSym(), gameMap, teamShips, respawnQueue);
+                cout << "Ship " << oldShip->getSym() << " upgraded to Corvette!" << endl;
+            }else if(randomUpgrade==1){
+                newShip = new Amphibious(oldShip->getSym(), gameMap, teamShips, respawnQueue);
+                cout << "Ship " << oldShip->getSym() << " upgraded to Amphibious!" << endl;
+            }
+            else{
+                newShip = new sniperShip(oldShip->getSym(), gameMap, teamShips, respawnQueue);
+                cout << "Ship " << oldShip->getSym() << " upgraded to Supership!" << endl;
+            }
         } 
         else if (sym == '#') {
             newShip = new Supership(oldShip->getSym(), gameMap, teamShips, respawnQueue);
@@ -883,6 +1127,7 @@ ship* upgradeShip(ship* oldShip, vector<vector<string>> &gameMap, queue<ship*> &
         newShip->setLife(oldShip->getLife());
         newShip->setKill(oldShip->getKill());
         newShip->markAsUpgraded();
+       
 
         delete oldShip; // Free memory of the old ship
         return newShip;
