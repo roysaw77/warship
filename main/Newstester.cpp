@@ -1,4 +1,4 @@
-//全部船action一个turn
+//一个船一个turn
 
 #include <iostream>
 #include <iomanip>
@@ -287,13 +287,13 @@ class Cruiser : public seeingShip,public movingShip, public rammingShip{
                 if (!cellContent.empty() && cellContent != "1") { // "1" represents an island
                     // Determine if the cell contains an enemy ship
                    if (!isAlly(cellContent)) { // If not an ally, it's an enemy
-                    cout << "Ship " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    cout << "Cruiser " << sym << " detected enemy ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                 } else {
-                    cout << "Ship " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
+                    cout << "Cruiser " << sym << " detected ally ship " << cellContent << " at (" << newI + 1 << ", " << newJ + 1 << ")" << endl;
                     }
                 }
                 else if(cellContent.empty() && cellContent == "1"){
-                    cout << "Ship " << sym << " detected nothing  "<< endl;
+                    cout << "Cruiser " << sym << " detected nothing  "<< endl;
                 }
             }
         }
@@ -1149,7 +1149,7 @@ int main() {
     vector<string> Asym = config.getAsym(); // SymbolA
     vector<string> Bsym = config.getBsym(); // SymbolB
     int iterations = config.getIterations();
-    ofstream outFile("tt1.txt");
+    ofstream outFile("tt3.txt");
     if (!outFile) {
         cerr << "Error opening output.txt" << endl;
         return 1;
@@ -1205,7 +1205,7 @@ int main() {
     }
 
 
-   for (int turn = 0; turn < iterations; turn++) {
+   for(int turn = 0; turn < iterations; turn++) {
     cout << "=== Turn " << turn + 1 << " ===" << endl;
 
     // Respawning for Team A
@@ -1213,12 +1213,12 @@ int main() {
         ship* respawned = respawnQueueA.front();
         respawnQueueA.pop();
 
-        if (respawned->getLife() > 0) { // Only respawn if still alive
+        if (respawned->getLife() > 0) {
             respawned->resetShip(); 
             AShips.push_back(respawned);
             cout << respawned->getSym() << " has respawned!" << endl;
         } else {
-            delete respawned; // Permanently remove ship
+            delete respawned;
             cout << respawned->getSym() << " is permanently destroyed and removed." << endl;
         }
     }
@@ -1228,26 +1228,26 @@ int main() {
         ship* respawned = respawnQueueB.front();
         respawnQueueB.pop();
 
-        if (respawned->getLife() > 0) { // Only respawn if still alive
+        if (respawned->getLife() > 0) {
             respawned->resetShip(); 
             BShips.push_back(respawned);
             cout << respawned->getSym() << " has respawned!" << endl;
         } else {
-            delete respawned; // Permanently remove ship
+            delete respawned;
             cout << respawned->getSym() << " is permanently destroyed and removed." << endl;
         }
     }
-    
-    // Perform ship actions
+
+    // Perform ship actions for Team A
     cout << "Team A ships: " << endl;
     for (auto it = AShips.begin(); it != AShips.end(); ) {
         if ((*it)->getKill() == 3 && !(*it)->isUpgraded()) {
-            int i=(*it)->getLocation().first;
-            int j=(*it)->getLocation().second;
-             gameMap[i][j]="";
-            (*it)->setLocation(-1, -1); // Mark as removed from the map
+            int i = (*it)->getLocation().first;
+            int j = (*it)->getLocation().second;
+            gameMap[i][j] = "";
+            (*it)->setLocation(-1, -1);
             ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueA, AShips);
-            it = AShips.erase(it); // Remove the old ship from the list
+            it = AShips.erase(it);
             it = AShips.insert(it, upgradedShip);
             continue;
         }
@@ -1256,29 +1256,31 @@ int main() {
         ++it;
     }
 
+    // Perform ship actions for Team B
     cout << "Team B ships: " << endl;
     for (auto it = BShips.begin(); it != BShips.end(); ) {
         if ((*it)->getKill() == 3 && !(*it)->isUpgraded()) {
-            int i=(*it)->getLocation().first;
-            int j=(*it)->getLocation().second;
-             gameMap[i][j]="";
-            (*it)->setLocation(-1, -1); // Mark as removed from the map
-           ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueA, AShips);
-            it = BShips.erase(it); // Remove the old ship from the list
+            int i = (*it)->getLocation().first;
+            int j = (*it)->getLocation().second;
+            gameMap[i][j] = "";
+            (*it)->setLocation(-1, -1);
+            ship* upgradedShip = upgradeShip(*it, gameMap, respawnQueueB, BShips);
+            it = BShips.erase(it);
             it = BShips.insert(it, upgradedShip);
             continue;
         }
         (*it)->action();
+        config.printMap(gameMap);
         ++it;
     }
-
-    // config.printMap(gameMap);
-    cout << endl;
 
     cout << "Respawn Queue A: "<<endl;
     printQueue(respawnQueueA);
     cout << "Respawn Queue B: "<<endl;
     printQueue(respawnQueueB);
+
+    // Increment turn at the end of the loop
+    
 
     // Check if game should end
     if (AShips.empty() && respawnQueueA.empty()) {
@@ -1289,8 +1291,8 @@ int main() {
         cout << "Team A wins!" << endl;
         break;
     }
-   }
+}
     config.printMap(gameMap);
 }
 
-//respawn 错是之前没有放进对的list里
+
