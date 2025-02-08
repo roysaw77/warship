@@ -154,7 +154,7 @@ class Battleship : public seeingShip,public movingShip, public shootingShip {
         int i = location.first;
         int j = location.second;
 
-        cout<<"Battleship "<<sym<<" position is ("<<i<<","<<j<<")"<<endl;
+        cout<<"Battleship "<<sym<<" position is ("<<i+1<<","<<j+1<<")"<<endl;
     }
 
     void actionMoving() override {
@@ -1149,7 +1149,7 @@ int main() {
     vector<string> Asym = config.getAsym(); // SymbolA
     vector<string> Bsym = config.getBsym(); // SymbolB
     int iterations = config.getIterations();
-    ofstream outFile("tt3.txt");
+    ofstream outFile("tt1.txt");
     if (!outFile) {
         cerr << "Error opening output.txt" << endl;
         return 1;
@@ -1203,6 +1203,7 @@ int main() {
             cout << "Invalid symbol: " << Bsym[i] << endl;
         }
     }
+    config.printMap(gameMap);
 
 
    for(int turn = 0; turn < iterations; turn++) {
