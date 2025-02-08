@@ -915,7 +915,7 @@ public:
         do {
             do{newI = i + (rand() % 3 - 1);
                 newJ = j + (rand() % 3 - 1);
-            }while(newI==i && newJ==j);
+            }while(newI==i && newJ==j&&(gameMap[newI][newJ]=="*"||gameMap[newI][newJ]=="$"||gameMap[newI][newJ]=="#"||gameMap[newI][newJ]=="@"||gameMap[newI][newJ]=="<"||gameMap[newI][newJ]==">"));
 
             if (newI >= 0 && newI < gameMap.size() && newJ >= 0 && newJ < gameMap[0].size()){
                 moved = true;
