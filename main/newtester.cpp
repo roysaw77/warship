@@ -1147,12 +1147,12 @@ int main() {
     vector<string> Asym = config.getAsym(); // SymbolA
     vector<string> Bsym = config.getBsym(); // SymbolB
     int iterations = config.getIterations();
-    // ofstream outFile("tt.txt");
-    // if (!outFile) {
-    //     cerr << "Error opening output.txt" << endl;
-    //     return 1;
-    // }
-    // cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
+    ofstream outFile("tt3.txt");
+    if (!outFile) {
+        cerr << "Error opening output.txt" << endl;
+        return 1;
+    }
+    cout.rdbuf(outFile.rdbuf()); // Redirect cout to file
 
 
 

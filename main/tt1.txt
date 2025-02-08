@@ -1,0 +1,3177 @@
+Team A ships: *1 *2 *3 *4 *5 $1 $2 $3 $4 #1 #2 #3 #4 @1 @2 @3 
+Team B ships: <1 <2 >1 >2 >3 
+Placed ship *1 at (1, 6)
+Placed ship *2 at (1, 3)
+Placed ship *3 at (7, 3)
+Placed ship *4 at (10, 2)
+Placed ship *5 at (9, 3)
+Placed ship $1 at (1, 10)
+Placed ship $2 at (4, 4)
+Placed ship $3 at (4, 3)
+Placed ship $4 at (2, 3)
+Placed ship #1 at (6, 6)
+Placed ship #2 at (4, 6)
+Placed ship #3 at (10, 6)
+Placed ship #4 at (4, 7)
+Placed ship @1 at (7, 6)
+Placed ship @2 at (1, 2)
+Placed ship @3 at (9, 4)
+Placed ship <1 at (3, 6)
+Placed ship <2 at (1, 4)
+Placed ship >1 at (6, 10)
+Placed ship >2 at (1, 9)
+Placed ship >3 at (8, 2)
+=== Turn 1 ===
+Team A ships: 
+Battleship *1 position is (0,5)
+BattleShip: *1 moved to (1, 5)
+Ship *1 shoots West at (1, 4)
+<2's life is now 2
+*1 Kill: 1
+Battleship *1 shoots at (1, 6) but misses.
+Battleship *2 position is (0,2)
+BattleShip: *2 moved to (2, 2)
+Battleship *2 shoots at (1, 1) but misses.
+Battleship *2 shoots at (3, 1) but misses.
+Battleship *3 position is (6,2)
+BattleShip: *3 moved to (6, 2)
+Battleship *3 shoots at (5, 1) but misses.
+Battleship *3 shoots at (7, 1) but misses.
+Battleship *4 position is (9,1)
+BattleShip: *4 moved to (10, 3)
+Battleship *4 shoots at (10, 4) but misses.
+Battleship *5 position is (8,2)
+BattleShip: *5 moved to (10, 2)
+Battleship *5 shoots at (9, 1) but misses.
+Battleship *5 shoots at (9, 2) but misses.
+Ship $1 detected enemy ship >2 at (1, 9)
+Cruiser: $1 moved to (2, 10)
+Cruiser $1 rammed at (2, 9) but misses.
+Ship $2 detected ally ship $3 at (4, 3)
+Cruiser: $2 moved to (5, 3)
+Cruiser $2 rammed at (4, 3) but misses.
+Ship $3 detected ally ship $2 at (5, 3)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (5, 2) but misses.
+Ship $4 detected ally ship @2 at (1, 2)
+Ship $4 detected ally ship *2 at (2, 2)
+Cruiser: $4 moved to (3, 2)
+Cruiser $4 rammed at (3, 3) but misses.
+Destroyer: #1 moved to (7, 7)
+Destroyer #1 shoots at (8, 6) but misses.
+Destroyer #1 shoots at (8, 6) but misses.
+Destroyer #1 rammed at (8, 7) but misses.
+Destroyer: #2 moved to (3, 5)
+Destroyer #2 shoots at (2, 4) but misses.
+Destroyer #2 shoots at (4, 5) but misses.
+Destroyer #2 rammed at (2, 5) but misses.
+Destroyer: #3 moved to (10, 7)
+Destroyer #3 shoots at (9, 7) but misses.
+Destroyer #3 rammed at (10, 6) but misses.
+Destroyer: #4 moved to (5, 7)
+Destroyer #4 shoots at (4, 7) but misses.
+Destroyer #4 shoots at (4, 6) but misses.
+Destroyer #4 rammed at (5, 8) but misses.
+Team B ships: 
+Battleship <1 position is (2,5)
+BattleShip: <1 moved to (4, 7)
+Battleship <1 shoots at (3, 8) but misses.
+Battleship <1 shoots at (3, 7) but misses.
+Cruiser: >1 moved to (6, 9)
+Cruiser >1 rammed at (7, 9) but misses.
+Ship >2 detected enemy ship $1 at (2, 10)
+Cruiser: >2 moved to (1, 8)
+Cruiser >2 rammed at (2, 8) but misses.
+Cruiser: >3 moved to (7, 1)
+Cruiser >3 rammed at (7, 2) but misses.
+    0   @2    0    0   *1    0    0   >2    0    0
+    0   *2    0    0    0    0    0    1    1   $1
+    0   $4    0    0   #2    0    0    1    1    0
+    0   $3    0    0    0    0   <1    0    0    0
+    0    0   $2    0    1    0   #4    0    0    0
+    0   *3    0    0    1    0    0    0   >1    0
+   >3    0    0    0    1   @1   #1    0    0    0
+    0    0    0    0    0    0    0    0    0    0
+    0    0    0   @3    0    1    1    1    0    0
+    0   *5   *4    0    0    0   #3    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+<2 
+=== Turn 2 ===
+Placed ship <2 at (4, 3)
+<2 has respawned!
+Team A ships: 
+Battleship *1 position is (0,4)
+BattleShip: *1 moved to (2, 6)
+Battleship *1 shoots at (2, 7) but misses.
+Battleship *1 shoots at (3, 7) but misses.
+Battleship *2 position is (1,1)
+BattleShip: *2 moved to (1, 1)
+Battleship *3 position is (5,1)
+BattleShip: *3 moved to (7, 2)
+Battleship *3 shoots at (6, 1) but misses.
+Battleship *3 shoots at (8, 3) but misses.
+Battleship *4 position is (9,2)
+BattleShip: *4 moved to (9, 2)
+Battleship *4 shoots at (10, 1) but misses.
+Battleship *4 shoots at (9, 3) but misses.
+Battleship *5 position is (9,1)
+BattleShip: *5 moved to (10, 1)
+Battleship *5 shoots at (10, 2) but misses.
+Cruiser: $1 moved to (3, 10)
+Ship $2 detected enemy ship <2 at (4, 3)
+Ship $2 detected ally ship $3 at (4, 2)
+Cruiser: $2 moved to (6, 3)
+Cruiser $2 rammed at (7, 3) but misses.
+Ship $3 detected enemy ship <2 at (4, 3)
+Ship $3 detected ally ship $4 at (3, 2)
+Cruiser: $3 moved to (4, 1)
+Cruiser $3 rammed at (5, 1) but misses.
+Ship $4 detected enemy ship <2 at (4, 3)
+Ship $4 detected ally ship $3 at (4, 1)
+Cruiser: $4 moved to (3, 1)
+Cruiser $4 rammed at (4, 1) but misses.
+Destroyer: #1 moved to (7, 8)
+Destroyer #1 shoots at (8, 7) but misses.
+Destroyer #1 shoots at (7, 9) but misses.
+Destroyer #1 rammed at (7, 9) but misses.
+Destroyer: #2 moved to (2, 4)
+Destroyer #2 shoots at (1, 3) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (2, 5) but misses.
+Destroyer: #3 moved to (10, 6)
+Destroyer #3 shoots at (9, 7) but misses.
+Destroyer: #4 moved to (6, 8)
+Destroyer #4 shoots at (7, 9) but misses.
+Destroyer #4 shoots at (7, 7) but misses.
+Destroyer #4 rammed at (5, 8) but misses.
+Team B ships: 
+Battleship <1 position is (3,6)
+BattleShip: <1 moved to (3, 7)
+Battleship <1 shoots at (2, 7) but misses.
+Battleship <1 shoots at (4, 7) but misses.
+Ship >1 detected enemy ship #1 at (7, 8)
+Ship >1 detected enemy ship #4 at (6, 8)
+Cruiser: >1 moved to (5, 8)
+>1 rammed #4 at (6, 8). #4's life is now 2
+>1 moved to (6, 8) after ramming.
+>1 Kill: 1
+Cruiser: >2 moved to (1, 9)
+Ship >3 detected enemy ship *3 at (7, 2)
+Cruiser: >3 moved to (6, 1)
+Cruiser >3 rammed at (5, 1) but misses.
+Battleship <2 position is (3,2)
+BattleShip: <2 moved to (3, 4)
+Battleship <2 shoots at (4, 4) but misses.
+Battleship <2 shoots at (2, 3) but misses.
+   *2   @2    0    0    0    0    0    0   >2    0
+    0    0    0   #2    0   *1    0    1    1    0
+   $4    0    0   <2    0    0   <1    1    1   $1
+   $3    0    0    0    0    0    0    0    0    0
+    0    0    0    0    1    0    0    0    0    0
+   >3    0   $2    0    1    0    0   >1    0    0
+    0   *3    0    0    1   @1    0   #1    0    0
+    0    0    0    0    0    0    0    0    0    0
+    0   *4    0   @3    0    1    1    1    0    0
+   *5    0    0    0    0   #3    0    1    0    0
+
+Respawn Queue A: 
+#4 
+Respawn Queue B: 
+
+=== Turn 3 ===
+Placed ship #4 at (7, 1)
+#4 has respawned!
+Team A ships: 
+Battleship *1 position is (1,5)
+BattleShip: *1 moved to (3, 5)
+Battleship *1 shoots at (4, 6) but misses.
+Battleship *1 shoots at (2, 6) but misses.
+Battleship *2 position is (0,0)
+BattleShip: *2 moved to (2, 2)
+Battleship *2 shoots at (1, 2) but misses.
+Battleship *2 shoots at (3, 3) but misses.
+Battleship *3 position is (6,1)
+BattleShip: *3 moved to (7, 3)
+Battleship *3 shoots at (7, 2) but misses.
+Battleship *3 shoots at (6, 3) but misses.
+Battleship *4 position is (8,1)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (9, 3) but misses.
+Battleship *4 shoots at (8, 3) but misses.
+Battleship *5 position is (9,0)
+BattleShip: *5 moved to (9, 1)
+Battleship *5 shoots at (8, 2) but misses.
+Cruiser: $1 moved to (4, 10)
+Cruiser $1 rammed at (4, 9) but misses.
+Ship $2 detected ally ship *3 at (7, 3)
+Cruiser: $2 moved to (7, 2)
+Cruiser $2 rammed at (6, 2) but misses.
+Ship $3 detected ally ship $4 at (3, 1)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (4, 3) but misses.
+Ship $4 detected ally ship $3 at (4, 2)
+Ship $4 detected ally ship *2 at (2, 2)
+Cruiser: $4 moved to (3, 2)
+Cruiser $4 rammed at (3, 1) but misses.
+Destroyer: #1 moved to (7, 9)
+Destroyer #1 shoots at (6, 9) but misses.
+Destroyer #1 shoots at (7, 10) but misses.
+Destroyer #1 rammed at (8, 9) but misses.
+Destroyer: #2 moved to (2, 3)
+Ship #2 shoots South-East at (3, 4)
+<2's life is now 1
+#2 Kill: 1
+Destroyer #2 shoots at (1, 3) but misses.
+Destroyer #2 rammed at (2, 2) but misses.
+Destroyer: #3 moved to (9, 5)
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 rammed at (9, 6) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 shoots at (5, 2) but misses.
+Destroyer #4 rammed at (7, 2) but misses.
+Team B ships: 
+Battleship <1 position is (2,6)
+BattleShip: <1 moved to (4, 7)
+Battleship <1 shoots at (4, 8) but misses.
+Battleship <1 shoots at (5, 7) but misses.
+Ship >1 detected enemy ship #1 at (7, 9)
+Cruiser: >1 moved to (7, 7)
+>1 rammed @1 at (7, 6). @1's life is now 2
+>1 moved to (7, 6) after ramming.
+>1 Kill: 2
+Cruiser: >2 moved to (1, 10)
+Cruiser >2 rammed at (2, 10) but misses.
+Ship >3 detected enemy ship $2 at (7, 2)
+Ship >3 detected enemy ship #4 at (6, 2)
+Cruiser: >3 moved to (7, 1)
+Cruiser >3 rammed at (8, 1) but misses.
+    0   @2    0    0    0    0    0    0    0   >2
+    0   *2   #2    0    0    0    0    1    1    0
+    0   $4    0    0   *1    0    0    1    1    0
+    0   $3    0    0    0    0   <1    0    0   $1
+    0    0    0    0    1    0    0    0    0    0
+    0   #4    0    0    1    0    0    0    0    0
+   >3   $2   *3    0    1   >1    0    0   #1    0
+    0   *4    0    0    0    0    0    0    0    0
+   *5    0    0   @3   #3    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+@1 
+Respawn Queue B: 
+<2 
+=== Turn 4 ===
+Placed ship @1 at (7, 8)
+@1 has respawned!
+Placed ship <2 at (2, 7)
+<2 has respawned!
+Team A ships: 
+Battleship *1 position is (2,4)
+BattleShip: *1 moved to (4, 4)
+Battleship *1 shoots at (5, 3) but misses.
+Battleship *1 shoots at (5, 4) but misses.
+Battleship *2 position is (1,1)
+BattleShip: *2 moved to (1, 3)
+Battleship *3 position is (6,2)
+BattleShip: *3 moved to (7, 4)
+Battleship *3 shoots at (7, 3) but misses.
+Battleship *3 shoots at (8, 3) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (8, 1)
+Battleship *4 shoots at (7, 2) but misses.
+Battleship *5 position is (8,0)
+BattleShip: *5 moved to (10, 1)
+Cruiser: $1 moved to (5, 9)
+Cruiser $1 rammed at (6, 9) but misses.
+Ship $2 detected ally ship #4 at (6, 2)
+Ship $2 detected ally ship *4 at (8, 1)
+Ship $2 detected enemy ship >3 at (7, 1)
+Cruiser: $2 moved to (6, 3)
+Cruiser $2 rammed at (7, 3) but misses.
+Ship $3 detected ally ship $4 at (3, 2)
+Cruiser: $3 moved to (4, 1)
+Cruiser $3 rammed at (5, 1) but misses.
+Ship $4 detected ally ship $3 at (4, 1)
+Ship $4 detected ally ship #2 at (2, 3)
+Cruiser: $4 moved to (3, 1)
+Cruiser $4 rammed at (2, 1) but misses.
+Destroyer: #1 moved to (7, 10)
+Destroyer #1 shoots at (6, 10) but misses.
+Destroyer #1 rammed at (8, 10) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 rammed at (4, 2) but misses.
+Destroyer: #3 moved to (8, 4)
+Destroyer #3 shoots at (8, 5) but misses.
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 rammed at (9, 4) but misses.
+Frigate @2 shooting in direction: North but misses.
+Destroyer: #4 moved to (6, 1)
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 rammed at (6, 2) but misses.
+Team B ships: 
+Battleship <1 position is (3,6)
+BattleShip: <1 moved to (5, 6)
+Battleship <1 shoots at (6, 5) but misses.
+Battleship <1 shoots at (6, 7) but misses.
+Cruiser: >1 moved to (6, 7)
+Cruiser >1 rammed at (6, 8) but misses.
+Cruiser: >2 moved to (2, 10)
+Cruiser >2 rammed at (1, 10) but misses.
+Ship >3 detected enemy ship *4 at (8, 1)
+Ship >3 detected enemy ship #4 at (6, 1)
+Cruiser: >3 moved to (6, 2)
+Cruiser >3 rammed at (5, 2) but misses.
+Battleship <2 position is (1,6)
+BattleShip: <2 moved to (1, 8)
+Battleship <2 shoots at (1, 9) but misses.
+Battleship <2 shoots at (2, 8) but misses.
+    0   @2   *2    0    0    0    0   <2    0    0
+    0    0    0    0    0    0    0    1    1   >2
+   $4   #2    0    0    0    0    0    1    1    0
+   $3    0    0   *1    0    0    0    0    0    0
+    0    0    0    0    1   <1    0    0   $1    0
+   #4   >3   $2    0    1    0   >1    0    0    0
+    0    0    0   *3    1    0    0   @1    0   #1
+   *4    0    0   #3    0    0    0    0    0    0
+    0    0    0   @3    0    1    1    1    0    0
+   *5    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 5 ===
+Team A ships: 
+Battleship *1 position is (3,3)
+BattleShip: *1 moved to (3, 3)
+Battleship *1 shoots at (2, 2) but misses.
+Battleship *1 shoots at (4, 2) but misses.
+Battleship *2 position is (0,2)
+BattleShip: *2 moved to (1, 4)
+Battleship *2 shoots at (1, 3) but misses.
+Battleship *3 position is (6,3)
+BattleShip: *3 moved to (8, 5)
+Battleship *3 shoots at (7, 6) but misses.
+Battleship *3 shoots at (9, 5) but misses.
+Battleship *4 position is (7,0)
+BattleShip: *4 moved to (7, 2)
+Battleship *4 shoots at (7, 1) but misses.
+Battleship *4 shoots at (8, 2) but misses.
+Battleship *5 position is (9,0)
+BattleShip: *5 moved to (9, 2)
+Battleship *5 shoots at (8, 3) but misses.
+Battleship *5 shoots at (10, 1) but misses.
+Cruiser: $1 moved to (5, 8)
+Cruiser $1 rammed at (5, 9) but misses.
+Ship $2 detected ally ship *4 at (7, 2)
+Ship $2 detected enemy ship >3 at (6, 2)
+Cruiser: $2 moved to (7, 4)
+Cruiser $2 rammed at (7, 5) but misses.
+Ship $3 detected ally ship $4 at (3, 1)
+Ship $3 detected ally ship #2 at (3, 2)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (3, 2) but misses.
+Ship $4 detected ally ship $3 at (4, 2)
+Ship $4 detected ally ship #2 at (3, 2)
+Cruiser: $4 moved to (2, 2)
+Cruiser $4 rammed at (1, 2) but misses.
+Destroyer: #1 moved to (6, 10)
+Destroyer #1 shoots at (5, 10) but misses.
+Destroyer #1 rammed at (5, 10) but misses.
+Destroyer: #2 moved to (2, 3)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (1, 2) but misses.
+Destroyer #2 rammed at (3, 3) but misses.
+Destroyer: #3 moved to (9, 5)
+Destroyer #3 shoots at (8, 6) but misses.
+Destroyer #3 shoots at (8, 6) but misses.
+Destroyer #3 rammed at (8, 5) but misses.
+Frigate @2 shooting in direction: North-West but misses.
+Destroyer: #4 moved to (5, 1)
+Ship #4 shoots South-East at (6, 2)
+>3's life is now 2
+#4 Kill: 1
+Destroyer #4 rammed at (6, 1) but misses.
+Frigate @1 shooting in direction: North-West to location: (6, 7)
+>1's life is now 2
+  >1 is permanently destroyed!
+@1 Kill: 1
+ added to respawn queue.
+Team B ships: 
+Battleship <1 position is (4,5)
+BattleShip: <1 moved to (4, 7)
+Battleship <1 shoots at (5, 7) but misses.
+Battleship <1 shoots at (3, 8) but misses.
+Cruiser: >2 moved to (3, 10)
+Battleship <2 position is (0,7)
+BattleShip: <2 moved to (2, 7)
+Battleship <2 shoots at (1, 8) but misses.
+Battleship <2 shoots at (3, 6) but misses.
+    0   @2    0   *2    0    0    0    0    0    0
+    0   $4   #2    0    0    0   <2    1    1    0
+    0    0   *1    0    0    0    0    1    1   >2
+    0   $3    0    0    0    0   <1    0    0    0
+   #4    0    0    0    1    0    0   $1    0    0
+    0    0    0    0    1    0    0    0    0   #1
+    0   *4    0   $2    1    0    0   @1    0    0
+    0    0    0    0   *3    0    0    0    0    0
+    0   *5    0   @3   #3    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+>3 >1 
+=== Turn 6 ===
+Placed ship >3 at (2, 1)
+>3 has respawned!
+Team A ships: 
+Battleship *1 position is (2,2)
+BattleShip: *1 moved to (3, 4)
+Battleship *1 shoots at (4, 4) but misses.
+Battleship *1 shoots at (3, 5) but misses.
+Battleship *2 position is (0,3)
+BattleShip: *2 moved to (2, 4)
+Battleship *2 shoots at (2, 3) but misses.
+Battleship *2 shoots at (3, 4) but misses.
+Battleship *3 position is (7,4)
+BattleShip: *3 moved to (7, 6)
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *4 position is (6,1)
+BattleShip: *4 moved to (8, 3)
+Battleship *4 shoots at (8, 2) but misses.
+Battleship *4 shoots at (7, 2) but misses.
+Battleship *5 position is (8,1)
+BattleShip: *5 moved to (10, 1)
+Ship $1 detected enemy ship <1 at (4, 7)
+Cruiser: $1 moved to (5, 7)
+Cruiser $1 rammed at (5, 8) but misses.
+Ship $2 detected ally ship *4 at (8, 3)
+Cruiser: $2 moved to (6, 4)
+Cruiser $2 rammed at (6, 3) but misses.
+Ship $3 detected ally ship #4 at (5, 1)
+Cruiser: $3 moved to (5, 3)
+Cruiser $3 rammed at (5, 4) but misses.
+Ship $4 detected ally ship #2 at (2, 3)
+Ship $4 detected ally ship @2 at (1, 2)
+Ship $4 detected enemy ship >3 at (2, 1)
+Cruiser: $4 moved to (1, 1)
+$4 rammed >3 at (2, 1). >3's life is now 1
+$4 moved to (2, 1) after ramming.
+$4 Kill: 1
+Destroyer: #1 moved to (5, 10)
+Destroyer #1 shoots at (4, 10) but misses.
+Destroyer #1 shoots at (5, 9) but misses.
+Destroyer #1 rammed at (4, 10) but misses.
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 rammed at (3, 2) but misses.
+Destroyer: #3 moved to (10, 6)
+Destroyer #3 shoots at (9, 5) but misses.
+Destroyer: #4 moved to (4, 1)
+Destroyer #4 shoots at (5, 2) but misses.
+Destroyer #4 rammed at (5, 1) but misses.
+Team B ships: 
+Battleship <1 position is (3,6)
+BattleShip: <1 moved to (3, 7)
+Battleship <1 shoots at (2, 7) but misses.
+Battleship <1 shoots at (2, 7) but misses.
+Cruiser: >2 moved to (4, 10)
+>2 rammed #1 at (5, 10). #1's life is now 2
+>2 moved to (5, 10) after ramming.
+>2 Kill: 1
+Battleship <2 position is (1,6)
+BattleShip: <2 moved to (3, 6)
+Battleship <2 shoots at (3, 5) but misses.
+Battleship <2 shoots at (3, 5) but misses.
+    0   @2    0    0    0    0    0    0    0    0
+   $4   #2    0   *2    0    0    0    1    1    0
+    0    0    0   *1    0   <2   <1    1    1    0
+   #4    0    0    0    0    0    0    0    0    0
+    0    0   $3    0    1    0   $1    0    0   >2
+    0    0    0   $2    1    0    0    0    0    0
+    0    0    0    0    1   *3    0   @1    0    0
+    0    0   *4    0    0    0    0    0    0    0
+    0    0    0   @3    0    1    1    1    0    0
+   *5    0    0    0    0   #3    0    1    0    0
+
+Respawn Queue A: 
+#1 
+Respawn Queue B: 
+>1 >3 
+=== Turn 7 ===
+Placed ship #1 at (8, 7)
+#1 has respawned!
+Placed ship >1 at (5, 4)
+>1 has respawned!
+Team A ships: 
+Battleship *1 position is (2,3)
+BattleShip: *1 moved to (2, 5)
+Battleship *1 shoots at (1, 6) but misses.
+Battleship *1 shoots at (2, 6) but misses.
+Battleship *2 position is (1,3)
+BattleShip: *2 moved to (1, 4)
+Battleship *2 shoots at (2, 4) but misses.
+Battleship *2 shoots at (2, 4) but misses.
+Battleship *3 position is (6,5)
+BattleShip: *3 moved to (8, 5)
+Battleship *3 shoots at (9, 5) but misses.
+Battleship *3 shoots at (8, 6) but misses.
+Battleship *4 position is (7,2)
+BattleShip: *4 moved to (7, 2)
+Battleship *4 shoots at (8, 1) but misses.
+Battleship *4 shoots at (7, 1) but misses.
+Battleship *5 position is (9,0)
+BattleShip: *5 moved to (9, 1)
+Battleship *5 shoots at (9, 2) but misses.
+Battleship *5 shoots at (10, 1) but misses.
+Cruiser: $1 moved to (4, 6)
+Cruiser $1 rammed at (4, 5) but misses.
+Ship $2 detected enemy ship >1 at (5, 4)
+Ship $2 detected ally ship $3 at (5, 3)
+Cruiser: $2 moved to (7, 4)
+Cruiser $2 rammed at (7, 5) but misses.
+Ship $3 detected enemy ship >1 at (5, 4)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (5, 2) but misses.
+Ship $4 detected ally ship #2 at (2, 2)
+Ship $4 detected ally ship @2 at (1, 2)
+Cruiser: $4 moved to (1, 1)
+Cruiser $4 rammed at (2, 1) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 shoots at (2, 1) but misses.
+Destroyer #2 rammed at (3, 3) but misses.
+Destroyer: #3 moved to (10, 7)
+Destroyer #3 shoots at (10, 8) but misses.
+Destroyer #3 rammed at (10, 6) but misses.
+Frigate @2 shooting in direction: North-East but misses.
+Destroyer: #4 moved to (5, 1)
+Destroyer #4 shoots at (4, 1) but misses.
+Destroyer #4 shoots at (4, 1) but misses.
+Destroyer #4 rammed at (4, 1) but misses.
+Destroyer: #1 moved to (7, 6)
+Destroyer #1 shoots at (6, 6) but misses.
+Destroyer #1 shoots at (6, 7) but misses.
+Destroyer #1 rammed at (7, 7) but misses.
+Team B ships: 
+Battleship <1 position is (2,6)
+BattleShip: <1 moved to (4, 8)
+Battleship <1 shoots at (5, 9) but misses.
+Battleship <1 shoots at (4, 7) but misses.
+Cruiser: >2 moved to (4, 10)
+Cruiser >2 rammed at (5, 10) but misses.
+Battleship <2 position is (2,5)
+BattleShip: <2 moved to (3, 7)
+Battleship <2 shoots at (2, 8) but misses.
+Battleship <2 shoots at (2, 8) but misses.
+Cruiser: >1 moved to (4, 5)
+Cruiser >1 rammed at (3, 5) but misses.
+   $4   @2    0   *2    0    0    0    0    0    0
+    0    0    0    0   *1    0    0    1    1    0
+    0   #2    0    0    0    0   <2    1    1    0
+    0   $3    0    0   >1   $1    0   <1    0   >2
+   #4    0    0    0    1    0    0    0    0    0
+    0    0    0    0    1    0    0    0    0    0
+    0   *4    0   $2    1   #1    0   @1    0    0
+    0    0    0    0   *3    0    0    0    0    0
+   *5    0    0   @3    0    1    1    1    0    0
+    0    0    0    0    0    0   #3    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+>3 
+=== Turn 8 ===
+Placed ship >3 at (10, 3)
+>3 has respawned!
+Team A ships: 
+Battleship *1 position is (1,4)
+BattleShip: *1 moved to (3, 5)
+Battleship *1 shoots at (4, 4) but misses.
+Battleship *1 shoots at (3, 6) but misses.
+Battleship *2 position is (0,3)
+BattleShip: *2 moved to (1, 5)
+Battleship *2 shoots at (2, 6) but misses.
+Battleship *2 shoots at (1, 6) but misses.
+Battleship *3 position is (7,4)
+BattleShip: *3 moved to (9, 5)
+Battleship *3 shoots at (8, 4) but misses.
+Battleship *3 shoots at (9, 4) but misses.
+Battleship *4 position is (6,1)
+BattleShip: *4 moved to (8, 1)
+Battleship *4 shoots at (7, 1) but misses.
+Battleship *5 position is (8,0)
+BattleShip: *5 moved to (10, 2)
+Ship $1 detected ally ship *1 at (3, 5)
+Ship $1 detected enemy ship <2 at (3, 7)
+Ship $1 detected enemy ship >1 at (4, 5)
+Cruiser: $1 moved to (4, 7)
+Cruiser $1 rammed at (5, 7) but misses.
+Cruiser: $2 moved to (8, 4)
+Cruiser $2 rammed at (7, 4) but misses.
+Ship $3 detected ally ship #2 at (3, 2)
+Ship $3 detected ally ship #4 at (5, 1)
+Cruiser: $3 moved to (3, 3)
+Cruiser $3 rammed at (3, 4) but misses.
+Ship $4 detected ally ship @2 at (1, 2)
+Cruiser: $4 moved to (2, 1)
+Destroyer: #2 moved to (4, 3)
+Destroyer #2 shoots at (5, 4) but misses.
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 rammed at (4, 4) but misses.
+Destroyer: #3 moved to (10, 6)
+Destroyer #3 shoots at (10, 7) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (7, 3) but misses.
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 rammed at (5, 2) but misses.
+Destroyer: #1 moved to (6, 6)
+Destroyer #1 shoots at (7, 7) but misses.
+Destroyer #1 shoots at (6, 7) but misses.
+Destroyer #1 rammed at (6, 7) but misses.
+Team B ships: 
+Battleship <1 position is (3,7)
+BattleShip: <1 moved to (5, 7)
+Ship <1 shoots South-West at (6, 6)
+#1's life is now 1
+<1 Kill: 1
+Battleship <1 shoots at (4, 6) but misses.
+Cruiser: >2 moved to (5, 9)
+Cruiser >2 rammed at (4, 9) but misses.
+Battleship <2 position is (2,6)
+BattleShip: <2 moved to (2, 6)
+Battleship <2 shoots at (3, 7) but misses.
+Battleship <2 shoots at (3, 7) but misses.
+Ship >1 detected enemy ship *1 at (3, 5)
+Cruiser: >1 moved to (4, 4)
+Cruiser >1 rammed at (5, 4) but misses.
+Ship >3 detected enemy ship @3 at (9, 4)
+Ship >3 detected enemy ship *5 at (10, 2)
+Cruiser: >3 moved to (10, 4)
+Cruiser >3 rammed at (10, 3) but misses.
+    0   @2    0    0   *2    0    0    0    0    0
+   $4    0    0    0    0   <2    0    1    1    0
+    0    0   $3    0   *1    0    0    1    1    0
+    0    0   #2   >1    0    0   $1    0    0    0
+    0    0    0    0    1    0   <1    0   >2    0
+    0   #4    0    0    1    0    0    0    0    0
+    0    0    0    0    1    0    0   @1    0    0
+   *4    0    0   $2    0    0    0    0    0    0
+    0    0    0   @3   *3    1    1    1    0    0
+    0   *5    0   >3    0   #3    0    1    0    0
+
+Respawn Queue A: 
+#1 
+Respawn Queue B: 
+
+=== Turn 9 ===
+Placed ship #1 at (9, 1)
+#1 has respawned!
+Team A ships: 
+Battleship *1 position is (2,4)
+BattleShip: *1 moved to (4, 6)
+Battleship *1 shoots at (3, 6) but misses.
+Battleship *1 shoots at (3, 7) but misses.
+Battleship *2 position is (0,4)
+BattleShip: *2 moved to (1, 6)
+Ship *2 shoots South at (2, 6)
+<2's life is now 0
+  <2 is permanently destroyed!
+*2 Kill: 1
+Battleship *3 position is (8,4)
+BattleShip: *3 moved to (8, 5)
+Battleship *3 shoots at (9, 6) but misses.
+Battleship *3 shoots at (9, 5) but misses.
+Battleship *4 position is (7,0)
+BattleShip: *4 moved to (7, 2)
+Battleship *4 shoots at (6, 3) but misses.
+Battleship *4 shoots at (8, 3) but misses.
+Battleship *5 position is (9,1)
+BattleShip: *5 moved to (9, 2)
+Battleship *5 shoots at (9, 1) but misses.
+Battleship *5 shoots at (10, 1) but misses.
+Ship $1 detected enemy ship <1 at (5, 7)
+Ship $1 detected ally ship *1 at (4, 6)
+Cruiser: $1 moved to (4, 8)
+Cruiser $1 rammed at (3, 8) but misses.
+Ship $2 detected ally ship @3 at (9, 4)
+Ship $2 detected ally ship *3 at (8, 5)
+Cruiser: $2 moved to (7, 3)
+Cruiser $2 rammed at (7, 4) but misses.
+Ship $3 detected enemy ship >1 at (4, 4)
+Ship $3 detected ally ship #2 at (4, 3)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (4, 1) but misses.
+Ship $4 detected ally ship @2 at (1, 2)
+Cruiser: $4 moved to (1, 1)
+Destroyer: #2 moved to (3, 3)
+Destroyer #2 shoots at (2, 4) but misses.
+Ship #2 shoots South-East at (4, 4)
+>1's life is now 1
+#2 Kill: 2
+Destroyer #2 rammed at (4, 3) but misses.
+Destroyer: #3 moved to (10, 7)
+Destroyer #3 rammed at (9, 7) but misses.
+Destroyer: #4 moved to (6, 1)
+Destroyer #4 shoots at (5, 2) but misses.
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 rammed at (7, 1) but misses.
+Destroyer: #1 moved to (10, 1)
+Team B ships: 
+Battleship <1 position is (4,6)
+BattleShip: <1 moved to (5, 6)
+Ship <1 shoots North at (4, 6)
+*1's life is now 2
+<1 Kill: 2
+Battleship <1 shoots at (5, 7) but misses.
+Ship >2 detected enemy ship $1 at (4, 8)
+Cruiser: >2 moved to (5, 8)
+Cruiser >2 rammed at (5, 7) but misses.
+Ship >3 detected enemy ship @3 at (9, 4)
+Cruiser: >3 moved to (9, 3)
+>3 rammed @3 at (9, 4). @3's life is now 2
+>3 moved to (9, 4) after ramming.
+>3 Kill: 1
+   $4   @2    0    0    0   *2    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+    0    0   #2    0    0    0    0    1    1    0
+    0   $3    0    0    0    0    0   $1    0    0
+    0    0    0    0    1   <1    0   >2    0    0
+   #4    0    0    0    1    0    0    0    0    0
+    0   *4   $2    0    1    0    0   @1    0    0
+    0    0    0    0   *3    0    0    0    0    0
+    0   *5    0   >3    0    1    1    1    0    0
+   #1    0    0    0    0    0   #3    1    0    0
+
+Respawn Queue A: 
+*1 @3 
+Respawn Queue B: 
+>1 
+=== Turn 10 ===
+Placed ship *1 at (4, 3)
+*1 has respawned!
+Placed ship >1 at (5, 10)
+>1 has respawned!
+Team A ships: 
+Battleship *2 position is (0,5)
+BattleShip: *2 moved to (2, 5)
+Battleship *2 shoots at (1, 5) but misses.
+Battleship *2 shoots at (2, 4) but misses.
+Battleship *3 position is (7,4)
+BattleShip: *3 moved to (8, 6)
+Battleship *3 shoots at (9, 7) but misses.
+Battleship *3 shoots at (8, 5) but misses.
+Battleship *4 position is (6,1)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (9, 1) but misses.
+Battleship *4 shoots at (9, 1) but misses.
+Battleship *5 position is (8,1)
+BattleShip: *5 moved to (9, 3)
+Battleship *5 shoots at (9, 2) but misses.
+Battleship *5 shoots at (8, 4) but misses.
+Ship $1 detected enemy ship >2 at (5, 8)
+Cruiser: $1 moved to (4, 9)
+Cruiser $1 rammed at (4, 8) but misses.
+Ship $2 detected ally ship *4 at (8, 2)
+Cruiser: $2 moved to (6, 3)
+Cruiser $2 rammed at (6, 4) but misses.
+Ship $3 detected ally ship *1 at (4, 3)
+Ship $3 detected ally ship #2 at (3, 3)
+Cruiser: $3 moved to (3, 2)
+Cruiser $3 rammed at (3, 1) but misses.
+Ship $4 detected ally ship @2 at (1, 2)
+Cruiser: $4 moved to (2, 1)
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (3, 1) but misses.
+Destroyer #2 shoots at (2, 1) but misses.
+Destroyer #2 rammed at (2, 1) but misses.
+Destroyer: #3 moved to (10, 6)
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (6, 1) but misses.
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 rammed at (6, 1) but misses.
+Destroyer: #1 moved to (10, 2)
+Destroyer #1 shoots at (9, 3) but misses.
+Destroyer #1 rammed at (10, 3) but misses.
+Battleship *1 position is (3,2)
+BattleShip: *1 moved to (5, 2)
+Battleship *1 shoots at (5, 3) but misses.
+Battleship *1 shoots at (5, 1) but misses.
+Team B ships: 
+Battleship <1 position is (4,5)
+BattleShip: <1 moved to (4, 6)
+Battleship <1 shoots at (3, 7) but misses.
+Battleship <1 shoots at (3, 6) but misses.
+Ship >2 detected enemy ship $1 at (4, 9)
+Cruiser: >2 moved to (6, 9)
+Cruiser >2 rammed at (6, 10) but misses.
+Ship >3 detected enemy ship *5 at (9, 3)
+Cruiser: >3 moved to (8, 4)
+Cruiser >3 rammed at (8, 5) but misses.
+Ship >1 detected enemy ship $1 at (4, 9)
+Ship >1 detected ally ship >2 at (6, 9)
+Cruiser: >1 moved to (6, 10)
+Cruiser >1 rammed at (5, 10) but misses.
+    0   @2    0    0    0    0    0    0    0    0
+   $4   #2    0    0   *2    0    0    1    1    0
+    0   $3    0    0    0    0    0    1    1    0
+    0    0    0    0    0   <1    0    0   $1    0
+    0   *1    0    0    1    0    0    0    0    0
+    0   #4   $2    0    1    0    0    0   >2   >1
+    0    0    0    0    1    0    0   @1    0    0
+    0   *4    0   >3    0   *3    0    0    0    0
+    0    0   *5    0    0    1    1    1    0    0
+    0   #1    0    0    0   #3    0    1    0    0
+
+Respawn Queue A: 
+@3 
+Respawn Queue B: 
+
+=== Turn 11 ===
+Placed ship @3 at (6, 4)
+@3 has respawned!
+Team A ships: 
+Battleship *2 position is (1,4)
+BattleShip: *2 moved to (1, 6)
+Battleship *2 shoots at (1, 5) but misses.
+Battleship *3 position is (7,5)
+BattleShip: *3 moved to (7, 7)
+Battleship *3 shoots at (7, 8) but misses.
+Battleship *3 shoots at (6, 6) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (7, 3)
+Battleship *4 shoots at (8, 3) but misses.
+Battleship *4 shoots at (7, 4) but misses.
+Battleship *5 position is (8,2)
+BattleShip: *5 moved to (10, 3)
+Battleship *5 shoots at (10, 2) but misses.
+Cruiser: $1 moved to (5, 8)
+Cruiser $1 rammed at (4, 8) but misses.
+Ship $2 detected ally ship *4 at (7, 3)
+Ship $2 detected ally ship @3 at (6, 4)
+Ship $2 detected ally ship *1 at (5, 2)
+Ship $2 detected ally ship #4 at (6, 2)
+Cruiser: $2 moved to (7, 2)
+Cruiser $2 rammed at (6, 2) but misses.
+Ship $3 detected ally ship #2 at (2, 2)
+Ship $3 detected ally ship $4 at (2, 1)
+Cruiser: $3 moved to (4, 3)
+Cruiser $3 rammed at (4, 2) but misses.
+Ship $4 detected ally ship #2 at (2, 2)
+Ship $4 detected ally ship @2 at (1, 2)
+Cruiser: $4 moved to (3, 1)
+Destroyer: #2 moved to (1, 3)
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 shoots at (1, 4) but misses.
+Destroyer: #3 moved to (9, 5)
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 shoots at (8, 6) but misses.
+Destroyer #3 rammed at (9, 4) but misses.
+Destroyer: #4 moved to (7, 1)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer: #1 moved to (10, 1)
+Destroyer #1 shoots at (9, 2) but misses.
+Destroyer #1 shoots at (10, 2) but misses.
+Destroyer #1 rammed at (9, 1) but misses.
+Battleship *1 position is (4,1)
+BattleShip: *1 moved to (6, 1)
+Battleship *1 shoots at (7, 2) but misses.
+Team B ships: 
+Battleship <1 position is (3,5)
+BattleShip: <1 moved to (3, 6)
+Battleship <1 shoots at (2, 6) but misses.
+Battleship <1 shoots at (2, 5) but misses.
+Ship >2 detected ally ship >1 at (6, 10)
+Ship >2 detected enemy ship $1 at (5, 8)
+Ship >2 detected enemy ship @1 at (7, 8)
+Cruiser: >2 moved to (5, 10)
+Ship >3 detected enemy ship #3 at (9, 5)
+Ship >3 detected enemy ship *4 at (7, 3)
+Cruiser: >3 moved to (8, 3)
+Cruiser >3 rammed at (9, 3) but misses.
+Ship >1 detected ally ship >2 at (5, 10)
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (7, 10) but misses.
+    0   @2   #2    0    0   *2    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+   $4    0    0    0    0   <1    0    1    1    0
+    0    0   $3    0    0    0    0    0    0    0
+    0    0    0    0    1    0    0   $1    0   >2
+   *1    0    0   @3    1    0    0    0    0    0
+   #4   $2   *4    0    1    0   *3   @1   >1    0
+    0    0   >3    0    0    0    0    0    0    0
+    0    0    0    0   #3    1    1    1    0    0
+   #1    0   *5    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 12 ===
+Team A ships: 
+Battleship *2 position is (0,5)
+BattleShip: *2 moved to (1, 5)
+Battleship *2 shoots at (2, 5) but misses.
+Battleship *2 shoots at (2, 5) but misses.
+Battleship *3 position is (6,6)
+BattleShip: *3 moved to (6, 6)
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *3 shoots at (6, 5) but misses.
+Battleship *4 position is (6,2)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (7, 1) but misses.
+Battleship *4 shoots at (9, 3) but misses.
+Battleship *5 position is (9,2)
+BattleShip: *5 moved to (10, 4)
+Cruiser: $1 moved to (4, 9)
+Cruiser $1 rammed at (4, 10) but misses.
+Ship $2 detected enemy ship >3 at (8, 3)
+Ship $2 detected ally ship *4 at (8, 2)
+Ship $2 detected ally ship *1 at (6, 1)
+Ship $2 detected ally ship #4 at (7, 1)
+Cruiser: $2 moved to (8, 1)
+Cruiser $2 rammed at (8, 2) but misses.
+Cruiser: $3 moved to (3, 2)
+Cruiser $3 rammed at (4, 2) but misses.
+Ship $4 detected ally ship $3 at (3, 2)
+Cruiser: $4 moved to (4, 1)
+Cruiser $4 rammed at (4, 2) but misses.
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (1, 1) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (3, 2) but misses.
+Destroyer: #3 moved to (10, 5)
+Destroyer #3 shoots at (10, 4) but misses.
+Destroyer #3 rammed at (10, 4) but misses.
+Frigate @2 shooting in direction: North but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (7, 3) but misses.
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 rammed at (6, 1) but misses.
+Destroyer: #1 moved to (9, 2)
+Destroyer #1 shoots at (9, 3) but misses.
+Destroyer #1 shoots at (10, 3) but misses.
+Destroyer #1 rammed at (8, 2) but misses.
+Battleship *1 position is (5,0)
+BattleShip: *1 moved to (7, 2)
+Battleship *1 shoots at (6, 1) but misses.
+Battleship *1 shoots at (7, 1) but misses.
+Team B ships: 
+Battleship <1 position is (2,5)
+BattleShip: <1 moved to (2, 6)
+Battleship <1 shoots at (2, 5) but misses.
+Battleship <1 shoots at (3, 6) but misses.
+Ship >2 detected enemy ship $1 at (4, 9)
+Cruiser: >2 moved to (6, 9)
+Cruiser >2 rammed at (7, 9) but misses.
+Ship >3 detected enemy ship *1 at (7, 2)
+Ship >3 detected enemy ship #1 at (9, 2)
+Ship >3 detected enemy ship *4 at (8, 2)
+Cruiser: >3 moved to (7, 4)
+Cruiser >3 rammed at (7, 3) but misses.
+Ship >1 detected ally ship >2 at (6, 9)
+Ship >1 detected enemy ship @1 at (7, 8)
+Cruiser: >1 moved to (7, 10)
+Cruiser >1 rammed at (8, 10) but misses.
+    0   @2    0    0   *2    0    0    0    0    0
+    0   #2    0    0    0   <1    0    1    1    0
+    0   $3    0    0    0    0    0    1    1    0
+   $4    0    0    0    0    0    0    0   $1    0
+    0    0    0    0    1    0    0    0    0    0
+    0   #4    0   @3    1   *3    0    0   >2    0
+    0   *1    0   >3    1    0    0   @1    0   >1
+   $2   *4    0    0    0    0    0    0    0    0
+    0   #1    0    0    0    1    1    1    0    0
+    0    0    0   *5   #3    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 13 ===
+Team A ships: 
+Battleship *2 position is (0,4)
+BattleShip: *2 moved to (1, 6)
+Battleship *2 shoots at (2, 7) but misses.
+Battleship *2 shoots at (2, 5) but misses.
+Battleship *3 position is (5,5)
+BattleShip: *3 moved to (6, 7)
+Battleship *3 shoots at (5, 6) but misses.
+Battleship *3 shoots at (5, 7) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (7, 1)
+Battleship *4 shoots at (8, 1) but misses.
+Battleship *4 shoots at (6, 2) but misses.
+Battleship *5 position is (9,3)
+BattleShip: *5 moved to (9, 5)
+Battleship *5 shoots at (10, 5) but misses.
+Battleship *5 shoots at (8, 5) but misses.
+Cruiser: $1 moved to (4, 10)
+Ship $2 detected ally ship #1 at (9, 2)
+Ship $2 detected ally ship *4 at (7, 1)
+Ship $2 detected ally ship *1 at (7, 2)
+Cruiser: $2 moved to (9, 1)
+Cruiser $2 rammed at (9, 2) but misses.
+Ship $3 detected ally ship #2 at (2, 2)
+Ship $3 detected ally ship $4 at (4, 1)
+Cruiser: $3 moved to (4, 3)
+Cruiser $3 rammed at (5, 3) but misses.
+Cruiser: $4 moved to (3, 1)
+Cruiser $4 rammed at (4, 1) but misses.
+Destroyer: #2 moved to (2, 1)
+Destroyer #2 shoots at (1, 2) but misses.
+Destroyer #2 shoots at (3, 1) but misses.
+Destroyer: #3 moved to (9, 4)
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 shoots at (10, 3) but misses.
+Destroyer #3 rammed at (10, 4) but misses.
+Frigate @2 shooting in direction: North-West but misses.
+Destroyer: #4 moved to (6, 3)
+Destroyer #4 shoots at (7, 3) but misses.
+Destroyer #4 shoots at (5, 3) but misses.
+Destroyer #4 rammed at (6, 2) but misses.
+Destroyer: #1 moved to (8, 2)
+Destroyer #1 shoots at (9, 3) but misses.
+Destroyer #1 shoots at (9, 1) but misses.
+Destroyer #1 rammed at (9, 2) but misses.
+Battleship *1 position is (6,1)
+BattleShip: *1 moved to (8, 3)
+Battleship *1 shoots at (8, 4) but misses.
+Battleship *1 shoots at (9, 4) but misses.
+Team B ships: 
+Battleship <1 position is (1,5)
+BattleShip: <1 moved to (2, 7)
+Battleship <1 shoots at (2, 8) but misses.
+Battleship <1 shoots at (2, 8) but misses.
+Ship >2 detected ally ship >1 at (7, 10)
+Ship >2 detected enemy ship @1 at (7, 8)
+Cruiser: >2 moved to (6, 10)
+Cruiser >2 rammed at (6, 9) but misses.
+Ship >3 detected enemy ship @3 at (6, 4)
+Ship >3 detected enemy ship #4 at (6, 3)
+Ship >3 detected enemy ship *1 at (8, 3)
+Cruiser: >3 moved to (8, 5)
+Cruiser >3 rammed at (8, 4) but misses.
+Ship >1 detected ally ship >2 at (6, 10)
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (6, 9) but misses.
+    0   @2    0    0    0   *2    0    0    0    0
+   #2    0    0    0    0    0   <1    1    1    0
+   $4    0    0    0    0    0    0    1    1    0
+    0    0   $3    0    0    0    0    0    0   $1
+    0    0    0    0    1    0    0    0    0    0
+    0    0   #4   @3    1    0   *3    0    0   >2
+   *4    0    0    0    1    0    0   @1   >1    0
+    0   #1   *1    0   >3    0    0    0    0    0
+   $2    0    0   #3   *5    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 14 ===
+Team A ships: 
+Battleship *2 position is (0,5)
+BattleShip: *2 moved to (1, 7)
+Battleship *2 shoots at (2, 6) but misses.
+Ship *2 shoots South at (2, 7)
+<1's life is now 2
+*2 Kill: 2
+Battleship *3 position is (5,6)
+BattleShip: *3 moved to (7, 7)
+Battleship *3 shoots at (6, 7) but misses.
+Battleship *3 shoots at (7, 8) but misses.
+Battleship *4 position is (6,0)
+BattleShip: *4 moved to (8, 1)
+Battleship *5 position is (8,4)
+BattleShip: *5 moved to (8, 6)
+Battleship *5 shoots at (8, 7) but misses.
+Battleship *5 shoots at (7, 5) but misses.
+Cruiser: $1 moved to (5, 10)
+Ship $2 detected ally ship *4 at (8, 1)
+Ship $2 detected ally ship #1 at (8, 2)
+Cruiser: $2 moved to (10, 1)
+Cruiser $2 rammed at (9, 1) but misses.
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (4, 3) but misses.
+Ship $4 detected ally ship $3 at (4, 2)
+Ship $4 detected ally ship #2 at (2, 1)
+Cruiser: $4 moved to (2, 2)
+Cruiser $4 rammed at (3, 2) but misses.
+Destroyer: #2 moved to (3, 1)
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 shoots at (3, 2) but misses.
+Destroyer #2 rammed at (4, 1) but misses.
+Destroyer: #3 moved to (10, 4)
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 shoots at (10, 3) but misses.
+Destroyer #3 rammed at (10, 3) but misses.
+Destroyer: #4 moved to (7, 4)
+Destroyer #4 shoots at (6, 3) but misses.
+Ship #4 shoots South-East at (8, 5)
+>3's life is now 0
+  >3 is permanently destroyed!
+#4 Kill: 2
+Destroyer #4 rammed at (7, 3) but misses.
+Destroyer: #1 moved to (7, 3)
+Destroyer #1 shoots at (7, 4) but misses.
+Destroyer #1 shoots at (6, 3) but misses.
+Destroyer #1 rammed at (6, 3) but misses.
+Battleship *1 position is (7,2)
+BattleShip: *1 moved to (8, 4)
+Battleship *1 shoots at (9, 5) but misses.
+Battleship *1 shoots at (7, 5) but misses.
+Team B ships: 
+Ship >2 detected enemy ship $1 at (5, 10)
+Ship >2 detected ally ship >1 at (7, 9)
+Cruiser: >2 moved to (7, 10)
+Ship >1 detected ally ship >2 at (7, 10)
+Ship >1 detected enemy ship @1 at (7, 8)
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (9, 9) but misses.
+    0   @2    0    0    0    0   *2    0    0    0
+    0   $4    0    0    0    0    0    1    1    0
+   #2    0    0    0    0    0    0    1    1    0
+    0   $3    0    0    0    0    0    0    0    0
+    0    0    0    0    1    0    0    0    0   $1
+    0    0    0   @3    1    0    0    0    0    0
+    0    0   #1   #4    1    0   *3   @1    0   >2
+   *4    0    0   *1    0   *5    0    0   >1    0
+    0    0    0    0    0    1    1    1    0    0
+   $2    0    0   #3    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+<1 
+=== Turn 15 ===
+Placed ship <1 at (6, 1)
+<1 has respawned!
+Team A ships: 
+Battleship *2 position is (0,6)
+BattleShip: *2 moved to (2, 6)
+Battleship *2 shoots at (3, 5) but misses.
+Battleship *2 shoots at (3, 5) but misses.
+Battleship *3 position is (6,6)
+BattleShip: *3 moved to (6, 8)
+Battleship *3 shoots at (6, 9) but misses.
+Battleship *3 shoots at (5, 9) but misses.
+Battleship *4 position is (7,0)
+BattleShip: *4 moved to (7, 1)
+Ship *4 shoots North at (6, 1)
+<1's life is now 1
+*4 Kill: 1
+Battleship *5 position is (7,5)
+BattleShip: *5 moved to (7, 7)
+Battleship *5 shoots at (6, 7) but misses.
+Battleship *5 shoots at (7, 6) but misses.
+Cruiser: $1 moved to (4, 10)
+Cruiser $1 rammed at (4, 9) but misses.
+Cruiser: $2 moved to (9, 2)
+Cruiser $2 rammed at (10, 2) but misses.
+Ship $3 detected ally ship #2 at (3, 1)
+Cruiser: $3 moved to (4, 1)
+Cruiser $3 rammed at (5, 1) but misses.
+Ship $4 detected ally ship @2 at (1, 2)
+Ship $4 detected ally ship #2 at (3, 1)
+Cruiser: $4 moved to (3, 3)
+Cruiser $4 rammed at (4, 3) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (4, 1) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (4, 2) but misses.
+Destroyer: #3 moved to (9, 3)
+Destroyer #3 shoots at (9, 2) but misses.
+Destroyer #3 shoots at (8, 3) but misses.
+Destroyer #3 rammed at (8, 3) but misses.
+Frigate @2 shooting in direction: North-East but misses.
+Destroyer: #4 moved to (6, 3)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 shoots at (5, 3) but misses.
+Destroyer #4 rammed at (6, 2) but misses.
+Destroyer: #1 moved to (6, 2)
+Destroyer #1 shoots at (7, 1) but misses.
+Destroyer #1 shoots at (5, 3) but misses.
+Destroyer #1 rammed at (6, 1) but misses.
+Battleship *1 position is (7,3)
+BattleShip: *1 moved to (7, 3)
+Battleship *1 shoots at (6, 4) but misses.
+Battleship *1 shoots at (6, 2) but misses.
+Team B ships: 
+Ship >2 detected ally ship >1 at (8, 9)
+Cruiser: >2 moved to (6, 10)
+Cruiser >2 rammed at (6, 9) but misses.
+Ship >1 detected enemy ship @1 at (7, 8)
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (7, 10) but misses.
+    0   @2    0    0    0    0    0    0    0    0
+    0    0    0    0    0   *2    0    1    1    0
+    0   #2   $4    0    0    0    0    1    1    0
+   $3    0    0    0    0    0    0    0    0   $1
+    0    0    0    0    1    0    0    0    0    0
+    0   #1   #4   @3    1    0    0   *3    0   >2
+   *4    0   *1    0    1    0   *5   @1   >1    0
+    0    0    0    0    0    0    0    0    0    0
+    0   $2   #3    0    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+<1 
+=== Turn 16 ===
+Placed ship <1 at (10, 9)
+<1 has respawned!
+Team A ships: 
+Battleship *2 position is (1,5)
+BattleShip: *2 moved to (1, 6)
+Battleship *2 shoots at (2, 5) but misses.
+Battleship *3 position is (5,7)
+BattleShip: *3 moved to (6, 7)
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *3 shoots at (7, 6) but misses.
+Battleship *4 position is (6,0)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (9, 2) but misses.
+Battleship *4 shoots at (7, 1) but misses.
+Battleship *5 position is (6,6)
+BattleShip: *5 moved to (8, 8)
+Battleship *5 shoots at (7, 7) but misses.
+Battleship *5 shoots at (7, 7) but misses.
+Cruiser: $1 moved to (5, 10)
+Cruiser $1 rammed at (4, 10) but misses.
+Ship $2 detected ally ship #3 at (9, 3)
+Ship $2 detected ally ship *4 at (8, 2)
+Cruiser: $2 moved to (8, 3)
+Cruiser $2 rammed at (8, 4) but misses.
+Ship $3 detected ally ship #2 at (3, 2)
+Cruiser: $3 moved to (4, 2)
+Cruiser $3 rammed at (4, 3) but misses.
+Ship $4 detected ally ship $3 at (4, 2)
+Ship $4 detected ally ship #2 at (3, 2)
+Cruiser: $4 moved to (3, 4)
+Cruiser $4 rammed at (2, 4) but misses.
+Destroyer: #2 moved to (4, 3)
+Destroyer #2 shoots at (5, 4) but misses.
+Destroyer #2 shoots at (5, 4) but misses.
+Destroyer #2 rammed at (5, 3) but misses.
+Destroyer: #3 moved to (10, 3)
+Destroyer #3 rammed at (10, 2) but misses.
+Destroyer: #4 moved to (5, 3)
+Destroyer #4 shoots at (4, 4) but misses.
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 rammed at (4, 3) but misses.
+Destroyer: #1 moved to (5, 2)
+Destroyer #1 shoots at (5, 1) but misses.
+Destroyer #1 shoots at (6, 1) but misses.
+Destroyer #1 rammed at (6, 2) but misses.
+Battleship *1 position is (6,2)
+BattleShip: *1 moved to (6, 2)
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *1 shoots at (5, 2) but misses.
+Team B ships: 
+Ship >2 detected enemy ship $1 at (5, 10)
+Ship >2 detected ally ship >1 at (7, 9)
+Cruiser: >2 moved to (7, 10)
+Cruiser >2 rammed at (7, 9) but misses.
+Ship >1 detected ally ship >2 at (7, 10)
+Ship >1 detected enemy ship *5 at (8, 8)
+Ship >1 detected enemy ship @1 at (7, 8)
+Cruiser: >1 moved to (8, 10)
+Cruiser >1 rammed at (9, 10) but misses.
+Battleship <1 position is (9,8)
+BattleShip: <1 moved to (10, 10)
+Battleship <1 shoots at (9, 10) but misses.
+    0   @2    0    0    0   *2    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+    0    0    0   $4    0    0    0    1    1    0
+    0   $3   #2    0    0    0    0    0    0    0
+    0   #1   #4    0    1    0    0    0    0   $1
+    0   *1    0   @3    1    0   *3    0    0    0
+    0    0    0    0    1    0    0   @1    0   >2
+    0   *4   $2    0    0    0    0   *5    0   >1
+    0    0    0    0    0    1    1    1    0    0
+    0    0   #3    0    0    0    0    1    0   <1
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 17 ===
+Team A ships: 
+Battleship *2 position is (0,5)
+BattleShip: *2 moved to (1, 5)
+Battleship *2 shoots at (1, 4) but misses.
+Battleship *2 shoots at (1, 6) but misses.
+Battleship *3 position is (5,6)
+BattleShip: *3 moved to (5, 8)
+Battleship *3 shoots at (4, 9) but misses.
+Battleship *3 shoots at (6, 9) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (10, 1) but misses.
+Battleship *4 shoots at (10, 1) but misses.
+Battleship *5 position is (7,7)
+BattleShip: *5 moved to (8, 9)
+Battleship *5 shoots at (9, 9) but misses.
+Battleship *5 shoots at (8, 8) but misses.
+Cruiser: $1 moved to (4, 10)
+Cruiser $1 rammed at (5, 10) but misses.
+Cruiser: $2 moved to (7, 3)
+Cruiser $2 rammed at (7, 4) but misses.
+Ship $3 detected ally ship #4 at (5, 3)
+Ship $3 detected ally ship #1 at (5, 2)
+Ship $3 detected ally ship #2 at (4, 3)
+Cruiser: $3 moved to (3, 1)
+Cruiser $3 rammed at (2, 1) but misses.
+Ship $4 detected ally ship #2 at (4, 3)
+Cruiser: $4 moved to (4, 4)
+Cruiser $4 rammed at (5, 4) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 rammed at (2, 2) but misses.
+Destroyer: #3 moved to (9, 2)
+Destroyer #3 shoots at (8, 3) but misses.
+Destroyer #3 shoots at (8, 1) but misses.
+Destroyer #3 rammed at (9, 3) but misses.
+Destroyer: #4 moved to (5, 4)
+Destroyer #4 shoots at (4, 3) but misses.
+Destroyer #4 shoots at (4, 4) but misses.
+Destroyer #4 rammed at (4, 4) but misses.
+Destroyer: #1 moved to (6, 3)
+Destroyer #1 shoots at (7, 3) but misses.
+Destroyer #1 shoots at (5, 4) but misses.
+Destroyer #1 rammed at (6, 4) but misses.
+Battleship *1 position is (5,1)
+BattleShip: *1 moved to (5, 1)
+Battleship *1 shoots at (4, 1) but misses.
+Team B ships: 
+Ship >2 detected ally ship >1 at (8, 10)
+Ship >2 detected enemy ship *5 at (8, 9)
+Cruiser: >2 moved to (7, 9)
+>2 rammed *5 at (8, 9). *5's life is now 2
+>2 moved to (8, 9) after ramming.
+>2 Kill: 2
+Ship >1 detected ally ship >2 at (8, 9)
+Cruiser: >1 moved to (7, 10)
+Cruiser >1 rammed at (8, 10) but misses.
+Battleship <1 position is (9,9)
+BattleShip: <1 moved to (9, 9)
+Battleship <1 shoots at (8, 8) but misses.
+Battleship <1 shoots at (8, 9) but misses.
+    0   @2    0    0   *2    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+   $3   #2    0    0    0    0    0    1    1    0
+    0    0    0   $4    0    0    0    0    0   $1
+   *1    0    0   #4    1    0    0   *3    0    0
+    0    0   #1   @3    1    0    0    0    0    0
+    0    0   $2    0    1    0    0   @1    0   >1
+    0    0    0    0    0    0    0    0   >2    0
+   *4   #3    0    0    0    1    1    1   <1    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+*5 
+Respawn Queue B: 
+
+=== Turn 18 ===
+Placed ship *5 at (4, 3)
+*5 has respawned!
+Team A ships: 
+Battleship *2 position is (0,4)
+BattleShip: *2 moved to (2, 6)
+Battleship *2 shoots at (1, 6) but misses.
+Battleship *2 shoots at (3, 5) but misses.
+Battleship *3 position is (4,7)
+BattleShip: *3 moved to (4, 7)
+Battleship *3 shoots at (3, 7) but misses.
+Battleship *3 shoots at (5, 8) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (10, 1)
+Cruiser: $1 moved to (5, 9)
+Cruiser $1 rammed at (5, 10) but misses.
+Ship $2 detected ally ship #1 at (6, 3)
+Ship $2 detected ally ship @3 at (6, 4)
+Cruiser: $2 moved to (8, 2)
+Cruiser $2 rammed at (7, 2) but misses.
+Ship $3 detected ally ship #2 at (3, 2)
+Cruiser: $3 moved to (2, 1)
+Ship $4 detected ally ship #4 at (5, 4)
+Ship $4 detected ally ship *5 at (4, 3)
+Cruiser: $4 moved to (3, 5)
+Cruiser $4 rammed at (2, 5) but misses.
+Destroyer: #2 moved to (3, 1)
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 rammed at (3, 2) but misses.
+Destroyer: #3 moved to (10, 3)
+Destroyer: #4 moved to (5, 3)
+Destroyer #4 shoots at (4, 2) but misses.
+Destroyer #4 shoots at (4, 2) but misses.
+Destroyer #4 rammed at (5, 2) but misses.
+Destroyer: #1 moved to (5, 4)
+Destroyer #1 shoots at (6, 5) but misses.
+Destroyer #1 shoots at (4, 5) but misses.
+Destroyer #1 rammed at (5, 3) but misses.
+Battleship *1 position is (4,0)
+BattleShip: *1 moved to (6, 2)
+Battleship *1 shoots at (6, 1) but misses.
+Battleship *1 shoots at (5, 3) but misses.
+Battleship *5 position is (3,2)
+BattleShip: *5 moved to (5, 2)
+Battleship *5 shoots at (6, 2) but misses.
+Battleship *5 shoots at (6, 2) but misses.
+Team B ships: 
+Ship >2 detected ally ship <1 at (9, 9)
+Ship >2 detected enemy ship @1 at (7, 8)
+Ship >2 detected ally ship >1 at (7, 10)
+Cruiser: >2 moved to (8, 8)
+>2 rammed @1 at (7, 8). @1's life is now 1
+>2 moved to (7, 8) after ramming.
+>2 Kill: 3
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (7, 8) but misses.
+Battleship <1 position is (8,8)
+BattleShip: <1 moved to (10, 10)
+    0   @2    0    0    0    0    0    0    0    0
+   $3    0    0    0    0   *2    0    1    1    0
+   #2    0    0    0   $4    0    0    1    1    0
+    0    0    0    0    0    0   *3    0    0    0
+    0   *5   #4   #1    1    0    0    0   $1    0
+    0   *1    0   @3    1    0    0    0    0    0
+    0    0    0    0    1    0    0   >2   >1    0
+    0   $2    0    0    0    0    0    0    0    0
+    0    0    0    0    0    1    1    1    0    0
+   *4    0   #3    0    0    0    0    1    0   <1
+
+Respawn Queue A: 
+@1 
+Respawn Queue B: 
+
+=== Turn 19 ===
+Placed ship @1 at (1, 4)
+@1 has respawned!
+Team A ships: 
+Battleship *2 position is (1,5)
+BattleShip: *2 moved to (1, 7)
+Battleship *2 shoots at (2, 7) but misses.
+Battleship *3 position is (3,6)
+BattleShip: *3 moved to (3, 7)
+Battleship *3 shoots at (4, 6) but misses.
+Battleship *3 shoots at (3, 8) but misses.
+Battleship *4 position is (9,0)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (10, 2) but misses.
+Cruiser: $1 moved to (4, 8)
+Cruiser $1 rammed at (4, 7) but misses.
+Ship $2 detected ally ship *4 at (9, 1)
+Cruiser: $2 moved to (8, 1)
+Cruiser $2 rammed at (8, 2) but misses.
+Ship $3 detected ally ship #2 at (3, 1)
+Ship $3 detected ally ship @2 at (1, 2)
+Cruiser: $3 moved to (1, 1)
+Cruiser $3 rammed at (1, 2) but misses.
+Cruiser: $4 moved to (4, 6)
+Cruiser $4 rammed at (3, 6) but misses.
+Destroyer: #2 moved to (2, 1)
+Destroyer #2 shoots at (1, 1) but misses.
+Destroyer #2 shoots at (3, 2) but misses.
+Destroyer: #3 moved to (10, 4)
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 shoots at (10, 5) but misses.
+Destroyer: #4 moved to (6, 3)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 rammed at (5, 3) but misses.
+Destroyer: #1 moved to (4, 4)
+Destroyer #1 shoots at (5, 4) but misses.
+Destroyer #1 shoots at (4, 5) but misses.
+Destroyer #1 rammed at (4, 5) but misses.
+Battleship *1 position is (5,1)
+BattleShip: *1 moved to (5, 3)
+Battleship *1 shoots at (4, 2) but misses.
+Battleship *1 shoots at (4, 3) but misses.
+Battleship *5 position is (4,1)
+BattleShip: *5 moved to (4, 1)
+Battleship *5 shoots at (4, 2) but misses.
+Team B ships: 
+Placed ship >2 at (10, 5)
+Ship >2 upgraded to Destroyer!
+Destroyer: >2 moved to (9, 5)
+Destroyer >2 shoots at (9, 6) but misses.
+Destroyer >2 shoots at (10, 6) but misses.
+Destroyer >2 rammed at (8, 5) but misses.
+Battleship <1 position is (9,9)
+BattleShip: <1 moved to (10, 9)
+Battleship <1 shoots at (10, 8) but misses.
+   $3   @2    0   @1    0    0   *2    0    0    0
+   #2    0    0    0    0    0    0    1    1    0
+    0    0    0    0    0    0   *3    1    1    0
+   *5    0    0   #1    0   $4    0   $1    0    0
+    0    0   *1    0    1    0    0    0    0    0
+    0    0   #4   @3    1    0    0    0    0    0
+    0    0    0    0    1    0    0    0   >1    0
+   $2    0    0    0    0    0    0    0    0    0
+   *4    0    0    0   >2    1    1    1    0    0
+    0    0    0   #3    0    0    0    1   <1    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 20 ===
+Team A ships: 
+Battleship *2 position is (0,6)
+BattleShip: *2 moved to (2, 7)
+Battleship *2 shoots at (2, 8) but misses.
+Battleship *2 shoots at (1, 7) but misses.
+Battleship *3 position is (2,6)
+BattleShip: *3 moved to (4, 7)
+Battleship *3 shoots at (5, 7) but misses.
+Battleship *3 shoots at (5, 7) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (9, 2)
+Battleship *4 shoots at (8, 3) but misses.
+Battleship *4 shoots at (9, 3) but misses.
+Ship $1 detected ally ship *3 at (4, 7)
+Cruiser: $1 moved to (4, 9)
+Cruiser $1 rammed at (5, 9) but misses.
+Ship $2 detected ally ship *4 at (9, 2)
+Cruiser: $2 moved to (7, 1)
+Cruiser $2 rammed at (7, 2) but misses.
+Ship $3 detected ally ship #2 at (2, 1)
+Ship $3 detected ally ship @2 at (1, 2)
+Cruiser: $3 moved to (2, 2)
+Cruiser $3 rammed at (2, 1) but misses.
+Ship $4 detected ally ship *3 at (4, 7)
+Cruiser: $4 moved to (5, 7)
+Cruiser $4 rammed at (4, 7) but misses.
+Destroyer: #2 moved to (3, 1)
+Destroyer #2 shoots at (3, 2) but misses.
+Destroyer #2 shoots at (2, 1) but misses.
+Destroyer #2 rammed at (2, 1) but misses.
+Destroyer: #3 moved to (9, 3)
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 shoots at (9, 4) but misses.
+Destroyer #3 rammed at (8, 3) but misses.
+Frigate @2 shooting in direction: North but misses.
+Destroyer: #4 moved to (5, 2)
+Destroyer #4 shoots at (4, 1) but misses.
+Destroyer #4 shoots at (4, 1) but misses.
+Destroyer #4 rammed at (5, 3) but misses.
+Destroyer: #1 moved to (3, 5)
+Destroyer #1 shoots at (3, 6) but misses.
+Destroyer #1 shoots at (3, 6) but misses.
+Destroyer #1 rammed at (2, 5) but misses.
+Battleship *1 position is (4,2)
+BattleShip: *1 moved to (5, 4)
+Battleship *1 shoots at (6, 3) but misses.
+Battleship *1 shoots at (4, 5) but misses.
+Battleship *5 position is (3,0)
+BattleShip: *5 moved to (4, 2)
+Battleship *5 shoots at (4, 1) but misses.
+Battleship *5 shoots at (3, 3) but misses.
+Frigate @1 shooting in direction: North but misses.
+Team B ships: 
+Cruiser: >1 moved to (6, 10)
+Destroyer: >2 moved to (8, 5)
+Destroyer >2 shoots at (9, 5) but misses.
+Destroyer >2 shoots at (8, 6) but misses.
+Destroyer >2 rammed at (8, 4) but misses.
+Battleship <1 position is (9,8)
+BattleShip: <1 moved to (9, 10)
+Battleship <1 shoots at (10, 10) but misses.
+Battleship <1 shoots at (9, 9) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0   $3    0    0    0    0   *2    1    1    0
+   #2    0    0    0   #1    0    0    1    1    0
+    0   *5    0    0    0    0   *3    0   $1    0
+    0   #4    0   *1    1    0   $4    0    0    0
+    0    0    0   @3    1    0    0    0    0   >1
+   $2    0    0    0    1    0    0    0    0    0
+    0    0    0    0   >2    0    0    0    0    0
+    0   *4   #3    0    0    1    1    1    0   <1
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 21 ===
+Team A ships: 
+Battleship *2 position is (1,6)
+BattleShip: *2 moved to (3, 6)
+Battleship *2 shoots at (2, 7) but misses.
+Battleship *2 shoots at (3, 5) but misses.
+Battleship *3 position is (3,6)
+BattleShip: *3 moved to (3, 7)
+Battleship *3 shoots at (3, 8) but misses.
+Battleship *3 shoots at (4, 7) but misses.
+Battleship *4 position is (8,1)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (10, 1) but misses.
+Cruiser: $1 moved to (4, 8)
+Cruiser $1 rammed at (4, 7) but misses.
+Cruiser: $2 moved to (8, 1)
+Ship $3 detected ally ship @2 at (1, 2)
+Ship $3 detected ally ship #2 at (3, 1)
+Cruiser: $3 moved to (2, 3)
+Cruiser $3 rammed at (3, 3) but misses.
+Ship $4 detected ally ship $1 at (4, 8)
+Cruiser: $4 moved to (4, 7)
+Cruiser $4 rammed at (5, 7) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (4, 2) but misses.
+Destroyer: #3 moved to (9, 2)
+Destroyer #3 shoots at (10, 3) but misses.
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 rammed at (9, 1) but misses.
+Frigate @2 shooting in direction: North-West but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (5, 3) but misses.
+Destroyer #4 shoots at (5, 2) but misses.
+Destroyer #4 rammed at (6, 3) but misses.
+Destroyer: #1 moved to (3, 4)
+Destroyer #1 shoots at (2, 5) but misses.
+Destroyer #1 shoots at (2, 5) but misses.
+Destroyer #1 rammed at (3, 3) but misses.
+Battleship *1 position is (4,3)
+BattleShip: *1 moved to (6, 3)
+Battleship *1 shoots at (7, 4) but misses.
+Battleship *1 shoots at (5, 4) but misses.
+Battleship *5 position is (3,1)
+BattleShip: *5 moved to (3, 1)
+Battleship *5 shoots at (3, 2) but misses.
+Frigate @1 shooting in direction: North-West but misses.
+Team B ships: 
+Cruiser: >1 moved to (6, 9)
+Cruiser >1 rammed at (6, 10) but misses.
+Destroyer: >2 moved to (8, 4)
+Destroyer >2 shoots at (8, 5) but misses.
+Destroyer >2 shoots at (8, 3) but misses.
+Destroyer >2 rammed at (7, 4) but misses.
+Battleship <1 position is (8,9)
+BattleShip: <1 moved to (8, 9)
+Battleship <1 shoots at (7, 8) but misses.
+Battleship <1 shoots at (9, 8) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0    0   $3    0    0    0    0    1    1    0
+   *5   #2    0   #1    0   *2   *3    1    1    0
+    0    0    0    0    0    0   $4   $1    0    0
+    0    0    0    0    1    0    0    0    0    0
+    0   #4   *1   @3    1    0    0    0   >1    0
+    0    0    0    0    1    0    0    0    0    0
+   $2    0    0   >2    0    0    0    0   <1    0
+   *4   #3    0    0    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 22 ===
+Team A ships: 
+Battleship *2 position is (2,5)
+BattleShip: *2 moved to (4, 6)
+Battleship *2 shoots at (5, 7) but misses.
+Battleship *2 shoots at (3, 6) but misses.
+Battleship *3 position is (2,6)
+BattleShip: *3 moved to (2, 6)
+Battleship *3 shoots at (2, 5) but misses.
+Battleship *3 shoots at (3, 6) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (10, 1)
+Battleship *4 shoots at (9, 2) but misses.
+Ship $1 detected ally ship $4 at (4, 7)
+Cruiser: $1 moved to (5, 7)
+Cruiser $1 rammed at (5, 8) but misses.
+Ship $2 detected ally ship #3 at (9, 2)
+Cruiser: $2 moved to (9, 1)
+Cruiser $2 rammed at (9, 2) but misses.
+Ship $3 detected ally ship #1 at (3, 4)
+Ship $3 detected ally ship @2 at (1, 2)
+Ship $3 detected ally ship #2 at (3, 2)
+Ship $3 detected ally ship @1 at (1, 4)
+Cruiser: $3 moved to (1, 3)
+Cruiser $3 rammed at (1, 4) but misses.
+Ship $4 detected ally ship $1 at (5, 7)
+Ship $4 detected ally ship *2 at (4, 6)
+Cruiser: $4 moved to (5, 8)
+Cruiser $4 rammed at (5, 7) but misses.
+Destroyer: #2 moved to (2, 3)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (1, 3) but misses.
+Destroyer #2 rammed at (2, 4) but misses.
+Destroyer: #3 moved to (8, 1)
+Destroyer #3 rammed at (8, 2) but misses.
+Destroyer: #4 moved to (6, 1)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 rammed at (5, 1) but misses.
+Destroyer: #1 moved to (3, 5)
+Destroyer #1 shoots at (2, 5) but misses.
+Destroyer #1 shoots at (4, 6) but misses.
+Destroyer #1 rammed at (3, 6) but misses.
+Battleship *1 position is (5,2)
+BattleShip: *1 moved to (7, 3)
+Battleship *1 shoots at (6, 3) but misses.
+Ship *1 shoots South-East at (8, 4)
+>2's life is now 2
+*1 Kill: 2
+Battleship *5 position is (2,0)
+BattleShip: *5 moved to (3, 2)
+Battleship *5 shoots at (2, 3) but misses.
+Battleship *5 shoots at (4, 3) but misses.
+Team B ships: 
+Ship >1 detected enemy ship $4 at (5, 8)
+Cruiser: >1 moved to (6, 10)
+Cruiser >1 rammed at (6, 9) but misses.
+Battleship <1 position is (7,8)
+BattleShip: <1 moved to (8, 10)
+    0   @2   $3   @1    0    0    0    0    0    0
+    0    0   #2    0    0   *3    0    1    1    0
+    0   *5    0    0   #1    0    0    1    1    0
+    0    0    0    0    0   *2    0    0    0    0
+    0    0    0    0    1    0   $1   $4    0    0
+   #4    0    0   @3    1    0    0    0    0   >1
+    0    0   *1    0    1    0    0    0    0    0
+   #3    0    0    0    0    0    0    0    0   <1
+   $2    0    0    0    0    1    1    1    0    0
+   *4    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+>2 
+=== Turn 23 ===
+Placed ship >2 at (8, 8)
+>2 has respawned!
+Team A ships: 
+Battleship *2 position is (3,5)
+BattleShip: *2 moved to (4, 7)
+Battleship *2 shoots at (4, 8) but misses.
+Battleship *2 shoots at (4, 6) but misses.
+Battleship *3 position is (1,5)
+BattleShip: *3 moved to (3, 7)
+Battleship *3 shoots at (4, 8) but misses.
+Battleship *3 shoots at (4, 6) but misses.
+Battleship *4 position is (9,0)
+BattleShip: *4 moved to (9, 2)
+Battleship *4 shoots at (10, 2) but misses.
+Battleship *4 shoots at (9, 1) but misses.
+Ship $1 detected ally ship $4 at (5, 8)
+Ship $1 detected ally ship *2 at (4, 7)
+Cruiser: $1 moved to (5, 6)
+Cruiser $1 rammed at (5, 5) but misses.
+Ship $2 detected ally ship *4 at (9, 2)
+Ship $2 detected ally ship #3 at (8, 1)
+Cruiser: $2 moved to (8, 2)
+Cruiser $2 rammed at (8, 3) but misses.
+Ship $3 detected ally ship #2 at (2, 3)
+Ship $3 detected ally ship @1 at (1, 4)
+Ship $3 detected ally ship @2 at (1, 2)
+Cruiser: $3 moved to (2, 4)
+Cruiser $3 rammed at (1, 4) but misses.
+Ship $4 detected ally ship *2 at (4, 7)
+Cruiser: $4 moved to (4, 9)
+Cruiser $4 rammed at (3, 9) but misses.
+Destroyer: #2 moved to (1, 3)
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 shoots at (1, 4) but misses.
+Destroyer #2 rammed at (2, 3) but misses.
+Destroyer: #3 moved to (7, 2)
+Destroyer #3 shoots at (6, 3) but misses.
+Destroyer #3 shoots at (7, 3) but misses.
+Destroyer #3 rammed at (6, 2) but misses.
+Frigate @2 shooting in direction: North-East but misses.
+Destroyer: #4 moved to (5, 2)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 shoots at (5, 3) but misses.
+Destroyer #4 rammed at (5, 3) but misses.
+Destroyer: #1 moved to (4, 6)
+Destroyer #1 shoots at (4, 5) but misses.
+Destroyer #1 shoots at (5, 6) but misses.
+Destroyer #1 rammed at (5, 6) but misses.
+Battleship *1 position is (6,2)
+BattleShip: *1 moved to (8, 3)
+Battleship *1 shoots at (7, 3) but misses.
+Battleship *1 shoots at (9, 3) but misses.
+Battleship *5 position is (2,1)
+BattleShip: *5 moved to (2, 1)
+Battleship *5 shoots at (3, 2) but misses.
+Frigate @1 shooting in direction: North-East but misses.
+Team B ships: 
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (6, 9) but misses.
+Battleship <1 position is (7,9)
+BattleShip: <1 moved to (9, 9)
+Battleship <1 shoots at (8, 9) but misses.
+Battleship <1 shoots at (9, 8) but misses.
+Destroyer: >2 moved to (7, 8)
+Destroyer >2 shoots at (6, 8) but misses.
+Destroyer >2 shoots at (6, 8) but misses.
+Destroyer >2 rammed at (8, 8) but misses.
+    0   @2   #2   @1    0    0    0    0    0    0
+   *5    0    0   $3    0    0    0    1    1    0
+    0    0    0    0    0    0   *3    1    1    0
+    0    0    0    0    0   #1   *2    0   $4    0
+    0   #4    0    0    1   $1    0    0    0    0
+    0    0    0   @3    1    0    0    0    0    0
+    0   #3    0    0    1    0    0   >2   >1    0
+    0   $2   *1    0    0    0    0    0    0    0
+    0   *4    0    0    0    1    1    1   <1    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 24 ===
+Team A ships: 
+Battleship *2 position is (3,6)
+BattleShip: *2 moved to (5, 8)
+Battleship *2 shoots at (4, 9) but misses.
+Battleship *2 shoots at (4, 9) but misses.
+Battleship *3 position is (2,6)
+BattleShip: *3 moved to (2, 6)
+Battleship *3 shoots at (2, 7) but misses.
+Battleship *3 shoots at (2, 7) but misses.
+Battleship *4 position is (8,1)
+BattleShip: *4 moved to (10, 1)
+Battleship *4 shoots at (9, 1) but misses.
+Ship $1 detected ally ship #1 at (4, 6)
+Cruiser: $1 moved to (6, 6)
+Cruiser $1 rammed at (6, 7) but misses.
+Ship $2 detected ally ship *1 at (8, 3)
+Ship $2 detected ally ship #3 at (7, 2)
+Cruiser: $2 moved to (9, 2)
+Cruiser $2 rammed at (10, 2) but misses.
+Ship $3 detected ally ship @1 at (1, 4)
+Ship $3 detected ally ship #2 at (1, 3)
+Cruiser: $3 moved to (2, 5)
+Cruiser $3 rammed at (1, 5) but misses.
+Ship $4 detected ally ship *2 at (5, 8)
+Cruiser: $4 moved to (4, 10)
+Destroyer: #2 moved to (2, 3)
+Destroyer #2 shoots at (1, 2) but misses.
+Destroyer #2 shoots at (1, 2) but misses.
+Destroyer #2 rammed at (2, 2) but misses.
+Destroyer: #3 moved to (6, 3)
+Destroyer #3 shoots at (6, 4) but misses.
+Destroyer #3 shoots at (7, 3) but misses.
+Destroyer #3 rammed at (6, 4) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 rammed at (6, 1) but misses.
+Destroyer: #1 moved to (5, 7)
+Destroyer #1 shoots at (5, 6) but misses.
+Destroyer #1 shoots at (6, 8) but misses.
+Destroyer #1 rammed at (6, 7) but misses.
+Battleship *1 position is (7,2)
+BattleShip: *1 moved to (8, 2)
+Battleship *1 shoots at (7, 3) but misses.
+Battleship *1 shoots at (7, 1) but misses.
+Battleship *5 position is (1,0)
+BattleShip: *5 moved to (3, 1)
+Battleship *5 shoots at (4, 2) but misses.
+Team B ships: 
+Ship >1 detected ally ship >2 at (7, 8)
+Cruiser: >1 moved to (8, 8)
+Cruiser >1 rammed at (8, 7) but misses.
+Battleship <1 position is (8,8)
+BattleShip: <1 moved to (9, 10)
+Battleship <1 shoots at (10, 9) but misses.
+Destroyer: >2 moved to (7, 7)
+Destroyer >2 shoots at (6, 8) but misses.
+Destroyer >2 shoots at (8, 6) but misses.
+Destroyer >2 rammed at (6, 7) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0    0   #2    0   $3   *3    0    1    1    0
+   *5    0    0    0    0    0    0    1    1    0
+    0    0    0    0    0    0    0    0    0   $4
+    0    0    0    0    1    0   #1   *2    0    0
+    0   #4   #3   @3    1   $1    0    0    0    0
+    0    0    0    0    1    0   >2    0    0    0
+    0   *1    0    0    0    0    0   >1    0    0
+    0   $2    0    0    0    1    1    1    0   <1
+   *4    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 25 ===
+Team A ships: 
+Battleship *2 position is (4,7)
+BattleShip: *2 moved to (6, 8)
+Ship *2 shoots South-West at (7, 7)
+>2's life is now 1
+*2 Kill: 3
+Battleship *2 shoots at (5, 9) but misses.
+Battleship *3 position is (1,5)
+BattleShip: *3 moved to (3, 7)
+Battleship *3 shoots at (3, 8) but misses.
+Battleship *3 shoots at (3, 8) but misses.
+Battleship *4 position is (9,0)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (8, 1) but misses.
+Ship $1 detected ally ship #1 at (5, 7)
+Cruiser: $1 moved to (7, 7)
+Cruiser $1 rammed at (6, 7) but misses.
+Ship $2 detected ally ship *1 at (8, 2)
+Ship $2 detected ally ship *4 at (9, 1)
+Cruiser: $2 moved to (8, 1)
+Cruiser $2 rammed at (7, 1) but misses.
+Ship $3 detected ally ship @1 at (1, 4)
+Cruiser: $3 moved to (1, 6)
+Cruiser $3 rammed at (2, 6) but misses.
+Cruiser: $4 moved to (5, 10)
+Cruiser $4 rammed at (6, 10) but misses.
+Destroyer: #2 moved to (1, 3)
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 rammed at (1, 4) but misses.
+Destroyer: #3 moved to (5, 3)
+Destroyer #3 shoots at (4, 2) but misses.
+Destroyer #3 shoots at (4, 3) but misses.
+Destroyer #3 rammed at (4, 3) but misses.
+Destroyer: #4 moved to (7, 3)
+Destroyer #4 shoots at (8, 3) but misses.
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 rammed at (7, 4) but misses.
+Destroyer: #1 moved to (4, 7)
+Destroyer #1 shoots at (4, 8) but misses.
+Destroyer #1 shoots at (3, 7) but misses.
+Destroyer #1 rammed at (4, 6) but misses.
+Battleship *1 position is (7,1)
+BattleShip: *1 moved to (7, 1)
+Battleship *1 shoots at (6, 2) but misses.
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *5 position is (2,0)
+BattleShip: *5 moved to (4, 1)
+Battleship *5 shoots at (3, 1) but misses.
+Battleship *5 shoots at (4, 2) but misses.
+Team B ships: 
+Ship >1 detected enemy ship $1 at (7, 7)
+Cruiser: >1 moved to (7, 8)
+Cruiser >1 rammed at (7, 9) but misses.
+Battleship <1 position is (8,9)
+BattleShip: <1 moved to (9, 9)
+Battleship <1 shoots at (8, 8) but misses.
+Battleship <1 shoots at (10, 10) but misses.
+    0   @2   #2   @1    0   $3    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+    0    0    0    0    0    0   *3    1    1    0
+   *5    0    0    0    0    0   #1    0    0    0
+    0    0   #3    0    1    0    0    0    0   $4
+    0    0    0   @3    1    0    0   *2    0    0
+   *1    0   #4    0    1    0   $1   >1    0    0
+   $2    0    0    0    0    0    0    0    0    0
+   *4    0    0    0    0    1    1    1   <1    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+>2 
+=== Turn 26 ===
+Placed ship >2 at (7, 10)
+>2 has respawned!
+Team A ships: 
+Placed ship *2 at (5, 1)
+Ship *2 upgraded to Destroyer!
+Destroyer: *2 moved to (4, 2)
+Destroyer *2 shoots at (3, 3) but misses.
+Destroyer *2 shoots at (4, 3) but misses.
+Destroyer *2 rammed at (5, 2) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (10, 2)
+Ship $1 detected enemy ship >1 at (7, 8)
+Cruiser: $1 moved to (6, 6)
+Cruiser $1 rammed at (6, 7) but misses.
+Ship $2 detected ally ship *1 at (7, 1)
+Cruiser: $2 moved to (9, 1)
+Cruiser $2 rammed at (8, 1) but misses.
+Cruiser: $3 moved to (1, 7)
+Cruiser $3 rammed at (1, 6) but misses.
+Cruiser: $4 moved to (6, 9)
+Cruiser $4 rammed at (6, 10) but misses.
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (2, 1) but misses.
+Destroyer #2 shoots at (1, 1) but misses.
+Destroyer #2 rammed at (2, 3) but misses.
+Destroyer: #3 moved to (6, 3)
+Destroyer #3 shoots at (5, 3) but misses.
+Destroyer #3 shoots at (6, 4) but misses.
+Destroyer #3 rammed at (6, 4) but misses.
+Destroyer: #4 moved to (8, 2)
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 shoots at (7, 2) but misses.
+Destroyer #4 rammed at (7, 2) but misses.
+Destroyer: #1 moved to (5, 8)
+Destroyer #1 shoots at (5, 7) but misses.
+Destroyer #1 shoots at (4, 8) but misses.
+Destroyer #1 rammed at (6, 8) but misses.
+Battleship *1 position is (6,0)
+BattleShip: *1 moved to (6, 1)
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *5 position is (3,0)
+BattleShip: *5 moved to (5, 1)
+Battleship *5 shoots at (6, 2) but misses.
+Team B ships: 
+Ship >1 detected enemy ship $4 at (6, 9)
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (7, 9) but misses.
+Battleship <1 position is (8,8)
+BattleShip: <1 moved to (10, 10)
+Battleship <1 shoots at (10, 9) but misses.
+Destroyer: >2 moved to (7, 9)
+Destroyer >2 shoots at (7, 8) but misses.
+Destroyer >2 shoots at (7, 8) but misses.
+>2 rammed $4 at (6, 9). $4's life is now 2
+>2 moved to (6, 9) after ramming.
+>2 Kill: 4
+    0   @2    0   @1    0    0   $3    0    0    0
+    0   #2    0    0    0    0    0    1    1    0
+    0    0    0    0    0    0   *3    1    1    0
+    0   *2    0    0    0    0    0    0    0    0
+   *5    0    0    0    1    0    0   #1    0    0
+   *1    0   #3   @3    1   $1    0    0   >2    0
+    0    0    0    0    1    0    0    0    0    0
+    0   #4    0    0    0    0    0    0   >1    0
+   $2    0    0    0    0    1    1    1    0    0
+    0   *4    0    0    0    0    0    1    0   <1
+
+Respawn Queue A: 
+$4 
+Respawn Queue B: 
+
+=== Turn 27 ===
+Placed ship $4 at (4, 9)
+$4 has respawned!
+Team A ships: 
+Battleship *3 position is (2,6)
+BattleShip: *3 moved to (2, 7)
+Battleship *3 shoots at (1, 8) but misses.
+Battleship *3 shoots at (1, 6) but misses.
+Destroyer: *2 moved to (3, 1)
+Destroyer *2 shoots at (2, 1) but misses.
+Destroyer *2 rammed at (2, 1) but misses.
+Battleship *4 position is (9,1)
+BattleShip: *4 moved to (9, 3)
+Battleship *4 shoots at (8, 2) but misses.
+Battleship *4 shoots at (8, 3) but misses.
+Cruiser: $1 moved to (5, 7)
+Cruiser $1 rammed at (6, 7) but misses.
+Ship $2 detected ally ship #4 at (8, 2)
+Cruiser: $2 moved to (9, 2)
+Cruiser $2 rammed at (8, 2) but misses.
+Ship $3 detected ally ship *3 at (2, 7)
+Cruiser: $3 moved to (1, 6)
+Cruiser $3 rammed at (1, 5) but misses.
+Destroyer: #2 moved to (3, 3)
+Destroyer #2 shoots at (3, 2) but misses.
+Destroyer #2 shoots at (3, 4) but misses.
+Destroyer #2 rammed at (3, 2) but misses.
+Destroyer: #3 moved to (5, 3)
+Destroyer #3 shoots at (4, 4) but misses.
+Destroyer #3 shoots at (6, 3) but misses.
+Destroyer #3 rammed at (5, 2) but misses.
+Destroyer: #4 moved to (8, 3)
+Destroyer #4 shoots at (7, 3) but misses.
+Destroyer #4 shoots at (8, 2) but misses.
+Destroyer #4 rammed at (7, 3) but misses.
+Destroyer: #1 moved to (6, 7)
+Destroyer #1 shoots at (5, 8) but misses.
+Destroyer #1 shoots at (5, 7) but misses.
+Destroyer #1 rammed at (6, 8) but misses.
+Battleship *1 position is (5,0)
+BattleShip: *1 moved to (6, 2)
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *1 shoots at (5, 3) but misses.
+Battleship *5 position is (4,0)
+BattleShip: *5 moved to (5, 2)
+Battleship *5 shoots at (4, 1) but misses.
+Battleship *5 shoots at (5, 1) but misses.
+Cruiser: $4 moved to (3, 10)
+Cruiser $4 rammed at (2, 10) but misses.
+Team B ships: 
+Cruiser: >1 moved to (8, 10)
+Cruiser >1 rammed at (9, 10) but misses.
+Battleship <1 position is (9,9)
+BattleShip: <1 moved to (10, 9)
+Battleship <1 shoots at (9, 8) but misses.
+Destroyer: >2 moved to (6, 8)
+Destroyer >2 shoots at (7, 8) but misses.
+Destroyer >2 shoots at (5, 8) but misses.
+Destroyer >2 rammed at (5, 8) but misses.
+    0   @2    0   @1    0   $3    0    0    0    0
+    0    0    0    0    0    0   *3    1    1    0
+   *2    0   #2    0    0    0    0    1    1   $4
+    0    0    0    0    0    0    0    0    0    0
+    0   *5   #3    0    1    0   $1    0    0    0
+    0   *1    0   @3    1    0   #1   >2    0    0
+    0    0    0    0    1    0    0    0    0    0
+    0    0   #4    0    0    0    0    0    0   >1
+    0   $2   *4    0    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1   <1    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 28 ===
+Team A ships: 
+Battleship *3 position is (1,6)
+BattleShip: *3 moved to (3, 7)
+Battleship *3 shoots at (2, 6) but misses.
+Battleship *3 shoots at (2, 7) but misses.
+Destroyer: *2 moved to (2, 2)
+Destroyer *2 shoots at (1, 3) but misses.
+Destroyer *2 shoots at (3, 2) but misses.
+Destroyer *2 rammed at (1, 2) but misses.
+Battleship *4 position is (8,2)
+BattleShip: *4 moved to (10, 2)
+Ship $1 detected enemy ship >2 at (6, 8)
+Ship $1 detected ally ship #1 at (6, 7)
+Cruiser: $1 moved to (4, 7)
+Cruiser $1 rammed at (5, 7) but misses.
+Ship $2 detected ally ship *4 at (10, 2)
+Ship $2 detected ally ship #4 at (8, 3)
+Cruiser: $2 moved to (8, 2)
+Cruiser $2 rammed at (8, 1) but misses.
+Cruiser: $3 moved to (2, 5)
+Cruiser $3 rammed at (1, 5) but misses.
+Destroyer: #2 moved to (4, 3)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (4, 4) but misses.
+Destroyer #2 rammed at (5, 3) but misses.
+Destroyer: #3 moved to (6, 3)
+Destroyer #3 shoots at (7, 2) but misses.
+Destroyer #3 shoots at (6, 2) but misses.
+Destroyer #3 rammed at (5, 3) but misses.
+Frigate @2 shooting in direction: North but misses.
+Destroyer: #4 moved to (7, 4)
+Destroyer #4 shoots at (8, 5) but misses.
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 rammed at (6, 4) but misses.
+Destroyer: #1 moved to (5, 6)
+Destroyer #1 shoots at (5, 5) but misses.
+Destroyer #1 shoots at (4, 5) but misses.
+Destroyer #1 rammed at (4, 6) but misses.
+Battleship *1 position is (5,1)
+BattleShip: *1 moved to (7, 3)
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *1 shoots at (8, 3) but misses.
+Battleship *5 position is (4,1)
+BattleShip: *5 moved to (5, 3)
+Battleship *5 shoots at (6, 3) but misses.
+Battleship *5 shoots at (5, 4) but misses.
+Frigate @1 shooting in direction: North but misses.
+Cruiser: $4 moved to (2, 10)
+Cruiser $4 rammed at (3, 10) but misses.
+Team B ships: 
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (7, 9) but misses.
+Battleship <1 position is (9,8)
+BattleShip: <1 moved to (9, 10)
+Battleship <1 shoots at (8, 9) but misses.
+Destroyer: >2 moved to (7, 7)
+Destroyer >2 shoots at (8, 6) but misses.
+Destroyer >2 shoots at (6, 6) but misses.
+Destroyer >2 rammed at (8, 7) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0   *2    0    0   $3    0    0    1    1   $4
+    0    0    0    0    0    0   *3    1    1    0
+    0    0   #2    0    0    0   $1    0    0    0
+    0    0   *5    0    1   #1    0    0    0    0
+    0    0   #3   @3    1    0    0    0    0    0
+    0    0   *1   #4    1    0   >2    0    0    0
+    0   $2    0    0    0    0    0    0   >1    0
+    0    0    0    0    0    1    1    1    0   <1
+    0   *4    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 29 ===
+Team A ships: 
+Battleship *3 position is (2,6)
+BattleShip: *3 moved to (3, 6)
+Battleship *3 shoots at (2, 6) but misses.
+Battleship *3 shoots at (4, 5) but misses.
+Destroyer: *2 moved to (1, 3)
+Destroyer *2 shoots at (2, 3) but misses.
+Destroyer *2 rammed at (2, 3) but misses.
+Battleship *4 position is (9,1)
+BattleShip: *4 moved to (10, 3)
+Battleship *4 shoots at (10, 4) but misses.
+Battleship *4 shoots at (10, 2) but misses.
+Ship $1 detected ally ship *3 at (3, 6)
+Ship $1 detected ally ship #1 at (5, 6)
+Cruiser: $1 moved to (5, 8)
+Cruiser $1 rammed at (4, 8) but misses.
+Ship $2 detected ally ship *1 at (7, 3)
+Cruiser: $2 moved to (9, 2)
+Cruiser $2 rammed at (10, 2) but misses.
+Ship $3 detected ally ship *3 at (3, 6)
+Ship $3 detected ally ship @1 at (1, 4)
+Cruiser: $3 moved to (3, 4)
+Cruiser $3 rammed at (3, 5) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 shoots at (3, 1) but misses.
+Destroyer #2 rammed at (3, 3) but misses.
+Destroyer: #3 moved to (6, 2)
+Destroyer #3 shoots at (7, 1) but misses.
+Destroyer #3 shoots at (7, 2) but misses.
+Destroyer #3 rammed at (5, 2) but misses.
+Frigate @2 shooting in direction: North-West but misses.
+Destroyer: #4 moved to (8, 3)
+Destroyer #4 shoots at (9, 2) but misses.
+Destroyer #4 shoots at (9, 4) but misses.
+Destroyer #4 rammed at (8, 2) but misses.
+Destroyer: #1 moved to (4, 6)
+Destroyer #1 shoots at (3, 5) but misses.
+Destroyer #1 shoots at (4, 7) but misses.
+Destroyer #1 rammed at (5, 6) but misses.
+Battleship *1 position is (6,2)
+BattleShip: *1 moved to (6, 3)
+Battleship *1 shoots at (5, 3) but misses.
+Battleship *1 shoots at (5, 4) but misses.
+Battleship *5 position is (4,2)
+BattleShip: *5 moved to (5, 2)
+Battleship *5 shoots at (4, 1) but misses.
+Battleship *5 shoots at (5, 1) but misses.
+Frigate @1 shooting in direction: North-West but misses.
+Cruiser: $4 moved to (1, 10)
+Team B ships: 
+Ship >1 detected ally ship <1 at (9, 10)
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (8, 9) but misses.
+Battleship <1 position is (8,9)
+BattleShip: <1 moved to (8, 10)
+Battleship <1 shoots at (7, 9) but misses.
+Battleship <1 shoots at (7, 10) but misses.
+Destroyer: >2 moved to (7, 8)
+Destroyer >2 shoots at (7, 9) but misses.
+Destroyer >2 shoots at (8, 8) but misses.
+Destroyer >2 rammed at (6, 8) but misses.
+    0   @2   *2   @1    0    0    0    0    0   $4
+    0    0    0    0    0    0    0    1    1    0
+    0   #2    0   $3    0   *3    0    1    1    0
+    0    0    0    0    0   #1    0    0    0    0
+    0   *5    0    0    1    0    0   $1    0    0
+    0   #3   *1   @3    1    0    0    0    0    0
+    0    0    0    0    1    0    0   >2   >1    0
+    0    0   #4    0    0    0    0    0    0   <1
+    0   $2    0    0    0    1    1    1    0    0
+    0    0   *4    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 30 ===
+Team A ships: 
+Battleship *3 position is (2,5)
+BattleShip: *3 moved to (4, 5)
+Battleship *3 shoots at (3, 4) but misses.
+Battleship *3 shoots at (5, 6) but misses.
+Destroyer: *2 moved to (2, 4)
+Destroyer *2 shoots at (2, 5) but misses.
+Destroyer *2 shoots at (3, 4) but misses.
+Destroyer *2 rammed at (3, 4) but misses.
+Battleship *4 position is (9,2)
+BattleShip: *4 moved to (10, 2)
+Battleship *4 shoots at (9, 2) but misses.
+Cruiser: $1 moved to (5, 9)
+Cruiser $1 rammed at (4, 9) but misses.
+Ship $2 detected ally ship *4 at (10, 2)
+Ship $2 detected ally ship #4 at (8, 3)
+Cruiser: $2 moved to (9, 1)
+Cruiser $2 rammed at (9, 2) but misses.
+Ship $3 detected ally ship *3 at (4, 5)
+Ship $3 detected ally ship *2 at (2, 4)
+Cruiser: $3 moved to (2, 3)
+Cruiser $3 rammed at (3, 3) but misses.
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (3, 1) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (2, 3) but misses.
+Destroyer: #3 moved to (7, 3)
+Destroyer #3 shoots at (7, 4) but misses.
+Destroyer #3 shoots at (6, 3) but misses.
+Destroyer #3 rammed at (7, 4) but misses.
+Destroyer: #4 moved to (7, 4)
+Destroyer #4 shoots at (7, 5) but misses.
+Destroyer #4 shoots at (7, 5) but misses.
+Destroyer #4 rammed at (7, 3) but misses.
+Destroyer: #1 moved to (3, 5)
+Destroyer #1 shoots at (3, 6) but misses.
+Destroyer #1 shoots at (2, 4) but misses.
+Destroyer #1 rammed at (3, 6) but misses.
+Battleship *1 position is (5,2)
+BattleShip: *1 moved to (6, 2)
+Battleship *1 shoots at (6, 1) but misses.
+Battleship *1 shoots at (6, 3) but misses.
+Battleship *5 position is (4,1)
+BattleShip: *5 moved to (4, 2)
+Battleship *5 shoots at (4, 3) but misses.
+Battleship *5 shoots at (4, 1) but misses.
+Cruiser: $4 moved to (1, 9)
+Cruiser $4 rammed at (1, 10) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (8, 10)
+Ship >1 detected ally ship >2 at (7, 8)
+Cruiser: >1 moved to (8, 8)
+Cruiser >1 rammed at (7, 8) but misses.
+Battleship <1 position is (7,9)
+BattleShip: <1 moved to (8, 9)
+Battleship <1 shoots at (9, 10) but misses.
+Battleship <1 shoots at (7, 9) but misses.
+Destroyer: >2 moved to (6, 7)
+Destroyer >2 shoots at (5, 7) but misses.
+Destroyer >2 shoots at (7, 8) but misses.
+Destroyer >2 rammed at (6, 8) but misses.
+    0   @2    0   @1    0    0    0    0   $4    0
+    0   #2   $3   *2    0    0    0    1    1    0
+    0    0    0    0   #1    0    0    1    1    0
+    0   *5    0    0   *3    0    0    0    0    0
+    0    0    0    0    1    0    0    0   $1    0
+    0   *1    0   @3    1    0   >2    0    0    0
+    0    0   #3   #4    1    0    0    0    0    0
+    0    0    0    0    0    0    0   >1   <1    0
+   $2    0    0    0    0    1    1    1    0    0
+    0   *4    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 31 ===
+Team A ships: 
+Battleship *3 position is (3,4)
+BattleShip: *3 moved to (3, 6)
+Battleship *3 shoots at (4, 7) but misses.
+Battleship *3 shoots at (3, 7) but misses.
+Destroyer: *2 moved to (1, 3)
+Destroyer *2 shoots at (1, 4) but misses.
+Battleship *4 position is (9,1)
+BattleShip: *4 moved to (9, 3)
+Battleship *4 shoots at (8, 4) but misses.
+Battleship *4 shoots at (9, 2) but misses.
+Cruiser: $1 moved to (6, 9)
+Cruiser $1 rammed at (6, 10) but misses.
+Cruiser: $2 moved to (9, 2)
+Cruiser $2 rammed at (8, 2) but misses.
+Ship $3 detected ally ship *2 at (1, 3)
+Ship $3 detected ally ship @2 at (1, 2)
+Ship $3 detected ally ship @1 at (1, 4)
+Ship $3 detected ally ship #2 at (2, 2)
+Cruiser: $3 moved to (3, 4)
+Cruiser $3 rammed at (3, 3) but misses.
+Destroyer: #2 moved to (2, 1)
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 rammed at (1, 1) but misses.
+Destroyer: #3 moved to (8, 3)
+Destroyer #3 shoots at (7, 4) but misses.
+Destroyer #3 shoots at (8, 4) but misses.
+Destroyer #3 rammed at (8, 2) but misses.
+Frigate @2 shooting in direction: North-East but misses.
+Destroyer: #4 moved to (7, 3)
+Destroyer #4 shoots at (8, 4) but misses.
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 rammed at (7, 4) but misses.
+Destroyer: #1 moved to (4, 5)
+Destroyer #1 shoots at (5, 5) but misses.
+Destroyer #1 shoots at (3, 5) but misses.
+Destroyer #1 rammed at (4, 4) but misses.
+Battleship *1 position is (5,1)
+BattleShip: *1 moved to (6, 3)
+Battleship *1 shoots at (7, 4) but misses.
+Battleship *1 shoots at (6, 4) but misses.
+Battleship *5 position is (3,1)
+BattleShip: *5 moved to (4, 3)
+Battleship *5 shoots at (4, 2) but misses.
+Battleship *5 shoots at (4, 4) but misses.
+Frigate @1 shooting in direction: North-East but misses.
+Cruiser: $4 moved to (1, 8)
+Cruiser $4 rammed at (1, 9) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (8, 9)
+Cruiser: >1 moved to (9, 9)
+Cruiser >1 rammed at (9, 8) but misses.
+Battleship <1 position is (7,8)
+BattleShip: <1 moved to (7, 10)
+Battleship <1 shoots at (7, 9) but misses.
+Destroyer: >2 moved to (6, 6)
+Destroyer >2 shoots at (7, 5) but misses.
+Destroyer >2 shoots at (7, 7) but misses.
+Destroyer >2 rammed at (7, 6) but misses.
+    0   @2   *2   @1    0    0    0   $4    0    0
+   #2    0    0    0    0    0    0    1    1    0
+    0    0    0   $3    0   *3    0    1    1    0
+    0    0   *5    0   #1    0    0    0    0    0
+    0    0    0    0    1    0    0    0    0    0
+    0    0   *1   @3    1   >2    0    0   $1    0
+    0    0   #4    0    1    0    0    0    0   <1
+    0    0   #3    0    0    0    0    0    0    0
+    0   $2   *4    0    0    1    1    1   >1    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 32 ===
+Team A ships: 
+Battleship *3 position is (2,5)
+BattleShip: *3 moved to (4, 7)
+Battleship *3 shoots at (5, 8) but misses.
+Battleship *3 shoots at (4, 6) but misses.
+Destroyer: *2 moved to (2, 2)
+Destroyer *2 shoots at (1, 2) but misses.
+Destroyer *2 shoots at (2, 1) but misses.
+Destroyer *2 rammed at (2, 3) but misses.
+Battleship *4 position is (8,2)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (7, 2) but misses.
+Battleship *4 shoots at (7, 1) but misses.
+Ship $1 detected enemy ship <1 at (7, 10)
+Cruiser: $1 moved to (5, 9)
+Cruiser $1 rammed at (6, 9) but misses.
+Ship $2 detected ally ship *4 at (8, 2)
+Ship $2 detected ally ship #3 at (8, 3)
+Cruiser: $2 moved to (9, 1)
+Ship $3 detected ally ship #1 at (4, 5)
+Ship $3 detected ally ship *5 at (4, 3)
+Cruiser: $3 moved to (3, 5)
+Cruiser $3 rammed at (3, 4) but misses.
+Destroyer: #2 moved to (3, 1)
+Destroyer #2 rammed at (3, 2) but misses.
+Destroyer: #3 moved to (9, 3)
+Destroyer #3 shoots at (8, 3) but misses.
+Destroyer #3 shoots at (8, 3) but misses.
+Destroyer #3 rammed at (9, 4) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (5, 1) but misses.
+Destroyer #4 shoots at (7, 1) but misses.
+Destroyer #4 rammed at (6, 1) but misses.
+Destroyer: #1 moved to (4, 6)
+Destroyer #1 shoots at (3, 5) but misses.
+Destroyer #1 shoots at (3, 5) but misses.
+Destroyer #1 rammed at (5, 6) but misses.
+Battleship *1 position is (5,2)
+BattleShip: *1 moved to (7, 3)
+Battleship *1 shoots at (7, 2) but misses.
+Battleship *1 shoots at (6, 3) but misses.
+Battleship *5 position is (3,2)
+BattleShip: *5 moved to (3, 3)
+Battleship *5 shoots at (2, 2) but misses.
+Battleship *5 shoots at (3, 2) but misses.
+Cruiser: $4 moved to (2, 7)
+Cruiser $4 rammed at (2, 8) but misses.
+Team B ships: 
+Cruiser: >1 moved to (8, 10)
+Cruiser >1 rammed at (8, 9) but misses.
+Battleship <1 position is (6,9)
+BattleShip: <1 moved to (6, 10)
+Battleship <1 shoots at (7, 10) but misses.
+Destroyer: >2 moved to (6, 7)
+Destroyer >2 shoots at (7, 7) but misses.
+Destroyer >2 shoots at (5, 6) but misses.
+Destroyer >2 rammed at (5, 7) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0   *2    0    0    0    0   $4    1    1    0
+   #2    0   *5    0   $3    0    0    1    1    0
+    0    0    0    0    0   #1   *3    0    0    0
+    0    0    0    0    1    0    0    0   $1    0
+    0   #4    0   @3    1    0   >2    0    0   <1
+    0    0   *1    0    1    0    0    0    0    0
+    0   *4    0    0    0    0    0    0    0   >1
+   $2    0   #3    0    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 33 ===
+Team A ships: 
+Battleship *3 position is (3,6)
+BattleShip: *3 moved to (5, 6)
+Battleship *3 shoots at (4, 5) but misses.
+Battleship *3 shoots at (4, 7) but misses.
+Destroyer: *2 moved to (2, 3)
+Destroyer *2 shoots at (1, 4) but misses.
+Destroyer *2 shoots at (1, 2) but misses.
+Destroyer *2 rammed at (2, 2) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (8, 1)
+Battleship *4 shoots at (9, 2) but misses.
+Ship $1 detected enemy ship <1 at (6, 10)
+Cruiser: $1 moved to (6, 8)
+$1 rammed >2 at (6, 7). >2's life is now 0
+  >2 is permanently destroyed!
+$1 Kill: 0
+Ship $2 detected ally ship *4 at (8, 1)
+Cruiser: $2 moved to (10, 2)
+Cruiser $2 rammed at (10, 1) but misses.
+Ship $3 detected ally ship #1 at (4, 6)
+Cruiser: $3 moved to (2, 5)
+Cruiser $3 rammed at (2, 4) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 shoots at (2, 2) but misses.
+Destroyer #2 rammed at (3, 1) but misses.
+Destroyer: #3 moved to (8, 3)
+Destroyer #3 shoots at (7, 2) but misses.
+Destroyer #3 shoots at (7, 2) but misses.
+Destroyer #3 rammed at (8, 4) but misses.
+Destroyer: #4 moved to (7, 2)
+Destroyer #4 shoots at (8, 3) but misses.
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 rammed at (7, 1) but misses.
+Destroyer: #1 moved to (4, 5)
+Destroyer #1 shoots at (5, 5) but misses.
+Destroyer #1 shoots at (5, 6) but misses.
+Destroyer #1 rammed at (5, 5) but misses.
+Battleship *1 position is (6,2)
+BattleShip: *1 moved to (7, 4)
+Battleship *1 shoots at (7, 3) but misses.
+Battleship *1 shoots at (6, 5) but misses.
+Battleship *5 position is (2,2)
+BattleShip: *5 moved to (4, 2)
+Battleship *5 shoots at (5, 2) but misses.
+Battleship *5 shoots at (3, 2) but misses.
+Cruiser: $4 moved to (2, 6)
+Cruiser $4 rammed at (1, 6) but misses.
+Team B ships: 
+Cruiser: >1 moved to (7, 10)
+Cruiser >1 rammed at (7, 9) but misses.
+Battleship <1 position is (5,9)
+BattleShip: <1 moved to (7, 9)
+Battleship <1 shoots at (6, 10) but misses.
+Battleship <1 shoots at (6, 9) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0    0   *2    0   $3   $4    0    1    1    0
+    0   #2    0    0    0    0    0    1    1    0
+    0   *5    0    0   #1    0    0    0    0    0
+    0    0    0    0    1   *3    0    0    0    0
+    0    0    0   @3    1    0    0   $1    0    0
+    0   #4    0   *1    1    0    0    0   <1   >1
+   *4    0   #3    0    0    0    0    0    0    0
+    0    0    0    0    0    1    1    1    0    0
+    0   $2    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 34 ===
+Team A ships: 
+Battleship *3 position is (4,5)
+BattleShip: *3 moved to (6, 7)
+Battleship *3 shoots at (7, 8) but misses.
+Battleship *3 shoots at (5, 8) but misses.
+Destroyer: *2 moved to (3, 4)
+Destroyer *2 shoots at (2, 3) but misses.
+Destroyer *2 shoots at (4, 4) but misses.
+Destroyer *2 rammed at (4, 4) but misses.
+Battleship *4 position is (7,0)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (9, 2) but misses.
+Battleship *4 shoots at (9, 2) but misses.
+Ship $1 detected enemy ship <1 at (7, 9)
+Ship $1 detected ally ship *3 at (6, 7)
+Cruiser: $1 moved to (5, 8)
+Cruiser $1 rammed at (4, 8) but misses.
+Ship $2 detected ally ship *4 at (9, 1)
+Cruiser: $2 moved to (9, 3)
+Cruiser $2 rammed at (9, 2) but misses.
+Ship $3 detected ally ship $4 at (2, 6)
+Ship $3 detected ally ship @1 at (1, 4)
+Ship $3 detected ally ship *2 at (3, 4)
+Cruiser: $3 moved to (1, 5)
+Cruiser $3 rammed at (1, 6) but misses.
+Destroyer: #2 moved to (2, 2)
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 shoots at (2, 3) but misses.
+Destroyer #2 rammed at (2, 1) but misses.
+Destroyer: #3 moved to (7, 3)
+Destroyer #3 shoots at (6, 4) but misses.
+Destroyer #3 shoots at (7, 4) but misses.
+Destroyer #3 rammed at (8, 3) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (7, 1) but misses.
+Destroyer #4 shoots at (7, 1) but misses.
+Destroyer #4 rammed at (5, 2) but misses.
+Destroyer: #1 moved to (5, 4)
+Destroyer #1 shoots at (4, 3) but misses.
+Destroyer #1 shoots at (6, 5) but misses.
+Destroyer #1 rammed at (5, 5) but misses.
+Battleship *1 position is (6,3)
+BattleShip: *1 moved to (8, 5)
+Battleship *1 shoots at (7, 4) but misses.
+Battleship *1 shoots at (9, 6) but misses.
+Battleship *5 position is (3,1)
+BattleShip: *5 moved to (3, 1)
+Battleship *5 shoots at (3, 2) but misses.
+Ship $4 detected ally ship $3 at (1, 5)
+Cruiser: $4 moved to (2, 7)
+Cruiser $4 rammed at (3, 7) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (7, 9)
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (8, 10) but misses.
+Battleship <1 position is (6,8)
+BattleShip: <1 moved to (7, 10)
+Battleship <1 shoots at (6, 9) but misses.
+Battleship <1 shoots at (8, 9) but misses.
+    0   @2    0   @1   $3    0    0    0    0    0
+    0   #2    0    0    0    0   $4    1    1    0
+   *5    0    0   *2    0    0    0    1    1    0
+    0    0    0    0    0    0    0    0    0    0
+    0    0    0   #1    1    0    0   $1    0    0
+    0   #4    0   @3    1    0   *3    0    0    0
+    0    0   #3    0    1    0    0    0    0   <1
+    0    0    0    0   *1    0    0    0   >1    0
+   *4    0   $2    0    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 35 ===
+Team A ships: 
+Battleship *3 position is (5,6)
+BattleShip: *3 moved to (5, 6)
+Battleship *3 shoots at (4, 7) but misses.
+Battleship *3 shoots at (4, 7) but misses.
+Destroyer: *2 moved to (2, 3)
+Destroyer *2 shoots at (3, 4) but misses.
+Destroyer *2 shoots at (2, 4) but misses.
+Destroyer *2 rammed at (1, 3) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (8, 2)
+Battleship *4 shoots at (9, 2) but misses.
+Battleship *4 shoots at (9, 3) but misses.
+Cruiser: $1 moved to (5, 7)
+Cruiser $1 rammed at (5, 6) but misses.
+Ship $2 detected ally ship *4 at (8, 2)
+Cruiser: $2 moved to (8, 4)
+Cruiser $2 rammed at (7, 4) but misses.
+Ship $3 detected ally ship @1 at (1, 4)
+Cruiser: $3 moved to (1, 6)
+Cruiser $3 rammed at (2, 6) but misses.
+Destroyer: #2 moved to (3, 2)
+Destroyer #2 shoots at (2, 1) but misses.
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 rammed at (2, 2) but misses.
+Destroyer: #3 moved to (7, 4)
+Destroyer #3 shoots at (8, 5) but misses.
+Destroyer #3 shoots at (6, 5) but misses.
+Destroyer #3 rammed at (6, 4) but misses.
+Destroyer: #4 moved to (7, 2)
+Destroyer #4 shoots at (6, 2) but misses.
+Destroyer #4 shoots at (8, 3) but misses.
+Destroyer #4 rammed at (7, 3) but misses.
+Destroyer: #1 moved to (6, 3)
+Destroyer #1 shoots at (5, 3) but misses.
+Destroyer #1 shoots at (7, 4) but misses.
+Destroyer #1 rammed at (7, 3) but misses.
+Battleship *1 position is (7,4)
+BattleShip: *1 moved to (9, 5)
+Battleship *1 shoots at (10, 5) but misses.
+Battleship *1 shoots at (8, 5) but misses.
+Battleship *5 position is (2,0)
+BattleShip: *5 moved to (2, 1)
+Ship $4 detected ally ship $3 at (1, 6)
+Cruiser: $4 moved to (3, 6)
+Cruiser $4 rammed at (3, 7) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (7, 10)
+Cruiser: >1 moved to (7, 9)
+Cruiser >1 rammed at (7, 8) but misses.
+Battleship <1 position is (6,9)
+BattleShip: <1 moved to (6, 10)
+Battleship <1 shoots at (7, 9) but misses.
+    0   @2    0   @1    0   $3    0    0    0    0
+   *5    0   *2    0    0    0    0    1    1    0
+    0   #2    0    0    0   $4    0    1    1    0
+    0    0    0    0    0    0    0    0    0    0
+    0    0    0    0    1   *3   $1    0    0    0
+    0    0   #1   @3    1    0    0    0    0   <1
+    0   #4    0   #3    1    0    0    0   >1    0
+    0   *4    0   $2    0    0    0    0    0    0
+    0    0    0    0   *1    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 36 ===
+Team A ships: 
+Battleship *3 position is (4,5)
+BattleShip: *3 moved to (6, 7)
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *3 shoots at (5, 7) but misses.
+Destroyer: *2 moved to (3, 4)
+Destroyer *2 shoots at (3, 5) but misses.
+Destroyer *2 shoots at (3, 3) but misses.
+Destroyer *2 rammed at (3, 5) but misses.
+Battleship *4 position is (7,1)
+BattleShip: *4 moved to (9, 2)
+Battleship *4 shoots at (10, 2) but misses.
+Battleship *4 shoots at (8, 2) but misses.
+Ship $1 detected ally ship *3 at (6, 7)
+Cruiser: $1 moved to (5, 8)
+Cruiser $1 rammed at (5, 9) but misses.
+Ship $2 detected ally ship *1 at (9, 5)
+Ship $2 detected ally ship #3 at (7, 4)
+Cruiser: $2 moved to (8, 5)
+Cruiser $2 rammed at (9, 5) but misses.
+Cruiser: $3 moved to (2, 6)
+Cruiser $3 rammed at (1, 6) but misses.
+Destroyer: #2 moved to (4, 3)
+Destroyer #2 shoots at (3, 3) but misses.
+Destroyer #2 shoots at (4, 4) but misses.
+Destroyer #2 rammed at (5, 3) but misses.
+Destroyer: #3 moved to (8, 4)
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 rammed at (9, 4) but misses.
+Frigate @2 shooting in direction: North but misses.
+Destroyer: #4 moved to (8, 1)
+Destroyer #4 rammed at (9, 1) but misses.
+Destroyer: #1 moved to (7, 3)
+Destroyer #1 shoots at (8, 2) but misses.
+Destroyer #1 shoots at (8, 3) but misses.
+Destroyer #1 rammed at (8, 3) but misses.
+Battleship *1 position is (8,4)
+BattleShip: *1 moved to (9, 4)
+Battleship *1 shoots at (10, 3) but misses.
+Battleship *1 shoots at (8, 3) but misses.
+Battleship *5 position is (1,0)
+BattleShip: *5 moved to (1, 1)
+Battleship *5 shoots at (2, 2) but misses.
+Frigate @1 shooting in direction: North but misses.
+Ship $4 detected ally ship $3 at (2, 6)
+Cruiser: $4 moved to (3, 5)
+Cruiser $4 rammed at (3, 4) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (6, 10)
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (8, 8) but misses.
+Battleship <1 position is (5,9)
+BattleShip: <1 moved to (7, 9)
+Battleship <1 shoots at (8, 9) but misses.
+Battleship <1 shoots at (6, 10) but misses.
+   *5   @2    0   @1    0    0    0    0    0    0
+    0    0    0    0    0   $3    0    1    1    0
+    0    0    0   *2   $4    0    0    1    1    0
+    0    0   #2    0    0    0    0    0    0    0
+    0    0    0    0    1    0    0   $1    0    0
+    0    0    0   @3    1    0   *3    0    0    0
+    0    0   #1    0    1    0    0    0   <1    0
+   #4    0    0   #3   $2    0    0    0   >1    0
+    0   *4    0   *1    0    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 37 ===
+Team A ships: 
+Battleship *3 position is (5,6)
+BattleShip: *3 moved to (7, 6)
+Battleship *3 shoots at (8, 6) but misses.
+Battleship *3 shoots at (6, 7) but misses.
+Destroyer: *2 moved to (4, 5)
+Destroyer *2 shoots at (4, 4) but misses.
+Destroyer *2 shoots at (4, 4) but misses.
+Destroyer *2 rammed at (4, 4) but misses.
+Battleship *4 position is (8,1)
+BattleShip: *4 moved to (10, 1)
+Cruiser: $1 moved to (4, 8)
+Cruiser $1 rammed at (5, 8) but misses.
+Ship $2 detected ally ship *1 at (9, 4)
+Ship $2 detected ally ship *3 at (7, 6)
+Ship $2 detected ally ship #3 at (8, 4)
+Cruiser: $2 moved to (7, 4)
+Cruiser $2 rammed at (6, 4) but misses.
+Ship $3 detected ally ship $4 at (3, 5)
+Cruiser: $3 moved to (3, 6)
+Cruiser $3 rammed at (3, 7) but misses.
+Destroyer: #2 moved to (5, 3)
+Destroyer #2 shoots at (4, 2) but misses.
+Destroyer #2 shoots at (4, 4) but misses.
+Destroyer #2 rammed at (5, 4) but misses.
+Destroyer: #3 moved to (9, 3)
+Destroyer #3 shoots at (10, 2) but misses.
+Destroyer #3 shoots at (8, 3) but misses.
+Destroyer #3 rammed at (9, 2) but misses.
+Frigate @2 shooting in direction: North-West but misses.
+Destroyer: #4 moved to (7, 2)
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 shoots at (7, 1) but misses.
+Destroyer #4 rammed at (7, 1) but misses.
+Destroyer: #1 moved to (8, 3)
+Destroyer #1 shoots at (9, 3) but misses.
+Destroyer #1 shoots at (8, 4) but misses.
+Destroyer #1 rammed at (8, 2) but misses.
+Battleship *1 position is (8,3)
+BattleShip: *1 moved to (9, 5)
+Battleship *1 shoots at (9, 4) but misses.
+Battleship *1 shoots at (8, 4) but misses.
+Battleship *5 position is (0,0)
+BattleShip: *5 moved to (2, 2)
+Battleship *5 shoots at (3, 3) but misses.
+Battleship *5 shoots at (1, 2) but misses.
+Frigate @1 shooting in direction: North-West but misses.
+Ship $4 detected ally ship *2 at (4, 5)
+Ship $4 detected ally ship $3 at (3, 6)
+Cruiser: $4 moved to (3, 4)
+Cruiser $4 rammed at (3, 3) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (7, 9)
+Cruiser: >1 moved to (9, 10)
+Cruiser >1 rammed at (10, 10) but misses.
+Battleship <1 position is (6,8)
+BattleShip: <1 moved to (8, 10)
+Battleship <1 shoots at (7, 10) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0   *5    0    0    0    0    0    1    1    0
+    0    0    0   $4    0   $3    0    1    1    0
+    0    0    0    0   *2    0    0   $1    0    0
+    0    0   #2    0    1    0    0    0    0    0
+    0    0    0   @3    1    0    0    0    0    0
+    0   #4    0   $2    1   *3    0    0    0    0
+    0    0   #1    0    0    0    0    0    0   <1
+    0    0   #3    0   *1    1    1    1    0   >1
+   *4    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 38 ===
+Team A ships: 
+Battleship *3 position is (6,5)
+BattleShip: *3 moved to (8, 6)
+Battleship *3 shoots at (7, 5) but misses.
+Battleship *3 shoots at (9, 5) but misses.
+Destroyer: *2 moved to (4, 6)
+Destroyer *2 shoots at (5, 5) but misses.
+Destroyer *2 shoots at (5, 6) but misses.
+Destroyer *2 rammed at (3, 6) but misses.
+Battleship *4 position is (9,0)
+BattleShip: *4 moved to (10, 2)
+Battleship *4 shoots at (10, 1) but misses.
+Battleship *4 shoots at (10, 1) but misses.
+Cruiser: $1 moved to (4, 7)
+Cruiser $1 rammed at (3, 7) but misses.
+Ship $2 detected ally ship @3 at (6, 4)
+Ship $2 detected ally ship #1 at (8, 3)
+Cruiser: $2 moved to (7, 3)
+Cruiser $2 rammed at (7, 2) but misses.
+Ship $3 detected ally ship $1 at (4, 7)
+Ship $3 detected ally ship *2 at (4, 6)
+Cruiser: $3 moved to (3, 5)
+Cruiser $3 rammed at (4, 5) but misses.
+Destroyer: #2 moved to (6, 3)
+Destroyer #2 shoots at (5, 3) but misses.
+Destroyer #2 shoots at (6, 2) but misses.
+Destroyer #2 rammed at (5, 3) but misses.
+Destroyer: #3 moved to (10, 3)
+Destroyer #3 shoots at (9, 3) but misses.
+Destroyer #3 rammed at (10, 2) but misses.
+Destroyer: #4 moved to (6, 2)
+Destroyer #4 shoots at (6, 3) but misses.
+Destroyer #4 shoots at (5, 2) but misses.
+Destroyer #4 rammed at (5, 2) but misses.
+Destroyer: #1 moved to (7, 2)
+Destroyer #1 shoots at (7, 1) but misses.
+Destroyer #1 shoots at (6, 3) but misses.
+Destroyer #1 rammed at (7, 3) but misses.
+Battleship *1 position is (8,4)
+BattleShip: *1 moved to (10, 6)
+Battleship *1 shoots at (10, 7) but misses.
+Battleship *5 position is (1,1)
+BattleShip: *5 moved to (3, 2)
+Battleship *5 shoots at (2, 3) but misses.
+Battleship *5 shoots at (2, 1) but misses.
+Ship $4 detected ally ship $3 at (3, 5)
+Cruiser: $4 moved to (4, 4)
+Cruiser $4 rammed at (4, 5) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (8, 10)
+Cruiser: >1 moved to (8, 9)
+Cruiser >1 rammed at (8, 10) but misses.
+Battleship <1 position is (7,9)
+BattleShip: <1 moved to (7, 9)
+Battleship <1 shoots at (6, 10) but misses.
+Battleship <1 shoots at (7, 8) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0    0    0    0    0    0    0    1    1    0
+    0   *5    0    0   $3    0    0    1    1    0
+    0    0    0   $4    0   *2   $1    0    0    0
+    0    0    0    0    1    0    0    0    0    0
+    0   #4   #2   @3    1    0    0    0    0    0
+    0   #1   $2    0    1    0    0    0   <1    0
+    0    0    0    0    0   *3    0    0   >1    0
+    0    0    0    0    0    1    1    1    0    0
+    0   *4   #3    0    0   *1    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 39 ===
+Team A ships: 
+Battleship *3 position is (7,5)
+BattleShip: *3 moved to (8, 7)
+Battleship *3 shoots at (8, 6) but misses.
+Battleship *3 shoots at (9, 6) but misses.
+Destroyer: *2 moved to (5, 7)
+Destroyer *2 shoots at (4, 8) but misses.
+Destroyer *2 shoots at (5, 8) but misses.
+Destroyer *2 rammed at (5, 8) but misses.
+Battleship *4 position is (9,1)
+BattleShip: *4 moved to (9, 1)
+Battleship *4 shoots at (10, 2) but misses.
+Battleship *4 shoots at (9, 2) but misses.
+Ship $1 detected ally ship *2 at (5, 7)
+Cruiser: $1 moved to (4, 6)
+Cruiser $1 rammed at (4, 7) but misses.
+Ship $2 detected ally ship #2 at (6, 3)
+Ship $2 detected ally ship #4 at (6, 2)
+Ship $2 detected ally ship @3 at (6, 4)
+Ship $2 detected ally ship #1 at (7, 2)
+Cruiser: $2 moved to (8, 3)
+Cruiser $2 rammed at (8, 4) but misses.
+Ship $3 detected ally ship $1 at (4, 6)
+Ship $3 detected ally ship $4 at (4, 4)
+Cruiser: $3 moved to (2, 4)
+Cruiser $3 rammed at (3, 4) but misses.
+Destroyer: #2 moved to (5, 2)
+Destroyer #2 shoots at (4, 1) but misses.
+Destroyer #2 shoots at (6, 2) but misses.
+Destroyer #2 rammed at (5, 3) but misses.
+Destroyer: #3 moved to (9, 2)
+Destroyer #3 shoots at (9, 1) but misses.
+Destroyer #3 shoots at (10, 3) but misses.
+Destroyer #3 rammed at (9, 3) but misses.
+Frigate @2 shooting in direction: North-East but misses.
+Destroyer: #4 moved to (6, 3)
+Destroyer #4 shoots at (7, 4) but misses.
+Destroyer #4 shoots at (5, 4) but misses.
+Destroyer #4 rammed at (5, 3) but misses.
+Destroyer: #1 moved to (6, 1)
+Battleship *1 position is (9,5)
+BattleShip: *1 moved to (9, 5)
+Battleship *1 shoots at (8, 4) but misses.
+Battleship *1 shoots at (8, 6) but misses.
+Battleship *5 position is (2,1)
+BattleShip: *5 moved to (2, 2)
+Battleship *5 shoots at (1, 1) but misses.
+Battleship *5 shoots at (1, 2) but misses.
+Frigate @1 shooting in direction: North-East but misses.
+Cruiser: $4 moved to (3, 3)
+Cruiser $4 rammed at (3, 2) but misses.
+Team B ships: 
+Ship >1 detected ally ship <1 at (7, 9)
+Cruiser: >1 moved to (7, 10)
+Cruiser >1 rammed at (7, 9) but misses.
+Battleship <1 position is (6,8)
+BattleShip: <1 moved to (8, 8)
+Battleship <1 shoots at (9, 9) but misses.
+Battleship <1 shoots at (7, 9) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+    0   *5    0   $3    0    0    0    1    1    0
+    0    0   $4    0    0    0    0    1    1    0
+    0    0    0    0    0   $1    0    0    0    0
+    0   #2    0    0    1    0   *2    0    0    0
+   #1    0   #4   @3    1    0    0    0    0    0
+    0    0    0    0    1    0    0    0    0   >1
+    0    0   $2    0    0    0   *3   <1    0    0
+   *4   #3    0    0   *1    1    1    1    0    0
+    0    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+=== Turn 40 ===
+Team A ships: 
+Battleship *3 position is (7,6)
+BattleShip: *3 moved to (7, 8)
+Battleship *3 shoots at (7, 7) but misses.
+Battleship *3 shoots at (8, 9) but misses.
+Destroyer: *2 moved to (6, 6)
+Destroyer *2 shoots at (5, 7) but misses.
+Destroyer *2 shoots at (5, 5) but misses.
+Destroyer *2 rammed at (6, 5) but misses.
+Battleship *4 position is (8,0)
+BattleShip: *4 moved to (10, 1)
+Battleship *4 shoots at (9, 1) but misses.
+Cruiser: $1 moved to (4, 7)
+Cruiser $1 rammed at (4, 8) but misses.
+Ship $2 detected ally ship #3 at (9, 2)
+Cruiser: $2 moved to (9, 3)
+Cruiser $2 rammed at (9, 2) but misses.
+Ship $3 detected ally ship @1 at (1, 4)
+Ship $3 detected ally ship $4 at (3, 3)
+Cruiser: $3 moved to (2, 3)
+Cruiser $3 rammed at (3, 3) but misses.
+Destroyer: #2 moved to (5, 3)
+Destroyer #2 shoots at (4, 4) but misses.
+Destroyer #2 shoots at (5, 4) but misses.
+Destroyer #2 rammed at (5, 2) but misses.
+Destroyer: #3 moved to (8, 1)
+Destroyer: #4 moved to (7, 4)
+Destroyer #4 shoots at (8, 3) but misses.
+Destroyer #4 shoots at (8, 4) but misses.
+Destroyer #4 rammed at (7, 3) but misses.
+Destroyer: #1 moved to (6, 2)
+Destroyer #1 shoots at (7, 1) but misses.
+Destroyer #1 shoots at (7, 2) but misses.
+Destroyer #1 rammed at (6, 1) but misses.
+Battleship *1 position is (8,4)
+BattleShip: *1 moved to (8, 4)
+Battleship *1 shoots at (9, 5) but misses.
+Battleship *1 shoots at (8, 5) but misses.
+Battleship *5 position is (1,1)
+BattleShip: *5 moved to (2, 1)
+Ship $4 detected ally ship $3 at (2, 3)
+Cruiser: $4 moved to (4, 2)
+Cruiser $4 rammed at (4, 3) but misses.
+Team B ships: 
+Cruiser: >1 moved to (7, 9)
+>1 rammed *3 at (7, 8). *3's life is now 2
+>1 moved to (7, 8) after ramming.
+>1 Kill: 3
+Battleship <1 position is (7,7)
+BattleShip: <1 moved to (9, 9)
+Battleship <1 shoots at (8, 8) but misses.
+Battleship <1 shoots at (10, 9) but misses.
+    0   @2    0   @1    0    0    0    0    0    0
+   *5    0   $3    0    0    0    0    1    1    0
+    0    0    0    0    0    0    0    1    1    0
+    0   $4    0    0    0    0   $1    0    0    0
+    0    0   #2    0    1    0    0    0    0    0
+    0   #1    0   @3    1   *2    0    0    0    0
+    0    0    0   #4    1    0    0   >1    0    0
+   #3    0    0   *1    0    0    0    0    0    0
+    0    0   $2    0    0    1    1    1   <1    0
+   *4    0    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+*3 
+Respawn Queue B: 
+
+=== Turn 41 ===
+Placed ship *3 at (8, 7)
+*3 has respawned!
+Team A ships: 
+Destroyer: *2 moved to (6, 7)
+Destroyer *2 shoots at (5, 8) but misses.
+Destroyer *2 shoots at (7, 7) but misses.
+Destroyer *2 rammed at (7, 7) but misses.
+Battleship *4 position is (9,0)
+BattleShip: *4 moved to (10, 2)
+Battleship *4 shoots at (9, 3) but misses.
+Battleship *4 shoots at (9, 2) but misses.
+Cruiser: $1 moved to (3, 6)
+Cruiser $1 rammed at (3, 7) but misses.
+Ship $2 detected ally ship *4 at (10, 2)
+Ship $2 detected ally ship *1 at (8, 4)
+Cruiser: $2 moved to (9, 4)
+Cruiser $2 rammed at (10, 4) but misses.
+Ship $3 detected ally ship @2 at (1, 2)
+Ship $3 detected ally ship @1 at (1, 4)
+Cruiser: $3 moved to (2, 4)
+Cruiser $3 rammed at (2, 3) but misses.
+Destroyer: #2 moved to (5, 2)
+Destroyer #2 shoots at (6, 1) but misses.
+Destroyer #2 shoots at (5, 3) but misses.
+Destroyer #2 rammed at (4, 2) but misses.
+Destroyer: #3 moved to (9, 2)
+Destroyer #3 shoots at (8, 1) but misses.
+Destroyer #3 shoots at (10, 2) but misses.
+Destroyer #3 rammed at (9, 3) but misses.
+Destroyer: #4 moved to (8, 5)
+Destroyer #4 shoots at (9, 6) but misses.
+Destroyer #4 shoots at (9, 5) but misses.
+Destroyer #4 rammed at (9, 5) but misses.
+Destroyer: #1 moved to (7, 1)
+Destroyer #1 shoots at (6, 2) but misses.
+Destroyer #1 shoots at (8, 2) but misses.
+Battleship *1 position is (7,3)
+BattleShip: *1 moved to (9, 3)
+Battleship *1 shoots at (10, 2) but misses.
+Battleship *1 shoots at (10, 4) but misses.
+Battleship *5 position is (1,0)
+BattleShip: *5 moved to (2, 2)
+Battleship *5 shoots at (2, 3) but misses.
+Battleship *5 shoots at (2, 1) but misses.
+Ship $4 detected ally ship #2 at (5, 2)
+Cruiser: $4 moved to (5, 3)
+Cruiser $4 rammed at (5, 2) but misses.
+Battleship *3 position is (7,6)
+BattleShip: *3 moved to (8, 8)
+Battleship *3 shoots at (8, 9) but misses.
+Ship *3 shoots South-East at (9, 9)
+<1's life is now 0
+  <1 is permanently destroyed!
+*3 Kill: 1
+Team B ships: 
+Placed ship >1 at (1, 7)
+Ship >1 upgraded to Destroyer!
+    0   @2    0   @1    0    0   >1    0    0    0
+    0   *5    0   $3    0    0    0    1    1    0
+    0    0    0    0    0   $1    0    1    1    0
+    0    0    0    0    0    0    0    0    0    0
+    0   #2   $4    0    1    0    0    0    0    0
+    0    0    0   @3    1    0   *2    0    0    0
+   #1    0    0    0    1    0    0    0    0    0
+    0    0    0    0   #4    0    0   *3    0    0
+    0   #3   *1   $2    0    1    1    1    0    0
+    0   *4    0    0    0    0    0    1    0    0
+
+Respawn Queue A: 
+
+Respawn Queue B: 
+
+Team A wins!
+    0   @2    0   @1    0    0   >1    0    0    0
+    0   *5    0   $3    0    0    0    1    1    0
+    0    0    0    0    0   $1    0    1    1    0
+    0    0    0    0    0    0    0    0    0    0
+    0   #2   $4    0    1    0    0    0    0    0
+    0    0    0   @3    1    0   *2    0    0    0
+   #1    0    0    0    1    0    0    0    0    0
+    0    0    0    0   #4    0    0   *3    0    0
+    0   #3   *1   $2    0    1    1    1    0    0
+    0   *4    0    0    0    0    0    1    0    0
